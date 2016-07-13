@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints version="2.0" xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime">
+  <endpoint implementation="com.csys.evalpatient.service.EchelleSpecialiteWS" name="EchelleSpecialiteWS" url-pattern="/EchelleSpecialiteWS"/>
+  <endpoint implementation="com.csys.evalpatient.service.EchelleWS" name="EchelleWS" url-pattern="/EchelleWS"/>
+  <endpoint implementation="com.csys.evalpatient.service.FamilleEchelleWS" name="FamilleEchelleWS" url-pattern="/FamilleEchelleWS"/>
+  <endpoint implementation="com.csys.evalpatient.service.ResultatWS" name="ResultatWS" url-pattern="/ResultatWS"/>
+  <endpoint implementation="com.csys.evalpatient.service.SousFamilleWS" name="SousFamilleWS" url-pattern="/SousFamilleWS"/>
+  <endpoint implementation="com.csys.evalpatient.service.SpecialiteWS" name="SpecialiteWS" url-pattern="/SpecialiteWS"/>
+</endpoints>
