@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.evalpatient.csys.com/" xmlns:tns="http://service.evalpatient.csys.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="findallspecialite" type="tns:findallspecialite"/>
+
+  <xs:element name="findallspecialiteResponse" type="tns:findallspecialiteResponse"/>
+
+  <xs:element name="specialite" type="tns:specialite"/>
+
+  <xs:complexType name="findallspecialite">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findallspecialiteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:specialite" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="specialite">
+    <xs:sequence>
+      <xs:element name="codSpec" type="xs:string" minOccurs="0"/>
+      <xs:element name="libSpec" type="xs:string" minOccurs="0"/>
+      <xs:element name="txRetFraischange" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
