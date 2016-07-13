@@ -21,15 +21,12 @@
     
     <dependencies>
         <dependency>
-<<<<<<< HEAD
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-app</artifactId>
             <version>1.11</version>
             <type>jar</type>
         </dependency>
         <dependency>
-=======
->>>>>>> 110afb3c0de212199c5063e31a4c39992dc2fc3a
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>

@@ -62,11 +62,9 @@
             30
         </session-timeout>
     </session-config>
-<<<<<<< HEAD
     <!--    <security-constraint>
-=======
-<!--    <security-constraint>
->>>>>>> 110afb3c0de212199c5063e31a4c39992dc2fc3a
+
+
         <display-name>Constraint_EchelleSpecialite</display-name>
         <web-resource-collection>
             <web-resource-name>EchelleSpecialiteRsc</web-resource-name>

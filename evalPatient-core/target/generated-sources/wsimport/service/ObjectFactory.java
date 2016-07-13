@@ -24,9 +24,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _Specialite_QNAME = new QName("http://service.evalpatient.csys.com/", "specialite");
-    private final static QName _Findallspecialite_QNAME = new QName("http://service.evalpatient.csys.com/", "findallspecialite");
-    private final static QName _FindallspecialiteResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallspecialiteResponse");
+    private final static QName _FamilleEchelle_QNAME = new QName("http://service.evalpatient.csys.com/", "familleEchelle");
+    private final static QName _Findallsousfamille_QNAME = new QName("http://service.evalpatient.csys.com/", "findallsousfamille");
+    private final static QName _FindallsousfamilleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallsousfamilleResponse");
+    private final static QName _SousFamille_QNAME = new QName("http://service.evalpatient.csys.com/", "sousFamille");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: service
@@ -36,54 +37,71 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Specialite }
+     * Create an instance of {@link FamilleEchelle }
      * 
      */
-    public Specialite createSpecialite() {
-        return new Specialite();
+    public FamilleEchelle createFamilleEchelle() {
+        return new FamilleEchelle();
     }
 
     /**
-     * Create an instance of {@link Findallspecialite }
+     * Create an instance of {@link FindallsousfamilleResponse }
      * 
      */
-    public Findallspecialite createFindallspecialite() {
-        return new Findallspecialite();
+    public FindallsousfamilleResponse createFindallsousfamilleResponse() {
+        return new FindallsousfamilleResponse();
     }
 
     /**
-     * Create an instance of {@link FindallspecialiteResponse }
+     * Create an instance of {@link SousFamille }
      * 
      */
-    public FindallspecialiteResponse createFindallspecialiteResponse() {
-        return new FindallspecialiteResponse();
+    public SousFamille createSousFamille() {
+        return new SousFamille();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Specialite }{@code >}}
+     * Create an instance of {@link Findallsousfamille }
      * 
      */
-    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "specialite")
-    public JAXBElement<Specialite> createSpecialite(Specialite value) {
-        return new JAXBElement<Specialite>(_Specialite_QNAME, Specialite.class, null, value);
+    public Findallsousfamille createFindallsousfamille() {
+        return new Findallsousfamille();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Findallspecialite }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link FamilleEchelle }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "findallspecialite")
-    public JAXBElement<Findallspecialite> createFindallspecialite(Findallspecialite value) {
-        return new JAXBElement<Findallspecialite>(_Findallspecialite_QNAME, Findallspecialite.class, null, value);
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "familleEchelle")
+    public JAXBElement<FamilleEchelle> createFamilleEchelle(FamilleEchelle value) {
+        return new JAXBElement<FamilleEchelle>(_FamilleEchelle_QNAME, FamilleEchelle.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link FindallspecialiteResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Findallsousfamille }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "findallspecialiteResponse")
-    public JAXBElement<FindallspecialiteResponse> createFindallspecialiteResponse(FindallspecialiteResponse value) {
-        return new JAXBElement<FindallspecialiteResponse>(_FindallspecialiteResponse_QNAME, FindallspecialiteResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "findallsousfamille")
+    public JAXBElement<Findallsousfamille> createFindallsousfamille(Findallsousfamille value) {
+        return new JAXBElement<Findallsousfamille>(_Findallsousfamille_QNAME, Findallsousfamille.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FindallsousfamilleResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "findallsousfamilleResponse")
+    public JAXBElement<FindallsousfamilleResponse> createFindallsousfamilleResponse(FindallsousfamilleResponse value) {
+        return new JAXBElement<FindallsousfamilleResponse>(_FindallsousfamilleResponse_QNAME, FindallsousfamilleResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SousFamille }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "sousFamille")
+    public JAXBElement<SousFamille> createSousFamille(SousFamille value) {
+        return new JAXBElement<SousFamille>(_SousFamille_QNAME, SousFamille.class, null, value);
     }
 
 }
