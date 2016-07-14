@@ -9,10 +9,11 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import service.SousFamilleWS;
 
 public class WS {
 
-   // public static PatientWS portPatientWS;
+    public static SousFamilleWS portSousFamilleWS;
 
     public String getWSDLPort() {
         MyConnection myconn = new MyConnection();
@@ -40,7 +41,7 @@ public class WS {
         return WSDLPort;
     }
 
-   /* public PatientWS PatientWS() throws MalformedURLException {
+   /* public SousFamilleWS SousFamilleWS() throws MalformedURLException {
 
         Authenticator myAuth = new Authenticator() {
             @Override
@@ -80,9 +81,9 @@ public class WS {
             System.out.println("erreur WSDl");
             return null;
         } else {
-            // PatientWS service = new PatientWS(new URL("http://localhost:" + WSDLport + "/essai/PatientWS?wsdl"));
-            //portPatientWS = service.getWebServicePatientPort();
-            return portPatientWS;
+             SousFamilleWS()s ervice = new PatientWS(new URL("http://localhost:" + WSDLport + "/essai/PatientWS?wsdl"));
+            portSousFamilleWS = service.getWebServicePatientPort();
+            return portSousFamilleWS;
 
         }
     }*/

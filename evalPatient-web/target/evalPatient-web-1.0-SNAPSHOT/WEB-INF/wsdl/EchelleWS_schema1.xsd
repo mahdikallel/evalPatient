@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://service.evalpatient.csys.com/" xmlns:tns="http://service.evalpatient.csys.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="echelle" type="tns:echelle"/>
+
+  <xs:element name="findallechelle" type="tns:findallechelle"/>
+
+  <xs:element name="findallechelleResponse" type="tns:findallechelleResponse"/>
+
+  <xs:complexType name="findallechelle">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findallechelleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:echelle" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="echelle">
+    <xs:sequence>
+      <xs:element name="codeEchelle" type="xs:string" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="designation" type="xs:string" minOccurs="0"/>
+      <xs:element name="valeurMaximale" type="xs:int"/>
+      <xs:element name="valeurMinimale" type="xs:int"/>
+      <xs:element name="valeurMoyenne" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
