@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "FamilleEchelleWS", targetNamespace = "http://service.evalpatient.csys.com/", wsdlLocation = "file:/C:/Users/Nabil%20Moalla/Google%20Drive/Stage%202eme%20ann\u00e9e/ProjetGit/evalPatient/evalPatient-core/target/generated-sources/wsdl/FamilleEchelleWS.wsdl")
+@WebServiceClient(name = "FamilleEchelleWS", targetNamespace = "http://service.evalpatient.csys.com/", wsdlLocation = "file:/R:/Dropbox/IIT/2%20\u00e9me%20anne\u00e9/Stage%20d'ete/Essai/evalPatient/evalPatient-core/target/generated-sources/wsdl/FamilleEchelleWS.wsdl")
 public class FamilleEchelleWS_Service
     extends Service
 {
@@ -30,7 +30,7 @@ public class FamilleEchelleWS_Service
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/C:/Users/Nabil%20Moalla/Google%20Drive/Stage%202eme%20ann\u00e9e/ProjetGit/evalPatient/evalPatient-core/target/generated-sources/wsdl/FamilleEchelleWS.wsdl");
+            url = new URL("file:/R:/Dropbox/IIT/2%20\u00e9me%20anne\u00e9/Stage%20d'ete/Essai/evalPatient/evalPatient-core/target/generated-sources/wsdl/FamilleEchelleWS.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
