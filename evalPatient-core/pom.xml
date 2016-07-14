@@ -292,7 +292,7 @@
                         </goals>
                         <configuration>
                             <classesDirectory>target/wsgen/classes</classesDirectory>
-                            <finalName>evalPatient-wsclient-${project.version}</finalName>
+                            <finalName>evalpatient-wsclient-${project.version}</finalName>
                         </configuration>
                     </execution>
                     <execution>

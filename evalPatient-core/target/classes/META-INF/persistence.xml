@@ -15,6 +15,6 @@
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
     <validation-mode>NONE</validation-mode>
-    <non-jta-data-source>jdbc/gclinPin</non-jta-data-source>
+    <non-jta-data-source>java:/comp/env/jdbc/gclinPin</non-jta-data-source>
   </persistence-unit>
 </persistence>
