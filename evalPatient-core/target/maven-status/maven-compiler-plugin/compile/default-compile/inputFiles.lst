@@ -1,25 +1,21 @@
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\ResultatWS.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\EchelleWS.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\Resultatdao.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\AccessWeb.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Echelle.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\FamilleEchelle.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\FamilleEchelledao.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\SousFamilledao.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\Echelledao.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Resultat.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\SpecialiteWS.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\FactoriesRepository.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\FamilleEchelleWS.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\AccessWebPK.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\SousFamilleWS.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\EchelleSpecialite.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\UserAction.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\Specialitedao.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\AccessControl.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Specialite.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\SousFamille.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\EchelleSpecialiteWS.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Tracecnx.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\EchelleSpecialitedao.java
-R:\Dropbox\IIT\2 éme anneé\Stage d'ete\Essai\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\AccessControldao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\AccessWebPK.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\EchelleSpecialitedao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Specialite.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Echelle.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\FamilleEchelledao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\AccessControl.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\EchelleSpecialite.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\UserAction.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\SousFamille.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\Specialitedao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\Resultatdao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\FamilleEchelle.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\AccessWeb.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\Echelledao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\FactoriesRepository.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\SousFamilledao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Resultat.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\AccessControldao.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\service\EchelleWS.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\model\Tracecnx.java
+R:\Stage d'ete 2016\Sujet\ProjetGit\evalPatient\evalPatient-core\src\main\java\com\csys\evalpatient\dao\TracecnxDao.java

@@ -10,9 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import service.EchelleWS;
+import service.EchelleWS_Service;
+
+
 public class WS {
 
-   // public static PatientWS portPatientWS;
+  
+    public static EchelleWS portEchelleWS;
 
     public String getWSDLPort() {
         MyConnection myconn = new MyConnection();
@@ -40,7 +45,9 @@ public class WS {
         return WSDLPort;
     }
 
-   /* public PatientWS PatientWS() throws MalformedURLException {
+   
+    
+    public EchelleWS EchelleWS() throws MalformedURLException {
 
         Authenticator myAuth = new Authenticator() {
             @Override
@@ -80,11 +87,13 @@ public class WS {
             System.out.println("erreur WSDl");
             return null;
         } else {
-            // PatientWS service = new PatientWS(new URL("http://localhost:" + WSDLport + "/essai/PatientWS?wsdl"));
-            //portPatientWS = service.getWebServicePatientPort();
-            return portPatientWS;
+             EchelleWS_Service service = new EchelleWS_Service(new URL("http://" + WSDLport + "/evalPatient-core/EchelleWS?wsdl"));
+            portEchelleWS = service.getEchelleWSPort();
+            return portEchelleWS;
 
         }
-    }*/
+    }
+    
+  
 
 }

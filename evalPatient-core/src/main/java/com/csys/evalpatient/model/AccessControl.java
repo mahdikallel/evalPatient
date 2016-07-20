@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "AccessControl.findAll", query = "SELECT a FROM AccessControl a"),
     @NamedQuery(name = "AccessControl.findByUserName", query = "SELECT a FROM AccessControl a WHERE a.userName = :userName"),
+    @NamedQuery(name = "AccessControl.authentification", query = "SELECT a FROM AccessControl a WHERE a.userName = :userName and a.passWord = :passWord"),
     @NamedQuery(name = "AccessControl.findByMatricule", query = "SELECT a FROM AccessControl a WHERE a.matricule = :matricule"),
     @NamedQuery(name = "AccessControl.findByDescription", query = "SELECT a FROM AccessControl a WHERE a.description = :description"),
     @NamedQuery(name = "AccessControl.findByPassWord", query = "SELECT a FROM AccessControl a WHERE a.passWord = :passWord"),

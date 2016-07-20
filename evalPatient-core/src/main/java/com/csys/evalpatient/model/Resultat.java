@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Resultat.findByCodeSousFamille", query = "SELECT r FROM Resultat r WHERE r.codeSousFamille = :codeSousFamille"),
     @NamedQuery(name = "Resultat.findByValeur", query = "SELECT r FROM Resultat r WHERE r.valeur = :valeur"),
     @NamedQuery(name = "Resultat.findByDate", query = "SELECT r FROM Resultat r WHERE r.date = :date")})
+   
 public class Resultat implements Serializable {
 
     private static final long serialVersionUID = 1L;
