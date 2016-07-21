@@ -44,7 +44,7 @@ $(function () {
        
     }
     
-     $("#_button").bind("click", function ()
+     $("#_button1").bind("click", function ()
         {
             var data = DrawChart();
              

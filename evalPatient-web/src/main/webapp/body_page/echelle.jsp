@@ -10,19 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="jarviswidget jarviswidget-color-greenLight jarviswidget-sortable" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" role="widget">
-                    <!-- widget options:
-                            usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
-                            
-                            data-widget-colorbutton="false"	
-                            data-widget-editbutton="false"
-                            data-widget-togglebutton="false"
-                            data-widget-deletebutton="false"
-                            data-widget-fullscreenbutton="false"
-                            data-widget-custombutton="false"
-                            data-widget-collapsed="true" 
-                            data-widget-sortable="false"
-                            
-                    -->
+                   
                     <header role="heading">
                         <h2><strong>Score</strong> </h2>				
                         <span class="jarviswidget-loader" style="display: none;"><i class="fa fa-refresh fa-spin"></i></span>

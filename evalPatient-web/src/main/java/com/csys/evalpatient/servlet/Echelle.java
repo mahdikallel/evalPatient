@@ -48,8 +48,9 @@ public class Echelle extends HttpServlet {
             if (type.equals("consult")) {
                 if (function.equals("getAllEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
+                } else if (function.equals("GetResultByNumDossAndCodeEchelle")) {
+                    out.println(gson.toJson(WS.portEchelleWS.getResultByNumDossAndCodeEchelle(12029410, 005)));
                 }
-                // out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
             }
             //out.println("salut");
         } finally {
@@ -57,7 +58,7 @@ public class Echelle extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
