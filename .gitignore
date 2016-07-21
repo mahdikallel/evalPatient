@@ -1,2 +1,4 @@
 *.war
 *.jar
+/evalPatient-web/target/
+/evalPatient-core/target/
