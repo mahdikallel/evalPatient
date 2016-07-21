@@ -35,28 +35,40 @@ $(function () {
 
     var list = getAllEchelle();
     $("#content").empty();
+    var designation = [];
     for (var i = 0; i < list.length; i++)
     {
         $("#buttons").append('<a href="javascript:void(0);" id="_button' + i + '" class="btn btn-labeled btn-warning" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px">' + list[i].designation + '</a><br>');
-        var designation= list[i].designation;
-        $("#_button"+i).unbind("click");
-       
-       
+
+        designation[i] = list[i].designation;
+
     }
-    
-     $("#_button1").bind("click", function ()
-        {
+
+    for (var i = 0; i < list.length; i++)
+    {
+        $("#_button" + i).unbind("click");
+
+        $(document).ready(function () {
+            for (var i = 0; i < list.length; i++) {
+                $('#_button' + i).click(createCallback(i));
+            }
+        });
+    }
+
+
+
+    function createCallback(i) {
+        return function () {
             var data = DrawChart();
-             
+            //alert(data.length);
             $('#container').highcharts({
-                
                 title: {
                     text: "Courbe d'évaluation",
                     x: -20 //center
                 },
                 subtitle: {
-                    text: ""+designation+"", 
-                    x: -20                
+                    text: designation[i],
+                    x: -20
                 },
                 xAxis: {
                     title: {
@@ -78,16 +90,17 @@ $(function () {
                 },
                 series: [{
                         name: 'Population',
-                        data:  [
+                        data: [
+                            
+                            [data[0].item[1], data[0].item[0]],
+                            [data[0].item[1], data[0].item[0]],
                             [data[0].item[1], data[0].item[0]],
                             [data[1].item[1], data[1].item[0]]
 
 
 
+
                         ],
-                        
-                        
-                        
                         dataLabels: {
                             enabled: true,
                             rotation: -90,
@@ -102,6 +115,8 @@ $(function () {
                         }
                     }]
             });
-        });
+        }
+    }
+
 
 });
