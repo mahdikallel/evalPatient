@@ -39,11 +39,13 @@ $(function () {
     $("#content").empty();
     var designation = [];
     var idEchelles = [];
+    var descEchelles = [];
     for (var i = 0; i < list.length; i++)
     {
         $("#buttons").append('<a href="javascript:void(0);" id="_button' + i + '" class="btn btn-labeled btn-warning" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px">' + list[i].designation + '</a><br>');
         designation[i] = list[i].designation;
         idEchelles[i] = list[i].codeEchelle;
+        descEchelles[i] = list[i].description;
     }
 
 
@@ -65,6 +67,7 @@ $(function () {
             $("#idEchelle").val(idEchelles[i]);
             var numEchelle = $("#idEchelle").val();
             $("#rechercher").remove();
+            $("#descEchelles").text(descEchelles[i]);
             createBackgrid(numEchelle);
 
             var data = DrawChart();

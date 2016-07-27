@@ -49,7 +49,14 @@
                         <input type="hidden" id="idEchelle" >
                     </div>
                     <div class="modal-body">
-
+                        <div class="alert alert-info fade in">
+                            
+                            <i class="fa-fw fa fa-info"></i>
+                            <strong>Info!</strong>
+                            <div id="descEchelles">
+                                 
+                            </div>
+                        </div>
                         <div id="_grid_eval">
 
                         </div>
@@ -57,7 +64,7 @@
                     </div>
                     <div class="modal-footer">
                         <center>
-                            
+
                             <!--div class="bar-holder">
                                 <div class="progress">
                                     <div class="progress-bar bg-color-teal" id="_resultat" aria-valuetransitiongoal="25" aria-valuenow="25" ></div>
@@ -71,7 +78,7 @@
                                         <div class="col-xs-8">
                                             TOTAL
                                             <span class="font-xs text-muted">
-                                              
+
                                             </span>
                                         </div>
                                         <div class="col-xs-4">
