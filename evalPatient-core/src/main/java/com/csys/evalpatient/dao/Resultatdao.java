@@ -5,13 +5,14 @@
  */
 package com.csys.evalpatient.dao;
 
-
 import com.csys.evalpatient.model.Resultat;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 /**
@@ -19,15 +20,17 @@ import javax.persistence.Query;
  * @author Nabil Moalla
  */
 public class Resultatdao {
-     EntityManager em  =FactoriesRepository.GetEntityManager(FactoriesRepository.getEvalPatientPU());
-    
-    public List<Resultat> findallresultat(){
-        Query q=em.createNamedQuery("Resultat.findAll", Resultat.class);
+
+    EntityManager em = FactoriesRepository.GetEntityManager(FactoriesRepository.getEvalPatientPU());
+    EntityTransaction tx = em.getTransaction();
+
+    public List<Resultat> findallresultat() {
+        Query q = em.createNamedQuery("Resultat.findAll", Resultat.class);
         return q.getResultList();
-        
+
     }
-    
-   public List<Object[]> GetResultByNumDossAndCodeEchelle(int numDoss,int codeEchelle) {
+
+    public List<Object[]> GetResultByNumDossAndCodeEchelle(int numDoss, int codeEchelle) {
         try {
             List<Object[]> list = new ArrayList<Object[]>();
             String sql;
@@ -40,20 +43,36 @@ public class Resultatdao {
             return null;
         }
     }
-   
-   
+
     public List<Object[]> GetListReponseParEchelle(int numEchlle) {
         try {
             List<Object[]> list = new ArrayList<Object[]>();
             String sql;
-            sql = "SELECT  Famille_Echelle.Designation as Famille, Sous_Famille.Designation AS Sous_Famille, Sous_Famille.Valeur as 'Valeur','0' as '  ', Famille_Echelle.Code_Famille,Sous_Famille.Code_Sous_Famille,Famille_Echelle.Code_Aide FROM Sous_Famille INNER JOIN Famille_Echelle ON Sous_Famille.Code_Famille = Famille_Echelle.Code_Famille WHERE (Famille_Echelle.Code_Echelle ="+numEchlle+") order by Famille_Echelle.Code_Famille,Sous_Famille.Valeur";
-            System.out.println("Requete  "+sql );
+            sql = "SELECT  Famille_Echelle.Designation as Famille, Sous_Famille.Designation AS Sous_Famille, Sous_Famille.Valeur as 'Valeur','0' as '  ', Famille_Echelle.Code_Famille,Sous_Famille.Code_Sous_Famille,Famille_Echelle.Code_Aide FROM Sous_Famille INNER JOIN Famille_Echelle ON Sous_Famille.Code_Famille = Famille_Echelle.Code_Famille WHERE (Famille_Echelle.Code_Echelle =" + numEchlle + ") order by Famille_Echelle.Code_Famille,Sous_Famille.Valeur";
+            System.out.println("Requete  " + sql);
             Query q = em.createNativeQuery(sql);
             list = q.getResultList();
             return list;
         } catch (Exception e) {
             Logger.getLogger(Resultatdao.class.getName()).log(Level.SEVERE, null, e);
             return null;
+        }
+    }
+
+    public void InsertResultatEvaluation(int numDos, int codSousFamille, int valeur) {
+        try {
+
+            tx.begin();
+            String sql;
+            sql = "INSERT INTO [gclinPin].[dbo].[Resultat]([Num_Dossier],[Code_Sous_Famille],[valeur],[Date]) VALUES(" + numDos + "," + codSousFamille + "," + valeur + ",'2013-09-08 17:05:26.000')  ";
+            // System.out.println("Requete  "+sql );
+            Query q = em.createNativeQuery(sql);
+            q.executeUpdate();
+            tx.commit();
+        } catch (Exception e) {
+            System.out.println("erreur INSERTION");
+            Logger.getLogger(Resultatdao.class.getName()).log(Level.SEVERE, null, e);
+
         }
     }
 }

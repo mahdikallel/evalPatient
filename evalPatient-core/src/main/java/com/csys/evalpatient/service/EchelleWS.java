@@ -22,6 +22,7 @@ import com.csys.evalpatient.model.FamilleEchelle;
 import com.csys.evalpatient.model.Resultat;
 import com.csys.evalpatient.model.SousFamille;
 import com.csys.evalpatient.model.Specialite;
+import java.sql.Date;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -125,7 +126,7 @@ public class EchelleWS {
     public List<Tracecnx> getTraceCnx(@WebParam(name = "login") String l, @WebParam(name = "pass") String p) {
         return new TracecnxDao().getTracecnxByLoginIP(l, p);
     }
-    
+
     /**
      * This is a sample web service operation
      *
@@ -136,15 +137,28 @@ public class EchelleWS {
     public List<Object[]> GetListReponseParEchelle(int numEchelle) {
         return new Resultatdao().GetListReponseParEchelle(numEchelle);
     }
-    
+
     /**
      * This is a sample web service operation
-     * 
+     *
      * @return
      */
     @WebMethod(operationName = "InstanceEvaluation")
     public Evaluation InstanceEvaluation() {
         return new Evaluation();
+    }
+
+    /**
+     * This is a sample web service operation
+     *
+     * @param numDos
+     * @param codSousFamille
+     * @param valeur
+     *
+     */
+    @WebMethod(operationName = "InsertResultatEvaluation")
+    public void InsertResultatEvaluation(int numDos, int codSousFamille, int valeur) {
+        new Resultatdao().InsertResultatEvaluation(numDos, codSousFamille, valeur);
     }
 
 }

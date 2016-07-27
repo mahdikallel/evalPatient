@@ -14,8 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import service.AnyTypeArray;
 import service.Evaluation;
 
@@ -46,9 +53,9 @@ public class Echelle extends HttpServlet {
             if (WS.portEchelleWS == null) {
                 WS webService = new WS();
                 webService.EchelleWS();
-                
+
             }
-            
+
             if (type.equals("consult")) {
                 if (function.equals("getAllEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
@@ -73,8 +80,32 @@ public class Echelle extends HttpServlet {
                     }
                     out.println(gson.toJson(list));
                 }
+            } else if ("update".equals(type)) {
+                if ("insert".equals(function)) {
+                    //  DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    // Date date = new Date(2015, 10, 2);
+                    //  out.print("System " + System.currentTimeMillis());
+                    // out.print("          LocalDateTime " + LocalDateTime.now());
+                    // out.print("          getCalendar "+dateFormat.getCalendar().getTimeInMillis());
+
+                    /*   String date = request.getParameter("date");
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+                    try {
+                        Date parsed = (Date) dateFormat.parse(date);
+                        java.sql.Date sql = new java.sql.Date(parsed.getTime());
+                       
+                    } catch (ParseException ex) {
+                        Logger.getLogger(Echelle.class.getName()).log(Level.SEVERE, null, ex);
+                    }*/
+                    int numDos = Integer.parseInt(request.getParameter("numDos"));
+                    int valeur = Integer.parseInt(request.getParameter("valeur"));
+                    int codeSousFamille = Integer.parseInt(request.getParameter("codeSousFamille"));
+                    //WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur);
+                    WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur);
+                }
             }
-            
+
         } finally {
             out.close();
         }

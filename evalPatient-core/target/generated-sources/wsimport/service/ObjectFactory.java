@@ -39,6 +39,7 @@ public class ObjectFactory {
     private final static QName _GetTraceCnx_QNAME = new QName("http://service.evalpatient.csys.com/", "getTraceCnx");
     private final static QName _Findallsousfamille_QNAME = new QName("http://service.evalpatient.csys.com/", "findallsousfamille");
     private final static QName _Findallspecialite_QNAME = new QName("http://service.evalpatient.csys.com/", "findallspecialite");
+    private final static QName _InsertResultatEvaluationResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "InsertResultatEvaluationResponse");
     private final static QName _Findallresultat_QNAME = new QName("http://service.evalpatient.csys.com/", "findallresultat");
     private final static QName _GetResultByNumDossAndCodeEchelleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "GetResultByNumDossAndCodeEchelleResponse");
     private final static QName _FindallsousfamilleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallsousfamilleResponse");
@@ -46,6 +47,7 @@ public class ObjectFactory {
     private final static QName _VerifLoginResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "verifLoginResponse");
     private final static QName _GetTraceCnxResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "getTraceCnxResponse");
     private final static QName _Tracecnx_QNAME = new QName("http://service.evalpatient.csys.com/", "tracecnx");
+    private final static QName _InsertResultatEvaluation_QNAME = new QName("http://service.evalpatient.csys.com/", "InsertResultatEvaluation");
     private final static QName _FindallechellespecialiteResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallechellespecialiteResponse");
     private final static QName _SousFamille_QNAME = new QName("http://service.evalpatient.csys.com/", "sousFamille");
     private final static QName _GetListReponseParEchelleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "GetListReponseParEchelleResponse");
@@ -148,6 +150,14 @@ public class ObjectFactory {
      */
     public Findallspecialite createFindallspecialite() {
         return new Findallspecialite();
+    }
+
+    /**
+     * Create an instance of {@link InsertResultatEvaluationResponse }
+     * 
+     */
+    public InsertResultatEvaluationResponse createInsertResultatEvaluationResponse() {
+        return new InsertResultatEvaluationResponse();
     }
 
     /**
@@ -292,6 +302,14 @@ public class ObjectFactory {
      */
     public SousFamille createSousFamille() {
         return new SousFamille();
+    }
+
+    /**
+     * Create an instance of {@link InsertResultatEvaluation }
+     * 
+     */
+    public InsertResultatEvaluation createInsertResultatEvaluation() {
+        return new InsertResultatEvaluation();
     }
 
     /**
@@ -454,6 +472,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertResultatEvaluationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "InsertResultatEvaluationResponse")
+    public JAXBElement<InsertResultatEvaluationResponse> createInsertResultatEvaluationResponse(InsertResultatEvaluationResponse value) {
+        return new JAXBElement<InsertResultatEvaluationResponse>(_InsertResultatEvaluationResponse_QNAME, InsertResultatEvaluationResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Findallresultat }{@code >}}
      * 
      */
@@ -514,6 +541,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "tracecnx")
     public JAXBElement<Tracecnx> createTracecnx(Tracecnx value) {
         return new JAXBElement<Tracecnx>(_Tracecnx_QNAME, Tracecnx.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InsertResultatEvaluation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "InsertResultatEvaluation")
+    public JAXBElement<InsertResultatEvaluation> createInsertResultatEvaluation(InsertResultatEvaluation value) {
+        return new JAXBElement<InsertResultatEvaluation>(_InsertResultatEvaluation_QNAME, InsertResultatEvaluation.class, null, value);
     }
 
     /**

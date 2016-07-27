@@ -1,5 +1,6 @@
 /* global Backbone, Backgrid */
 
+
 function getAllEchelle()
 {
     var reponse;
@@ -90,21 +91,8 @@ function createBackgrid(numEchelle) {
             })
 
         }];
-    /*DeleteCell = Backgrid.Cell.extend({
-     template: _.template("<button></button>"),
-     events: {
-     "click": "deleteRow"
-     },
-     deleteRow: function (e) {
-     e.preventDefault();
-     this.model.collection.remove(this.model);
-     },
-     render: function () {
-     this.$el.html(this.template());
-     this.delegateEvents();
-     return this;
-     }
-     });*/
+
+    
     FocusableRow = Backgrid.Row.extend({
         tabCodeFamille: [],
         tabCodeSousFamille: [],
@@ -136,6 +124,7 @@ function createBackgrid(numEchelle) {
                 this.tabCodeFamille[this.tabCodeFamille.length] = codeFamille;
                 this.tabCodeSousFamille[this.tabCodeSousFamille.length] = codeSousFamille;
                 this.tabValeur[this.tabValeur.length] = valeur;
+
                 test = true;
                 this.el.style.backgroundColor = this.highlightColor;
                 console.log("tab de code Famille        {" + this.tabCodeFamille + " }");
@@ -167,16 +156,13 @@ function createBackgrid(numEchelle) {
             }
             $("#_resultat").text(this.somme);
             $("#_resultat").width(this.somme + "%");
-           
+            sessionStorage.setItem("tabValeur", JSON.stringify(this.tabValeur));
+            sessionStorage.setItem("tabCodeSousFamille", JSON.stringify(this.tabCodeSousFamille));
             /*  if (test) {
              this.el.style.backgroundColor = this.highlightColor;
              } else {
              this.el.style.backgroundColor = this.LowColor;
              }*/
-
-
-            // showNotification("Succes", "Bien", "error", 4000);
-            //pour selectionner code ou designation    
 
         }
     });
@@ -186,6 +172,7 @@ function createBackgrid(numEchelle) {
         collection: echelles,
         row: FocusableRow,
         className: 'table table-bordered  table-editable no-margin table-hover'
+
     });
     var clientSideFilter = new Backgrid.Extension.ClientSideFilter({
         collection: echelles,
@@ -202,22 +189,26 @@ function createBackgrid(numEchelle) {
 // Fetch some countries from the url
     echelles.fetch({reset: true});
 }
-function verifItemInArrray(item, tab) {
 
-    /* var k = 0;
-     var i = 0;
-     // while (k === 0 && i <= tab.length) {
-     for (var i = 0; i <= tab.length; i++) {
-     if (tab[i] === item) {
-     k = 1;
-     }
-     }
-     if (k === 0) {
-     tab[tab.length] = item;
-     return  true;
-     } else {
-     return  false;
-     }*/
 
-//alert(tab);
+
+
+function insertResultatEvaluation(numDos, codeSousFamille, valeur)
+{
+    var reponse;
+    $.ajax({
+        url: "../Echelle?type=update&function=insert&numDos=" + numDos + "&codeSousFamille=" + codeSousFamille + "&valeur="+ valeur,
+        type: 'POST',
+        async: false,
+        dataType: "json",
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            reponse = data;
+        }
+    });
+    return reponse;
 }
+

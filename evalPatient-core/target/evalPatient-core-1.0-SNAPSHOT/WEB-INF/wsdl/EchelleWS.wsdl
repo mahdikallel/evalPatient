@@ -9,11 +9,29 @@
       <xsd:import namespace="http://jaxb.dev.java.net/array" schemaLocation="EchelleWS_schema2.xsd"/>
     </xsd:schema>
   </types>
-  <message name="findallechellespecialite">
-    <part name="parameters" element="tns:findallechellespecialite"/>
+  <message name="getTraceCnx">
+    <part name="parameters" element="tns:getTraceCnx"/>
   </message>
-  <message name="findallechellespecialiteResponse">
-    <part name="parameters" element="tns:findallechellespecialiteResponse"/>
+  <message name="getTraceCnxResponse">
+    <part name="parameters" element="tns:getTraceCnxResponse"/>
+  </message>
+  <message name="findallresultat">
+    <part name="parameters" element="tns:findallresultat"/>
+  </message>
+  <message name="findallresultatResponse">
+    <part name="parameters" element="tns:findallresultatResponse"/>
+  </message>
+  <message name="findallechelle">
+    <part name="parameters" element="tns:findallechelle"/>
+  </message>
+  <message name="findallechelleResponse">
+    <part name="parameters" element="tns:findallechelleResponse"/>
+  </message>
+  <message name="verifLogin">
+    <part name="parameters" element="tns:verifLogin"/>
+  </message>
+  <message name="verifLoginResponse">
+    <part name="parameters" element="tns:verifLoginResponse"/>
   </message>
   <message name="findallfamilleechelle">
     <part name="parameters" element="tns:findallfamilleechelle"/>
@@ -21,17 +39,23 @@
   <message name="findallfamilleechelleResponse">
     <part name="parameters" element="tns:findallfamilleechelleResponse"/>
   </message>
-  <message name="findallsousfamille">
-    <part name="parameters" element="tns:findallsousfamille"/>
-  </message>
-  <message name="findallsousfamilleResponse">
-    <part name="parameters" element="tns:findallsousfamilleResponse"/>
-  </message>
   <message name="findallspecialite">
     <part name="parameters" element="tns:findallspecialite"/>
   </message>
   <message name="findallspecialiteResponse">
     <part name="parameters" element="tns:findallspecialiteResponse"/>
+  </message>
+  <message name="InstanceEvaluation">
+    <part name="parameters" element="tns:InstanceEvaluation"/>
+  </message>
+  <message name="InstanceEvaluationResponse">
+    <part name="parameters" element="tns:InstanceEvaluationResponse"/>
+  </message>
+  <message name="findallechellespecialite">
+    <part name="parameters" element="tns:findallechellespecialite"/>
+  </message>
+  <message name="findallechellespecialiteResponse">
+    <part name="parameters" element="tns:findallechellespecialiteResponse"/>
   </message>
   <message name="GetResultByNumDossAndCodeEchelle">
     <part name="parameters" element="tns:GetResultByNumDossAndCodeEchelle"/>
@@ -45,52 +69,50 @@
   <message name="GetListReponseParEchelleResponse">
     <part name="parameters" element="tns:GetListReponseParEchelleResponse"/>
   </message>
-  <message name="InstanceEvaluation">
-    <part name="parameters" element="tns:InstanceEvaluation"/>
+  <message name="InsertResultatEvaluation">
+    <part name="parameters" element="tns:InsertResultatEvaluation"/>
   </message>
-  <message name="InstanceEvaluationResponse">
-    <part name="parameters" element="tns:InstanceEvaluationResponse"/>
+  <message name="InsertResultatEvaluationResponse">
+    <part name="parameters" element="tns:InsertResultatEvaluationResponse"/>
   </message>
-  <message name="verifLogin">
-    <part name="parameters" element="tns:verifLogin"/>
+  <message name="findallsousfamille">
+    <part name="parameters" element="tns:findallsousfamille"/>
   </message>
-  <message name="verifLoginResponse">
-    <part name="parameters" element="tns:verifLoginResponse"/>
-  </message>
-  <message name="findallresultat">
-    <part name="parameters" element="tns:findallresultat"/>
-  </message>
-  <message name="findallresultatResponse">
-    <part name="parameters" element="tns:findallresultatResponse"/>
-  </message>
-  <message name="getTraceCnx">
-    <part name="parameters" element="tns:getTraceCnx"/>
-  </message>
-  <message name="getTraceCnxResponse">
-    <part name="parameters" element="tns:getTraceCnxResponse"/>
-  </message>
-  <message name="findallechelle">
-    <part name="parameters" element="tns:findallechelle"/>
-  </message>
-  <message name="findallechelleResponse">
-    <part name="parameters" element="tns:findallechelleResponse"/>
+  <message name="findallsousfamilleResponse">
+    <part name="parameters" element="tns:findallsousfamilleResponse"/>
   </message>
   <portType name="EchelleWS">
-    <operation name="findallechellespecialite">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest" message="tns:findallechellespecialite"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse" message="tns:findallechellespecialiteResponse"/>
+    <operation name="getTraceCnx">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/getTraceCnxRequest" message="tns:getTraceCnx"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/getTraceCnxResponse" message="tns:getTraceCnxResponse"/>
+    </operation>
+    <operation name="findallresultat">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatRequest" message="tns:findallresultat"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatResponse" message="tns:findallresultatResponse"/>
+    </operation>
+    <operation name="findallechelle">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechelleRequest" message="tns:findallechelle"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechelleResponse" message="tns:findallechelleResponse"/>
+    </operation>
+    <operation name="verifLogin">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/verifLoginRequest" message="tns:verifLogin"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/verifLoginResponse" message="tns:verifLoginResponse"/>
     </operation>
     <operation name="findallfamilleechelle">
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallfamilleechelleRequest" message="tns:findallfamilleechelle"/>
       <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallfamilleechelleResponse" message="tns:findallfamilleechelleResponse"/>
     </operation>
-    <operation name="findallsousfamille">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleRequest" message="tns:findallsousfamille"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleResponse" message="tns:findallsousfamilleResponse"/>
-    </operation>
     <operation name="findallspecialite">
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallspecialiteRequest" message="tns:findallspecialite"/>
       <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallspecialiteResponse" message="tns:findallspecialiteResponse"/>
+    </operation>
+    <operation name="InstanceEvaluation">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationRequest" message="tns:InstanceEvaluation"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationResponse" message="tns:InstanceEvaluationResponse"/>
+    </operation>
+    <operation name="findallechellespecialite">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest" message="tns:findallechellespecialite"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse" message="tns:findallechellespecialiteResponse"/>
     </operation>
     <operation name="GetResultByNumDossAndCodeEchelle">
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetResultByNumDossAndCodeEchelleRequest" message="tns:GetResultByNumDossAndCodeEchelle"/>
@@ -100,30 +122,45 @@
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleRequest" message="tns:GetListReponseParEchelle"/>
       <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleResponse" message="tns:GetListReponseParEchelleResponse"/>
     </operation>
-    <operation name="InstanceEvaluation">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationRequest" message="tns:InstanceEvaluation"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationResponse" message="tns:InstanceEvaluationResponse"/>
+    <operation name="InsertResultatEvaluation">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/InsertResultatEvaluationRequest" message="tns:InsertResultatEvaluation"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/InsertResultatEvaluationResponse" message="tns:InsertResultatEvaluationResponse"/>
     </operation>
-    <operation name="verifLogin">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/verifLoginRequest" message="tns:verifLogin"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/verifLoginResponse" message="tns:verifLoginResponse"/>
-    </operation>
-    <operation name="findallresultat">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatRequest" message="tns:findallresultat"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatResponse" message="tns:findallresultatResponse"/>
-    </operation>
-    <operation name="getTraceCnx">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/getTraceCnxRequest" message="tns:getTraceCnx"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/getTraceCnxResponse" message="tns:getTraceCnxResponse"/>
-    </operation>
-    <operation name="findallechelle">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechelleRequest" message="tns:findallechelle"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechelleResponse" message="tns:findallechelleResponse"/>
+    <operation name="findallsousfamille">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleRequest" message="tns:findallsousfamille"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleResponse" message="tns:findallsousfamilleResponse"/>
     </operation>
   </portType>
   <binding name="EchelleWSPortBinding" type="tns:EchelleWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="findallechellespecialite">
+    <operation name="getTraceCnx">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="findallresultat">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="findallechelle">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="verifLogin">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -141,7 +178,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="findallsousfamille">
+    <operation name="findallspecialite">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -150,7 +187,16 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="findallspecialite">
+    <operation name="InstanceEvaluation">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="findallechellespecialite">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -177,7 +223,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="InstanceEvaluation">
+    <operation name="InsertResultatEvaluation">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -186,34 +232,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="verifLogin">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="findallresultat">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="getTraceCnx">
-      <soap:operation soapAction=""/>
-      <input>
-        <soap:body use="literal"/>
-      </input>
-      <output>
-        <soap:body use="literal"/>
-      </output>
-    </operation>
-    <operation name="findallechelle">
+    <operation name="findallsousfamille">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
