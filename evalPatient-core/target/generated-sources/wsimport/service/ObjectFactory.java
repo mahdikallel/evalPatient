@@ -28,6 +28,8 @@ public class ObjectFactory {
     private final static QName _Findallfamilleechelle_QNAME = new QName("http://service.evalpatient.csys.com/", "findallfamilleechelle");
     private final static QName _FamilleEchelle_QNAME = new QName("http://service.evalpatient.csys.com/", "familleEchelle");
     private final static QName _EchelleSpecialite_QNAME = new QName("http://service.evalpatient.csys.com/", "echelleSpecialite");
+    private final static QName _InstanceEvaluationResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "InstanceEvaluationResponse");
+    private final static QName _InstanceEvaluation_QNAME = new QName("http://service.evalpatient.csys.com/", "InstanceEvaluation");
     private final static QName _Echelle_QNAME = new QName("http://service.evalpatient.csys.com/", "echelle");
     private final static QName _Findallechelle_QNAME = new QName("http://service.evalpatient.csys.com/", "findallechelle");
     private final static QName _FindallechelleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallechelleResponse");
@@ -46,10 +48,12 @@ public class ObjectFactory {
     private final static QName _Tracecnx_QNAME = new QName("http://service.evalpatient.csys.com/", "tracecnx");
     private final static QName _FindallechellespecialiteResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallechellespecialiteResponse");
     private final static QName _SousFamille_QNAME = new QName("http://service.evalpatient.csys.com/", "sousFamille");
+    private final static QName _GetListReponseParEchelleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "GetListReponseParEchelleResponse");
     private final static QName _FindallresultatResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallresultatResponse");
     private final static QName _Resultat_QNAME = new QName("http://service.evalpatient.csys.com/", "resultat");
     private final static QName _GetResultByNumDossAndCodeEchelle_QNAME = new QName("http://service.evalpatient.csys.com/", "GetResultByNumDossAndCodeEchelle");
     private final static QName _FindallspecialiteResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallspecialiteResponse");
+    private final static QName _GetListReponseParEchelle_QNAME = new QName("http://service.evalpatient.csys.com/", "GetListReponseParEchelle");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: service
@@ -195,11 +199,43 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link InstanceEvaluation }
+     * 
+     */
+    public InstanceEvaluation createInstanceEvaluation() {
+        return new InstanceEvaluation();
+    }
+
+    /**
+     * Create an instance of {@link InstanceEvaluationResponse }
+     * 
+     */
+    public InstanceEvaluationResponse createInstanceEvaluationResponse() {
+        return new InstanceEvaluationResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetListReponseParEchelleResponse }
+     * 
+     */
+    public GetListReponseParEchelleResponse createGetListReponseParEchelleResponse() {
+        return new GetListReponseParEchelleResponse();
+    }
+
+    /**
      * Create an instance of {@link FindallspecialiteResponse }
      * 
      */
     public FindallspecialiteResponse createFindallspecialiteResponse() {
         return new FindallspecialiteResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetListReponseParEchelle }
+     * 
+     */
+    public GetListReponseParEchelle createGetListReponseParEchelle() {
+        return new GetListReponseParEchelle();
     }
 
     /**
@@ -275,6 +311,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Evaluation }
+     * 
+     */
+    public Evaluation createEvaluation() {
+        return new Evaluation();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Findallechellespecialite }{@code >}}
      * 
      */
@@ -308,6 +352,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "echelleSpecialite")
     public JAXBElement<EchelleSpecialite> createEchelleSpecialite(EchelleSpecialite value) {
         return new JAXBElement<EchelleSpecialite>(_EchelleSpecialite_QNAME, EchelleSpecialite.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InstanceEvaluationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "InstanceEvaluationResponse")
+    public JAXBElement<InstanceEvaluationResponse> createInstanceEvaluationResponse(InstanceEvaluationResponse value) {
+        return new JAXBElement<InstanceEvaluationResponse>(_InstanceEvaluationResponse_QNAME, InstanceEvaluationResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InstanceEvaluation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "InstanceEvaluation")
+    public JAXBElement<InstanceEvaluation> createInstanceEvaluation(InstanceEvaluation value) {
+        return new JAXBElement<InstanceEvaluation>(_InstanceEvaluation_QNAME, InstanceEvaluation.class, null, value);
     }
 
     /**
@@ -473,6 +535,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetListReponseParEchelleResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "GetListReponseParEchelleResponse")
+    public JAXBElement<GetListReponseParEchelleResponse> createGetListReponseParEchelleResponse(GetListReponseParEchelleResponse value) {
+        return new JAXBElement<GetListReponseParEchelleResponse>(_GetListReponseParEchelleResponse_QNAME, GetListReponseParEchelleResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FindallresultatResponse }{@code >}}
      * 
      */
@@ -506,6 +577,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "findallspecialiteResponse")
     public JAXBElement<FindallspecialiteResponse> createFindallspecialiteResponse(FindallspecialiteResponse value) {
         return new JAXBElement<FindallspecialiteResponse>(_FindallspecialiteResponse_QNAME, FindallspecialiteResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetListReponseParEchelle }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "GetListReponseParEchelle")
+    public JAXBElement<GetListReponseParEchelle> createGetListReponseParEchelle(GetListReponseParEchelle value) {
+        return new JAXBElement<GetListReponseParEchelle>(_GetListReponseParEchelle_QNAME, GetListReponseParEchelle.class, null, value);
     }
 
 }

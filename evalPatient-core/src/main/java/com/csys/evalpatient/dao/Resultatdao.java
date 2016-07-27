@@ -40,4 +40,20 @@ public class Resultatdao {
             return null;
         }
     }
+   
+   
+    public List<Object[]> GetListReponseParEchelle(int numEchlle) {
+        try {
+            List<Object[]> list = new ArrayList<Object[]>();
+            String sql;
+            sql = "SELECT  Famille_Echelle.Designation as Famille, Sous_Famille.Designation AS Sous_Famille, Sous_Famille.Valeur as 'Valeur','0' as '  ', Famille_Echelle.Code_Famille,Sous_Famille.Code_Sous_Famille,Famille_Echelle.Code_Aide FROM Sous_Famille INNER JOIN Famille_Echelle ON Sous_Famille.Code_Famille = Famille_Echelle.Code_Famille WHERE (Famille_Echelle.Code_Echelle ="+numEchlle+") order by Famille_Echelle.Code_Famille,Sous_Famille.Valeur";
+            System.out.println("Requete  "+sql );
+            Query q = em.createNativeQuery(sql);
+            list = q.getResultList();
+            return list;
+        } catch (Exception e) {
+            Logger.getLogger(Resultatdao.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+    }
 }

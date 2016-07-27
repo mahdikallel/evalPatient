@@ -28,14 +28,14 @@ public interface EchelleWS {
     /**
      * 
      * @return
-     *     returns java.util.List<service.Specialite>
+     *     returns java.util.List<service.EchelleSpecialite>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findallspecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallspecialite")
-    @ResponseWrapper(localName = "findallspecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallspecialiteResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteResponse")
-    public List<Specialite> findallspecialite();
+    @RequestWrapper(localName = "findallechellespecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallechellespecialite")
+    @ResponseWrapper(localName = "findallechellespecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallechellespecialiteResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse")
+    public List<EchelleSpecialite> findallechellespecialite();
 
     /**
      * 
@@ -64,14 +64,14 @@ public interface EchelleWS {
     /**
      * 
      * @return
-     *     returns java.util.List<service.EchelleSpecialite>
+     *     returns java.util.List<service.Specialite>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findallechellespecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallechellespecialite")
-    @ResponseWrapper(localName = "findallechellespecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallechellespecialiteResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse")
-    public List<EchelleSpecialite> findallechellespecialite();
+    @RequestWrapper(localName = "findallspecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallspecialite")
+    @ResponseWrapper(localName = "findallspecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallspecialiteResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteResponse")
+    public List<Specialite> findallspecialite();
 
     /**
      * 
@@ -93,6 +93,33 @@ public interface EchelleWS {
 
     /**
      * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<service.AnyTypeArray>
+     */
+    @WebMethod(operationName = "GetListReponseParEchelle")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GetListReponseParEchelle", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetListReponseParEchelle")
+    @ResponseWrapper(localName = "GetListReponseParEchelleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetListReponseParEchelleResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleResponse")
+    public List<AnyTypeArray> getListReponseParEchelle(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @return
+     *     returns service.Evaluation
+     */
+    @WebMethod(operationName = "InstanceEvaluation")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "InstanceEvaluation", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InstanceEvaluation")
+    @ResponseWrapper(localName = "InstanceEvaluationResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InstanceEvaluationResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationRequest", output = "http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationResponse")
+    public Evaluation instanceEvaluation();
+
+    /**
+     * 
      * @param pass
      * @param login
      * @return
@@ -108,6 +135,18 @@ public interface EchelleWS {
         String login,
         @WebParam(name = "pass", targetNamespace = "")
         String pass);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<service.Resultat>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findallresultat", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallresultat")
+    @ResponseWrapper(localName = "findallresultatResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallresultatResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallresultatRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallresultatResponse")
+    public List<Resultat> findallresultat();
 
     /**
      * 
@@ -138,17 +177,5 @@ public interface EchelleWS {
     @ResponseWrapper(localName = "findallechelleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallechelleResponse")
     @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallechelleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallechelleResponse")
     public List<Echelle> findallechelle();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<service.Resultat>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findallresultat", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallresultat")
-    @ResponseWrapper(localName = "findallresultatResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallresultatResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallresultatRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallresultatResponse")
-    public List<Resultat> findallresultat();
 
 }

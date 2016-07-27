@@ -1,7 +1,7 @@
 /*function getPatientByNumDoss() {
  var listRep;
  $.ajax({
- url: "TestWEB?type=consult&function=findAll",
+ url: "TestWEB?type=consult&function=getAllEchelle",
  type: 'POST',
  async: false,
  error: function(jqXHR, textStatus, errorThrown) {

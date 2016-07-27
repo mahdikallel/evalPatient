@@ -14,12 +14,14 @@ com\csys\evalpatient\model\Tracecnx_.class
 com\csys\evalpatient\model\SousFamille_.class
 com\csys\evalpatient\model\Resultat.class
 com\csys\evalpatient\model\UserAction_.class
+com\csys\evalpatient\model\Evaluation.class
 com\csys\evalpatient\model\AccessWeb_.class
 com\csys\evalpatient\model\FamilleEchelle_.class
 com\csys\evalpatient\model\EchelleSpecialite.class
 com\csys\evalpatient\dao\Echelledao.class
 com\csys\evalpatient\model\SousFamille.class
 com\csys\evalpatient\model\Specialite_.class
+com\csys\evalpatient\service\EchelleWS.class
 com\csys\evalpatient\model\Specialite.class
 com\csys\evalpatient\dao\SousFamilledao.class
 com\csys\evalpatient\model\AccessControl.class

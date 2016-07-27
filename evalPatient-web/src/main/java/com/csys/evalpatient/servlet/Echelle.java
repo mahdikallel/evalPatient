@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.util.ArrayList;
+import java.util.List;
+import service.AnyTypeArray;
+import service.Evaluation;
 
 /**
  *
@@ -42,17 +46,35 @@ public class Echelle extends HttpServlet {
             if (WS.portEchelleWS == null) {
                 WS webService = new WS();
                 webService.EchelleWS();
-
+                
             }
-
+            
             if (type.equals("consult")) {
                 if (function.equals("getAllEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
                 } else if (function.equals("GetResultByNumDossAndCodeEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.getResultByNumDossAndCodeEchelle(12029410, 005)));
+                } else if (function.equals("GetListReponseParEchelle")) {
+                    String numEchelle = request.getParameter("numEchelle");
+                    List<Evaluation> list = new ArrayList<Evaluation>();
+                    List<AnyTypeArray> listAux;
+                    listAux = WS.portEchelleWS.getListReponseParEchelle(Integer.parseInt(numEchelle));
+                    for (int i = 0; i < listAux.size(); i++) {
+                        Evaluation eval = new Evaluation();
+                        eval.setFamille(listAux.get(i).getItem().get(0).toString());
+                        eval.setSousFamille(listAux.get(i).getItem().get(1).toString());
+                        eval.setValeur(listAux.get(i).getItem().get(2).toString());
+                        eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+                        eval.setCodeSousFamille(listAux.get(i).getItem().get(5).toString());
+                        // eval.setCodeAide(listAux.get(i).getItem().get(6).toString());
+                        eval.setId(String.valueOf(i));
+                        list.add(eval);
+                        eval = null;
+                    }
+                    out.println(gson.toJson(list));
                 }
             }
-            //out.println("salut");
+            
         } finally {
             out.close();
         }
