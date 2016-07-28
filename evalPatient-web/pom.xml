@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>evalPatient</artifactId>
-    <groupId>com.csys.evalpatient</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+        <artifactId>evalPatient</artifactId>
+        <groupId>com.csys.evalpatient</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <groupId>com.csys.evalpatient</groupId>
     <artifactId>evalPatient-web</artifactId>
@@ -18,7 +18,7 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-       <build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
@@ -29,58 +29,36 @@
                     <container>
                         <containerId>tomcat7x</containerId>
                         <type>installed</type>
-                        <home>${catalina.home}</home>
-                                                <!--<dependencies>-->
-                        <!--<dependency>-->
-                        <!--<groupId>com.microsoft.sqlserver</groupId>-->
-                        <!--<artifactId>sqljdbc4</artifactId>-->
-                        <!--</dependency>-->
-                        <!--<dependency>-->
-                        <!--<groupId>com.googlecode.lambdaj</groupId>-->
-                        <!--<artifactId>lambdaj</artifactId>-->
-                        <!--</dependency>-->
-                        <!--</dependencies>-->
+                        <home>${catalina.home}</home> 
                     </container>
-                    <!--configuration>
-                        <type>standalone</type>
-                        <properties>
-                            <cargo.hostname>localhost</cargo.hostname>
-                            <cargo.servlet.port>8080</cargo.servlet.port>
-                            <cargo.remote.username>${glassfish.domain.username}</cargo.remote.username>
-                            <cargo.remote.password>${glassfish.domain.password}</cargo.remote.password>
-                            <cargo.datasource.datasource>
-                                ${integration.datasource}
-                            </cargo.datasource.datasource>
-
-                        </properties>
-                    </configuration-->
+                 
                     <configuration>
 
-                                            <properties>
-                                               <cargo.rmi.port>8905</cargo.rmi.port>
-                                                <cargo.servlet.port>8080</cargo.servlet.port>
-                                                <cargo.tomcat.ajp.port>8009</cargo.tomcat.ajp.port>
-                                            </properties>
-                                        </configuration>
+                        <properties>
+                            <cargo.rmi.port>8905</cargo.rmi.port>
+                            <cargo.servlet.port>8080</cargo.servlet.port>
+                            <cargo.tomcat.ajp.port>8009</cargo.tomcat.ajp.port>
+                        </properties>
+                    </configuration>
                 </configuration>
             </plugin>
-			<plugin>
+            <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                <formats>
-                    <format>xml</format>
-                </formats>
+                    <formats>
+                        <format>xml</format>
+                    </formats>
                 </configuration>
-                    <executions>
-                        <execution>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>cobertura</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.jvnet.jax-ws-commons</groupId>
@@ -124,15 +102,6 @@
 
     <dependencies>
 
-
-       
-
-        <!-- <dependency>
-            <groupId>com.csys.identitovigilancefsi</groupId>
-            <artifactId>identitovigilancefsi-wsclient</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency> -->
-
         <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-rt</artifactId>
@@ -154,13 +123,6 @@
             <version>2.1</version>
             <scope>provided</scope>
         </dependency>
-
-        <!--dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>3.11</version>
-        </dependency-->
-
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-scratchpad</artifactId>
@@ -182,7 +144,8 @@
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-app</artifactId>
-            <version>1.7</version>
+            <version>1.11</version>
+            <type>jar</type>
         </dependency>
 
         <dependency>
@@ -197,10 +160,10 @@
             <artifactId>evalPatient-wsclient</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-     <dependency>
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>evalPatient-core</artifactId>
-            <version>${project.version}</version>
+            <version>1.0-SNAPSHOT</version>
             <type>war</type>
         </dependency>
         
@@ -210,7 +173,7 @@
             <version>1.7.2</version>
             <type>jar</type>
         </dependency>
-         <dependency>
+        <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>sqljdbc4</artifactId>
             <version>4.0</version>
@@ -230,14 +193,26 @@
             <version>3.2.1</version>
             <type>jar</type>
         </dependency>
-                <dependency>
+        <dependency>
             <groupId>org.docx4j</groupId>
             <artifactId>docx4j-ImportXHTML</artifactId>
             <version>3.0.0</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.spec.javax.servlet</groupId>
+            <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+            <version>1.0.2.Final</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.6.2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
-<reporting>
+    <reporting>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -271,22 +246,18 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
             <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>findbugs-maven-plugin</artifactId>
-            <version>2.5.2</version>
-            <configuration>
-                <!--
-                    Enables analysis which takes more memory but finds more bugs.
-                    If you run out of memory, changes the value of the effort element
-                    to 'low'.
-                -->
-                <effort>Max</effort>
-                <!-- Reports all bugs (other values are medium and max) -->
-                <threshold>Low</threshold>
-                <!-- Produces XML report -->
-                <xmlOutput>true</xmlOutput>
-            </configuration>
-        </plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+             
+                    <effort>Max</effort>
+                    <!-- Reports all bugs (other values are medium and max) -->
+                    <threshold>Low</threshold>
+                    <!-- Produces XML report -->
+                    <xmlOutput>true</xmlOutput>
+                </configuration>
+            </plugin>
          
         </plugins>
     </reporting>

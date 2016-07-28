@@ -4,10 +4,22 @@
         <servlet-name>Echelle</servlet-name>
         <servlet-class>com.csys.evalpatient.servlet.Echelle</servlet-class>
     </servlet>
+
+    <servlet>
+        <servlet-name>Authentification</servlet-name>
+        <servlet-class>com.csys.evalpatient.servlet.Authentification</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>Echelle</servlet-name>
         <url-pattern>/Echelle</url-pattern>
     </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Authentification</servlet-name>
+        <url-pattern>/Authentification</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30

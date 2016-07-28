@@ -14,6 +14,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import org.json.simple.JSONObject;
+import service.AnyTypeArray;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import org.joda.time.DateTime;
 
 /**
  *
@@ -39,30 +48,51 @@ public class Echelle extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String type = request.getParameter("type");
             String function = request.getParameter("function");
-             if(WS.portEchelleWS == null)
-            {
+
+            if (WS.portEchelleWS == null) {
                 WS webService = new WS();
                 webService.EchelleWS();
-               
+
             }
-            
+
             if (type.equals("consult")) {
                 if (function.equals("getAllEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
-                }
-                else
-                {
-                     if (function.equals("GetResultByNumDossAndCodeEchelle")) {
-                    out.println(gson.toJson(WS.portEchelleWS.getResultByNumDossAndCodeEchelle(12029410, 005)));
-                }
+                } else if (function.equals("GetResultByNumDossAndCodeEchelle")) {
+                    List<JSONObject> list = new ArrayList<JSONObject>();
+                    List<AnyTypeArray> list1 = (WS.portEchelleWS.getResultByNumDossAndCodeEchelle(13022076, 004));
+
+                    for (int i = 0; i < list1.size(); i++) {
+
+                        //java.util.Date newDate = new Date(list1.get(i).getItem().get(1).toString());
+                 
+                          //  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                            
+                               DateTime myDate = DateTime.parse(list1.get(i).getItem().get(1).toString());
+                               int year = myDate.getYear();
+                               int month = myDate.getMonthOfYear();
+                               int day = myDate.getDayOfMonth();
+                               int hour = myDate.getHourOfDay();
+                               int minute = myDate.getMinuteOfHour();
+                               int seconde = myDate.getSecondOfMinute();
+                            out.print(year+ "/"+ month +"/"+day +" "+hour+":"+minute+":"+seconde+"<br>");
+                      
+                    }
+//                        JSONObject obj = new JSONObject();
+//                        obj.put("name", "NbBonCommande");
+//                        obj.put("y", WS.port.findNbBonDeCommande("09/05/2009"));
+//                        list.add(obj);
+
+                    //out.println((WS.portEchelleWS.getResultByNumDossAndCodeEchelle(13022076, 004)));
                 }
             }
+
         } finally {
             out.close();
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

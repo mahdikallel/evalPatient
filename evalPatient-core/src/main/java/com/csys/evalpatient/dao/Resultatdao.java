@@ -27,7 +27,9 @@ public class Resultatdao {
         
     }
     
-    public List<Object[]> GetResultByNumDossAndCodeEchelle(int numDoss,int codeEchelle) {
+
+   public List<Object[]> GetResultByNumDossAndCodeEchelle(int numDoss,int codeEchelle) {
+
         try {
             List<Object[]> list = new ArrayList<Object[]>();
             String sql;
@@ -39,5 +41,7 @@ public class Resultatdao {
             Logger.getLogger(Resultatdao.class.getName()).log(Level.SEVERE, null, e);
             return null;
         }
-    }     
+
+    }
+
 }

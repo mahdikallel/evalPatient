@@ -7,6 +7,8 @@
 
   <xs:element name="GetResultByNumDossAndCodeEchelleResponse" type="tns:GetResultByNumDossAndCodeEchelleResponse"/>
 
+  <xs:element name="accessControl" type="tns:accessControl"/>
+
   <xs:element name="echelle" type="tns:echelle"/>
 
   <xs:element name="echelleSpecialite" type="tns:echelleSpecialite"/>
@@ -37,11 +39,21 @@
 
   <xs:element name="findallspecialiteResponse" type="tns:findallspecialiteResponse"/>
 
+  <xs:element name="getTraceCnx" type="tns:getTraceCnx"/>
+
+  <xs:element name="getTraceCnxResponse" type="tns:getTraceCnxResponse"/>
+
   <xs:element name="resultat" type="tns:resultat"/>
 
   <xs:element name="sousFamille" type="tns:sousFamille"/>
 
   <xs:element name="specialite" type="tns:specialite"/>
+
+  <xs:element name="tracecnx" type="tns:tracecnx"/>
+
+  <xs:element name="verifLogin" type="tns:verifLogin"/>
+
+  <xs:element name="verifLoginResponse" type="tns:verifLoginResponse"/>
 
   <xs:complexType name="findallechellespecialite">
     <xs:sequence/>
@@ -58,6 +70,56 @@
       <xs:element name="codeEchelle" type="xs:string" minOccurs="0"/>
       <xs:element name="codeSpecialite" type="xs:string" minOccurs="0"/>
       <xs:element name="codeechelleSpecialite" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verifLogin">
+    <xs:sequence>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
+      <xs:element name="pass" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="verifLoginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:accessControl" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="accessControl">
+    <xs:sequence>
+      <xs:element name="actif" type="xs:string" minOccurs="0"/>
+      <xs:element name="adminEvIndesirable" type="xs:boolean"/>
+      <xs:element name="autoriseav" type="xs:string" minOccurs="0"/>
+      <xs:element name="autorisesecurite" type="xs:boolean"/>
+      <xs:element name="chStat" type="xs:string" minOccurs="0"/>
+      <xs:element name="cledallas" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeCarte" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeCarteMinus" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeMedecinInfirmier" type="xs:string" minOccurs="0"/>
+      <xs:element name="codePin" type="xs:string" minOccurs="0"/>
+      <xs:element name="compteExpire" type="xs:boolean"/>
+      <xs:element name="cptShowAllPatient" type="xs:boolean"/>
+      <xs:element name="cptconsultActivityAll" type="xs:boolean"/>
+      <xs:element name="dateExpirationCompte" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="dateModPwd" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="dernierDateCnx" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="expire" type="xs:boolean"/>
+      <xs:element name="grp" type="xs:string" minOccurs="0"/>
+      <xs:element name="matricule" type="xs:string" minOccurs="0"/>
+      <xs:element name="matriculeResp" type="xs:string" minOccurs="0"/>
+      <xs:element name="nature" type="xs:string" minOccurs="0"/>
+      <xs:element name="natureuserDS" type="xs:string" minOccurs="0"/>
+      <xs:element name="nbreJoursExpiration" type="xs:int" minOccurs="0"/>
+      <xs:element name="oldGrp" type="xs:string" minOccurs="0"/>
+      <xs:element name="passWord" type="xs:string" minOccurs="0"/>
+      <xs:element name="styleClaire" type="xs:boolean"/>
+      <xs:element name="traceNotif" type="xs:string" minOccurs="0"/>
+      <xs:element name="userModif" type="xs:string" minOccurs="0"/>
+      <xs:element name="userName" type="xs:string" minOccurs="0"/>
+      <xs:element name="validCptRend" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="validPHNuit" type="xs:boolean"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -155,6 +217,30 @@
       <xs:element name="codeSousFamille" type="xs:string" minOccurs="0"/>
       <xs:element name="designation" type="xs:string" minOccurs="0"/>
       <xs:element name="valeur" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTraceCnx">
+    <xs:sequence>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
+      <xs:element name="pass" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTraceCnxResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:tracecnx" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tracecnx">
+    <xs:sequence>
+      <xs:element name="adresseIP" type="xs:string" minOccurs="0"/>
+      <xs:element name="compteur" type="xs:int" minOccurs="0"/>
+      <xs:element name="dateCnx" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="etat" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="id" type="xs:int" minOccurs="0"/>
+      <xs:element name="login" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

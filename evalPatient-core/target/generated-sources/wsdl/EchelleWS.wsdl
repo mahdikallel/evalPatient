@@ -9,11 +9,11 @@
       <xsd:import namespace="http://jaxb.dev.java.net/array" schemaLocation="EchelleWS_schema2.xsd"/>
     </xsd:schema>
   </types>
-  <message name="findallresultat">
-    <part name="parameters" element="tns:findallresultat"/>
+  <message name="getTraceCnx">
+    <part name="parameters" element="tns:getTraceCnx"/>
   </message>
-  <message name="findallresultatResponse">
-    <part name="parameters" element="tns:findallresultatResponse"/>
+  <message name="getTraceCnxResponse">
+    <part name="parameters" element="tns:getTraceCnxResponse"/>
   </message>
   <message name="findallechelle">
     <part name="parameters" element="tns:findallechelle"/>
@@ -21,17 +21,17 @@
   <message name="findallechelleResponse">
     <part name="parameters" element="tns:findallechelleResponse"/>
   </message>
-  <message name="GetResultByNumDossAndCodeEchelle">
-    <part name="parameters" element="tns:GetResultByNumDossAndCodeEchelle"/>
+  <message name="findallresultat">
+    <part name="parameters" element="tns:findallresultat"/>
   </message>
-  <message name="GetResultByNumDossAndCodeEchelleResponse">
-    <part name="parameters" element="tns:GetResultByNumDossAndCodeEchelleResponse"/>
+  <message name="findallresultatResponse">
+    <part name="parameters" element="tns:findallresultatResponse"/>
   </message>
-  <message name="findallechellespecialite">
-    <part name="parameters" element="tns:findallechellespecialite"/>
+  <message name="verifLogin">
+    <part name="parameters" element="tns:verifLogin"/>
   </message>
-  <message name="findallechellespecialiteResponse">
-    <part name="parameters" element="tns:findallechellespecialiteResponse"/>
+  <message name="verifLoginResponse">
+    <part name="parameters" element="tns:verifLoginResponse"/>
   </message>
   <message name="findallspecialite">
     <part name="parameters" element="tns:findallspecialite"/>
@@ -51,22 +51,34 @@
   <message name="findallsousfamilleResponse">
     <part name="parameters" element="tns:findallsousfamilleResponse"/>
   </message>
+  <message name="findallechellespecialite">
+    <part name="parameters" element="tns:findallechellespecialite"/>
+  </message>
+  <message name="findallechellespecialiteResponse">
+    <part name="parameters" element="tns:findallechellespecialiteResponse"/>
+  </message>
+  <message name="GetResultByNumDossAndCodeEchelle">
+    <part name="parameters" element="tns:GetResultByNumDossAndCodeEchelle"/>
+  </message>
+  <message name="GetResultByNumDossAndCodeEchelleResponse">
+    <part name="parameters" element="tns:GetResultByNumDossAndCodeEchelleResponse"/>
+  </message>
   <portType name="EchelleWS">
-    <operation name="findallresultat">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatRequest" message="tns:findallresultat"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatResponse" message="tns:findallresultatResponse"/>
+    <operation name="getTraceCnx">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/getTraceCnxRequest" message="tns:getTraceCnx"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/getTraceCnxResponse" message="tns:getTraceCnxResponse"/>
     </operation>
     <operation name="findallechelle">
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechelleRequest" message="tns:findallechelle"/>
       <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechelleResponse" message="tns:findallechelleResponse"/>
     </operation>
-    <operation name="GetResultByNumDossAndCodeEchelle">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetResultByNumDossAndCodeEchelleRequest" message="tns:GetResultByNumDossAndCodeEchelle"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetResultByNumDossAndCodeEchelleResponse" message="tns:GetResultByNumDossAndCodeEchelleResponse"/>
+    <operation name="findallresultat">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatRequest" message="tns:findallresultat"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallresultatResponse" message="tns:findallresultatResponse"/>
     </operation>
-    <operation name="findallechellespecialite">
-      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest" message="tns:findallechellespecialite"/>
-      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse" message="tns:findallechellespecialiteResponse"/>
+    <operation name="verifLogin">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/verifLoginRequest" message="tns:verifLogin"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/verifLoginResponse" message="tns:verifLoginResponse"/>
     </operation>
     <operation name="findallspecialite">
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallspecialiteRequest" message="tns:findallspecialite"/>
@@ -80,10 +92,18 @@
       <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleRequest" message="tns:findallsousfamille"/>
       <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleResponse" message="tns:findallsousfamilleResponse"/>
     </operation>
+    <operation name="findallechellespecialite">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest" message="tns:findallechellespecialite"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse" message="tns:findallechellespecialiteResponse"/>
+    </operation>
+    <operation name="GetResultByNumDossAndCodeEchelle">
+      <input wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetResultByNumDossAndCodeEchelleRequest" message="tns:GetResultByNumDossAndCodeEchelle"/>
+      <output wsam:Action="http://service.evalpatient.csys.com/EchelleWS/GetResultByNumDossAndCodeEchelleResponse" message="tns:GetResultByNumDossAndCodeEchelleResponse"/>
+    </operation>
   </portType>
   <binding name="EchelleWSPortBinding" type="tns:EchelleWS">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-    <operation name="findallresultat">
+    <operation name="getTraceCnx">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -101,7 +121,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="GetResultByNumDossAndCodeEchelle">
+    <operation name="findallresultat">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -110,7 +130,7 @@
         <soap:body use="literal"/>
       </output>
     </operation>
-    <operation name="findallechellespecialite">
+    <operation name="verifLogin">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -138,6 +158,24 @@
       </output>
     </operation>
     <operation name="findallsousfamille">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="findallechellespecialite">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetResultByNumDossAndCodeEchelle">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
