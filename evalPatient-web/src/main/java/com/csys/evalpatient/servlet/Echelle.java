@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.joda.time.DateTime;
+import org.json.simple.JSONObject;
 import service.AnyTypeArray;
 import service.Evaluation;
 
@@ -47,7 +49,6 @@ public class Echelle extends HttpServlet {
         PrintWriter out = response.getWriter();
         Gson gson = new GsonBuilder().serializeNulls().create();
         try {
-            /* TODO output your page here. You may use following sample code. */
             String type = request.getParameter("type");
             String function = request.getParameter("function");
             if (WS.portEchelleWS == null) {
@@ -60,7 +61,30 @@ public class Echelle extends HttpServlet {
                 if (function.equals("getAllEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
                 } else if (function.equals("GetResultByNumDossAndCodeEchelle")) {
-                    out.println(gson.toJson(WS.portEchelleWS.getResultByNumDossAndCodeEchelle(12029410, 005)));
+                    int numEchelle = Integer.parseInt(request.getParameter("numEchelle"));
+                    int numDos = Integer.parseInt(request.getParameter("numDos"));
+                    List<JSONObject> list = new ArrayList<JSONObject>();
+                    List<AnyTypeArray> list1 = (WS.portEchelleWS.getResultByNumDossAndCodeEchelle(numDos, numEchelle));
+
+                    for (int i = 0; i < list1.size(); i++) {
+
+                        int valeur = Integer.parseInt(list1.get(i).getItem().get(0).toString());
+                        // out.print(valeur+"<br>");
+                        DateTime myDate = DateTime.parse(list1.get(i).getItem().get(1).toString());
+                        int year = myDate.getYear();
+                        int month = myDate.getMonthOfYear();
+                        int day = myDate.getDayOfMonth();
+                        int hour = myDate.getHourOfDay();
+                        int minute = myDate.getMinuteOfHour();
+                        int seconde = myDate.getSecondOfMinute();
+                        String date = day + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + seconde;
+
+                        JSONObject obj = new JSONObject();
+                        obj.put("valeur", valeur);
+                        obj.put("date", date);
+                        list.add(obj);
+                    }
+                    out.println(gson.toJson(list));
                 } else if (function.equals("GetListReponseParEchelle")) {
                     String numEchelle = request.getParameter("numEchelle");
                     List<Evaluation> list = new ArrayList<Evaluation>();
@@ -73,7 +97,6 @@ public class Echelle extends HttpServlet {
                         eval.setValeur(listAux.get(i).getItem().get(2).toString());
                         eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
                         eval.setCodeSousFamille(listAux.get(i).getItem().get(5).toString());
-                        // eval.setCodeAide(listAux.get(i).getItem().get(6).toString());
                         eval.setId(String.valueOf(i));
                         list.add(eval);
                         eval = null;
@@ -82,27 +105,11 @@ public class Echelle extends HttpServlet {
                 }
             } else if ("update".equals(type)) {
                 if ("insert".equals(function)) {
-                    //  DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                    // Date date = new Date(2015, 10, 2);
-                    //  out.print("System " + System.currentTimeMillis());
-                    // out.print("          LocalDateTime " + LocalDateTime.now());
-                    // out.print("          getCalendar "+dateFormat.getCalendar().getTimeInMillis());
-
-                    /*   String date = request.getParameter("date");
-                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
-                    try {
-                        Date parsed = (Date) dateFormat.parse(date);
-                        java.sql.Date sql = new java.sql.Date(parsed.getTime());
-                       
-                    } catch (ParseException ex) {
-                        Logger.getLogger(Echelle.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
+                    String dateSys = request.getParameter("dateSys");
                     int numDos = Integer.parseInt(request.getParameter("numDos"));
                     int valeur = Integer.parseInt(request.getParameter("valeur"));
-                    int codeSousFamille = Integer.parseInt(request.getParameter("codeSousFamille"));
-                    //WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur);
-                    WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur);
+                    String codeSousFamille = request.getParameter("codeSousFamille");
+                    WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur, dateSys);
                 }
             }
 

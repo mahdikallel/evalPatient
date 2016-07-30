@@ -154,11 +154,12 @@ public class EchelleWS {
      * @param numDos
      * @param codSousFamille
      * @param valeur
+     * @param dateSys
      *
      */
     @WebMethod(operationName = "InsertResultatEvaluation")
-    public void InsertResultatEvaluation(int numDos, int codSousFamille, int valeur) {
-        new Resultatdao().InsertResultatEvaluation(numDos, codSousFamille, valeur);
+    public void InsertResultatEvaluation(int numDos, String codSousFamille, int valeur,String dateSys) {
+        new Resultatdao().InsertResultatEvaluation(numDos, codSousFamille, valeur,dateSys);
     }
 
 }

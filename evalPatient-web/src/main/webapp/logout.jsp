@@ -1,7 +1,6 @@
 <%
     String User = (String) session.getAttribute("user");
-    if (User == null || User.equalsIgnoreCase("null")) 
-    {
+    if (User == null || User.equalsIgnoreCase("null")) {
         out.println("<script>window.location.href='./index.jsp';</script>");
     }
 %>
@@ -43,53 +42,56 @@
         <link rel="stylesheet" href="css/googleapis.css">
     </head>
 
-	
-	<body>
 
-		<div style=" margin-left: 0px; ">
+    <body>
 
-			<!-- MAIN CONTENT -->
+        <div style=" margin-left: 0px; ">
 
-			<div class="lockscreen animated flipInY">
-				<div class="logo">
-					<h1 class="semi-bold"><img src="img/logo-o.png" alt="" /> Dossier Médical Informatisé </h1>
-				</div>
-				<div>
-					<img src="img/avatars/doctor.jpg" alt="" width="120" height="120" />
-					<div>
-						<h1><i class="fa fa-user fa-3x text-muted air air-top-right hidden-mobile"></i>
-                                                    <%
-                                                        String User2 = (String) session.getAttribute("user");
-                                                    %>
-                                                    <%= User2 %>
-                                                    <small><i class="fa fa-lock text-muted"></i> Utilisateur Connecté</small></h1>
+            <!-- MAIN CONTENT -->
 
-						<br>
-                                                <a onClick="retour()"><button class="btn btn-primary" style="margin-left: 15%; ">
-                                                    Retour
-                                                </button></a>
-                                                <a href="logout_function.jsp"><button id="submit" class="btn btn-danger" style="margin-left: 15%; ">
-                                                    Déconnexion
-                                                </button></a>
-					</div>
+            <div class="lockscreen animated flipInY">
+                <div class="logo">
+                    <h1 class="semi-bold"><img src="img/logo-o.png" alt="" /> Dossier Médical Informatisé </h1>
+                </div>
+                <div>
+                    <img src="img/avatars/doctor.jpg" alt="" width="120" height="120" />
+                    <div>
+                        <h1><i class="fa fa-user fa-3x text-muted air air-top-right hidden-mobile"></i>
+                            <%
+                                String User2 = (String) session.getAttribute("user");
+                            %>
+                            <%= User2%>
+                            <small><i class="fa fa-lock text-muted"></i> Utilisateur Connecté</small></h1>
 
-				</div>
-				<p class="font-xs margin-top-5">
-					Copyright Computer Systems 2015.
-				</p>
-			</div>
+                        <br>
+                        <a onClick="retour()"><button class="btn btn-primary" style="margin-left: 15%; ">
+                                Retour
+                            </button></a>
+                        <a href="logout_function.jsp"><button id="submit" class="btn btn-danger" style="margin-left: 15%; ">
+                                Déconnexion
+                            </button></a>
+                    </div>
 
-		</div>
+                </div>
+                <p class="font-xs margin-top-5">
+                    Copyright Computer Systems 2015.
+                </p>
+            </div>
 
-		<!-- BOOTSTRAP JS -->
-                <script src="body_page_js/acceuil_function.js?version=<%=session.getAttribute("versionJS")%>"></script>
-                <script src="js/jquery/jquery.min.js"></script>
-                <script src="js/jquery/jquery-ui.min.js"></script>
-	</body>
+        </div>
+
+        <!-- BOOTSTRAP JS -->
+        <script src="body_page_js/acceuil_function.js?version=<%=session.getAttribute("versionJS")%>"></script>
+        <script src="js/jquery/jquery.min.js"></script>
+        <script src="js/jquery/jquery-ui.min.js"></script>
         <script>
-            function retour()
-            {
-                window.history.back();
-            }
+                            sessionStorage.clear();
         </script>
+    </body>
+    <script>
+        function retour()
+        {
+            window.history.back();
+        }
+    </script>
 </html>

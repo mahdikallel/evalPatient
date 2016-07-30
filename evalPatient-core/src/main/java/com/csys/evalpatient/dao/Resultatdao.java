@@ -59,13 +59,13 @@ public class Resultatdao {
         }
     }
 
-    public void InsertResultatEvaluation(int numDos, int codSousFamille, int valeur) {
+    public void InsertResultatEvaluation(int numDos, String codSousFamille, int valeur,String dateSys) {
         try {
 
             tx.begin();
             String sql;
-            sql = "INSERT INTO [gclinPin].[dbo].[Resultat]([Num_Dossier],[Code_Sous_Famille],[valeur],[Date]) VALUES(" + numDos + "," + codSousFamille + "," + valeur + ",'2013-09-08 17:05:26.000')  ";
-            // System.out.println("Requete  "+sql );
+            sql = "INSERT INTO [gclinPin].[dbo].[Resultat]([Num_Dossier],[Code_Sous_Famille],[valeur],[Date]) VALUES(" + numDos + "," + codSousFamille + "," + valeur + ",'"+dateSys+"')  ";
+            System.out.println("Requete  "+sql );
             Query q = em.createNativeQuery(sql);
             q.executeUpdate();
             tx.commit();

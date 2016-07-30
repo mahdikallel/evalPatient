@@ -7,6 +7,24 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div style="float:left;margin-right: 20px;"><img class="_avatar_patient" src="../img/avatars/male.png" alt="me" style="height: 40px; width: 40px; margin-top: 3px; margin-left: 3px;vertical-align: top" ></div>
+        <div style="width: auto;height: 60px;background-color:  ">
+
+            <label class="control-label">Numéro</label>&nbsp;&nbsp;
+            <input type="text" id="_numPatient" name="num" class="input-xs" disabled="true">
+            <label class="control-label">Nom</label>
+            <input type="text" id="_nomPatient" name="nom" class="input-xs" disabled="true" >
+            <label class="control-label">Prénom</label>
+            <input type="text" id="_prenomPatient" name="prenom" class="input-xs" disabled="true">
+            <label class="control-label">Age</label>
+            <input type="text" id="_agePatient" name="age" class="input-xs" disabled="true">
+            <label class="control-label">Poids</label>
+            <input type="text" id="_poidsPatient" name="poids" class="input-xs" disabled="true"><br>
+            <label class="control-label">Chambre</label>
+            <input type="text" id="_chambrePatient" name="chambre" class="input-xs" disabled="true">
+            <label class="control-label">Motif d'admission</label>
+            <input type="text" id="_motifAdmission" name="motif" class="input-xs" disabled="true">
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="jarviswidget jarviswidget-color-greenLight jarviswidget-sortable" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" role="widget">
@@ -19,11 +37,17 @@
                     <div role="content" >
                         <div id="buttons" style="float:left;">
                         </div>
-                        <div id="container" style="width: 800px; height: 500px;margin-left: 400px"></div>
+
+
+
+                        <div id="container" style="width: 800px; height: 500px;margin-left: 400px">
+                           
+
+                        </div>
 
                         <div id="_eval" style="right: 0; top: 0; position: absolute;margin-top: 25px;margin-right: 20px;">
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg">
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg" id="_evaluer" >
                                 <span class="glyphicon glyphicon-plus-sign"></span> 
                             </button>
                         </div>
@@ -50,11 +74,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-info fade in">
-                            
+
                             <i class="fa-fw fa fa-info"></i>
                             <strong>Info!</strong>
                             <div id="descEchelles">
-                                 
+
                             </div>
                         </div>
                         <div id="_grid_eval">
@@ -64,13 +88,6 @@
                     </div>
                     <div class="modal-footer">
                         <center>
-
-                            <!--div class="bar-holder">
-                                <div class="progress">
-                                    <div class="progress-bar bg-color-teal" id="_resultat" aria-valuetransitiongoal="25" aria-valuenow="25" ></div>
-                                </div>
-                            </div-->  
-
                             <li class="dd-item" data-id="11">
                                 <div class="dd-handle">
 
@@ -93,7 +110,7 @@
                         </center>
                         <br>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="_insert_eval" data-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-primary" id="_insert_eval" data-dismiss="modal" >Save changes</button>
                     </div>
                 </div>
             </div>
