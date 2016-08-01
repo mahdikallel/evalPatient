@@ -85,7 +85,7 @@
         <script src="js/jquery/jquery.min.js"></script>
         <script src="js/jquery/jquery-ui.min.js"></script>
         <script>
-                            sessionStorage.clear();
+        sessionStorage.clear();
         </script>
     </body>
     <script>

@@ -8,12 +8,46 @@
  * */
 $(function () {
 
-   // $("#_chose_echelle").append('<div class="alert alert-info fade in"><button class="close" data-dismiss="alert">*</button><i class="fa-fw fa fa-info"></i><strong>Info!</strong> You have 198 unread messages.</div>');
+    // $("#_chose_echelle").append('<div class="alert alert-info alert-block"><a class="close" data-dismiss="alert" href="#"></a><h4 class="alert-heading">Info!</h4>Best check yo self, youre not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</div>');
+    //'<div class="alert alert-info alert-block"><a class="close" data-dismiss="alert" href="#"></a><h4 class="alert-heading">Info!</h4>Best check yo self, youre not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</div>'
+    $('#container').highcharts({
+        title: {
+            text: "Courbe d'évaluation",
+            x: -20 //center
+        },
+        subtitle: {
+            text: '',
+            x: -20
+        },
+        xAxis: {
+            title: {
+                text: 'Date'
+            }
+
+        },
+        yAxis: {
+            title: {
+                text: 'Valeur'
+            }
+
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+                data: []
+            }]
+    });
+
     var list = getAllEchelle();
     $("#content").empty();
     var designation = [];
     var idEchelles = [];
     var descEchelles = [];
+    $("#buttons").append('<button type="button"  class="btn  txt-color-white" data-toggle="modal" data-target=".bs-example-modal-add" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px;background-color:#71843f">Ajouter Echelle  </button><br>');
     for (var i = 0; i < list.length; i++)
     {
         $("#buttons").append('<a href="javascript:void(0);" id="_button' + i + '" class="btn btn-labeled btn-warning" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px">' + list[i].designation + '</a><br>');
@@ -179,7 +213,7 @@ $("#_insert_eval").bind("click", function () {
             }]
     });
 
-    showNotification("Succes", designation[sessionStorage.getItem("currentIdEchelle")] + " est mis à jour avec une valeur " + $("#_resultat").text(), "success", 5000);
+    showNotification("Succes", designation[sessionStorage.getItem("currentIdEchelle")] + " est mis à jour avec une valeur " + $("#_resultat").text(), "success", 6000);
     sessionStorage.removeItem("tabValeur");
     sessionStorage.removeItem("tabCodeSousFamille");
     sessionStorage.removeItem("tabCodeFamille");
@@ -189,3 +223,12 @@ $("#_insert_eval").bind("click", function () {
 
 });
 
+$('#exampleModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('.modal-body input').val(recipient)
+})

@@ -110,20 +110,24 @@ public class EchelleWS {
     /**
      * This is a sample web service operation
      *
+     * @param l
+     * @param p
      * @return
      */
     @WebMethod(operationName = "verifLogin")
-    public AccessControl verifLogin(@WebParam(name = "login") String l, @WebParam(name = "pass") String p) {
+    public AccessControl verifLogin(String l, String p) {
         return new AccessControldao().authentification(l, p);
     }
 
     /**
      * This is a sample web service operation
      *
+     * @param l
+     * @param p
      * @return
      */
     @WebMethod(operationName = "getTraceCnx")
-    public List<Tracecnx> getTraceCnx(@WebParam(name = "login") String l, @WebParam(name = "pass") String p) {
+    public List<Tracecnx> getTraceCnx( String l,  String p) {
         return new TracecnxDao().getTracecnxByLoginIP(l, p);
     }
 
@@ -160,6 +164,55 @@ public class EchelleWS {
     @WebMethod(operationName = "InsertResultatEvaluation")
     public void InsertResultatEvaluation(int numDos, String codSousFamille, int valeur,String dateSys) {
         new Resultatdao().InsertResultatEvaluation(numDos, codSousFamille, valeur,dateSys);
+    }
+    
+    
+     /**
+     * This is a sample web service operation
+     *
+     *
+     * @param code_Echelle
+     * @param designation
+     * @param valeur_Minimale
+     * @param valeur_Moyenne
+     * @param description
+     * @param valeur_Maximale
+     */
+    @WebMethod(operationName = "InsertEchelle")
+    public void InsertEchelle(String code_Echelle, String designation, int valeur_Minimale, int valeur_Moyenne, int valeur_Maximale, String description) {
+        new Echelledao().InsertEchelle(code_Echelle, designation,  valeur_Minimale,  valeur_Moyenne,  valeur_Maximale,  description);
+    }
+    
+    
+    /**
+     * This is a sample web service operation
+     *
+     
+     *
+     * @param code_Famille 
+     * @param designation 
+     * @param code_Echelle 
+     * @param code_Aide 
+     */
+    @WebMethod(operationName = "InsertFamilleEchelle")
+    public void InsertFamilleEchelle(String code_Famille, String designation, String code_Echelle,String code_Aide) {
+        new FamilleEchelledao().InsertFamilleEchelle( code_Famille,  designation,  code_Echelle, code_Aide);
+    }
+    
+    
+     /**
+     * This is a sample web service operation
+     *
+     
+     *
+     * @param code_Sous_Famille    
+     * @param designation    
+     * @param code_Famille    
+     * @param valeur    
+     */
+    @WebMethod(operationName = "InsertSousFamille")
+    public void InsertSousFamille(String code_Sous_Famille, String designation, String code_Famille,int valeur) {
+        new SousFamilledao().InsertSousFamille( code_Sous_Famille,  designation,  code_Famille, valeur);
     }
 
 }

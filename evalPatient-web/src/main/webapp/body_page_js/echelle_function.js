@@ -73,8 +73,8 @@ function createBackgrid(numEchelle) {
         }, {
             name: "codeFamille",
             label: "CodeFamille",
-            editable: true, // By default every cell in a column is editable, but *ID* shouldn't be
-            renderable: true,
+            editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+            renderable: false,
             cell: Backgrid.StringCell.extend({
                 className: 'string-cell'
             })
@@ -82,8 +82,8 @@ function createBackgrid(numEchelle) {
         }, {
             name: "codeSousFamille",
             label: "CodeSousFamille",
-            editable: true, // By default every cell in a column is editable, but *ID* shouldn't be
-            renderable: true,
+            editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+            renderable: false,
             cell: Backgrid.StringCell.extend({
                 className: 'string-cell'
             })

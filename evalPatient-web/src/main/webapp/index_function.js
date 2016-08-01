@@ -42,7 +42,6 @@ function login(a, b) {
                     document.getElementById("error").innerHTML = code_html;
                     //  $('#error').append(code_html);
                 }
-
             }
         }
     });

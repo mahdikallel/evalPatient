@@ -27,39 +27,39 @@ public interface EchelleWS {
 
     /**
      * 
+     * @param arg1
+     * @param arg0
      * @return
-     *     returns service.Evaluation
-     */
-    @WebMethod(operationName = "InstanceEvaluation")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "InstanceEvaluation", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InstanceEvaluation")
-    @ResponseWrapper(localName = "InstanceEvaluationResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InstanceEvaluationResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationRequest", output = "http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationResponse")
-    public Evaluation instanceEvaluation();
-
-    /**
-     * 
-     * @return
-     *     returns java.util.List<service.SousFamille>
+     *     returns service.AccessControl
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findallsousfamille", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallsousfamille")
-    @ResponseWrapper(localName = "findallsousfamilleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallsousfamilleResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleResponse")
-    public List<SousFamille> findallsousfamille();
+    @RequestWrapper(localName = "verifLogin", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.VerifLogin")
+    @ResponseWrapper(localName = "verifLoginResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.VerifLoginResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/verifLoginRequest", output = "http://service.evalpatient.csys.com/EchelleWS/verifLoginResponse")
+    public AccessControl verifLogin(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
     /**
      * 
+     * @param arg1
+     * @param arg0
      * @return
-     *     returns java.util.List<service.Specialite>
+     *     returns java.util.List<service.Tracecnx>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findallspecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallspecialite")
-    @ResponseWrapper(localName = "findallspecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallspecialiteResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteResponse")
-    public List<Specialite> findallspecialite();
+    @RequestWrapper(localName = "getTraceCnx", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetTraceCnx")
+    @ResponseWrapper(localName = "getTraceCnxResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetTraceCnxResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/getTraceCnxRequest", output = "http://service.evalpatient.csys.com/EchelleWS/getTraceCnxResponse")
+    public List<Tracecnx> getTraceCnx(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
     /**
      * 
@@ -84,18 +84,93 @@ public interface EchelleWS {
 
     /**
      * 
+     * @param arg3
+     * @param arg2
+     * @param arg1
      * @param arg0
-     * @return
-     *     returns java.util.List<service.AnyTypeArray>
      */
-    @WebMethod(operationName = "GetListReponseParEchelle")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "GetListReponseParEchelle", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetListReponseParEchelle")
-    @ResponseWrapper(localName = "GetListReponseParEchelleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetListReponseParEchelleResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleResponse")
-    public List<AnyTypeArray> getListReponseParEchelle(
+    @WebMethod(operationName = "InsertFamilleEchelle")
+    @RequestWrapper(localName = "InsertFamilleEchelle", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InsertFamilleEchelle")
+    @ResponseWrapper(localName = "InsertFamilleEchelleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InsertFamilleEchelleResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/InsertFamilleEchelleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/InsertFamilleEchelleResponse")
+    public void insertFamilleEchelle(
         @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<service.Specialite>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findallspecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallspecialite")
+    @ResponseWrapper(localName = "findallspecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallspecialiteResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallspecialiteResponse")
+    public List<Specialite> findallspecialite();
+
+    /**
+     * 
+     * @return
+     *     returns service.Evaluation
+     */
+    @WebMethod(operationName = "InstanceEvaluation")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "InstanceEvaluation", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InstanceEvaluation")
+    @ResponseWrapper(localName = "InstanceEvaluationResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InstanceEvaluationResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationRequest", output = "http://service.evalpatient.csys.com/EchelleWS/InstanceEvaluationResponse")
+    public Evaluation instanceEvaluation();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<service.SousFamille>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findallsousfamille", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallsousfamille")
+    @ResponseWrapper(localName = "findallsousfamilleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallsousfamilleResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallsousfamilleResponse")
+    public List<SousFamille> findallsousfamille();
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod(operationName = "InsertSousFamille")
+    @RequestWrapper(localName = "InsertSousFamille", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InsertSousFamille")
+    @ResponseWrapper(localName = "InsertSousFamilleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InsertSousFamilleResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/InsertSousFamilleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/InsertSousFamilleResponse")
+    public void insertSousFamille(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<service.EchelleSpecialite>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "findallechellespecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallechellespecialite")
+    @ResponseWrapper(localName = "findallechellespecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallechellespecialiteResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse")
+    public List<EchelleSpecialite> findallechellespecialite();
 
     /**
      * 
@@ -129,33 +204,18 @@ public interface EchelleWS {
 
     /**
      * 
+     * @param arg0
      * @return
-     *     returns java.util.List<service.EchelleSpecialite>
+     *     returns java.util.List<service.AnyTypeArray>
      */
-    @WebMethod
+    @WebMethod(operationName = "GetListReponseParEchelle")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findallechellespecialite", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.Findallechellespecialite")
-    @ResponseWrapper(localName = "findallechellespecialiteResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.FindallechellespecialiteResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteRequest", output = "http://service.evalpatient.csys.com/EchelleWS/findallechellespecialiteResponse")
-    public List<EchelleSpecialite> findallechellespecialite();
-
-    /**
-     * 
-     * @param pass
-     * @param login
-     * @return
-     *     returns service.AccessControl
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "verifLogin", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.VerifLogin")
-    @ResponseWrapper(localName = "verifLoginResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.VerifLoginResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/verifLoginRequest", output = "http://service.evalpatient.csys.com/EchelleWS/verifLoginResponse")
-    public AccessControl verifLogin(
-        @WebParam(name = "login", targetNamespace = "")
-        String login,
-        @WebParam(name = "pass", targetNamespace = "")
-        String pass);
+    @RequestWrapper(localName = "GetListReponseParEchelle", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetListReponseParEchelle")
+    @ResponseWrapper(localName = "GetListReponseParEchelleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetListReponseParEchelleResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/GetListReponseParEchelleResponse")
+    public List<AnyTypeArray> getListReponseParEchelle(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
 
     /**
      * 
@@ -183,20 +243,29 @@ public interface EchelleWS {
 
     /**
      * 
-     * @param pass
-     * @param login
-     * @return
-     *     returns java.util.List<service.Tracecnx>
+     * @param arg3
+     * @param arg2
+     * @param arg5
+     * @param arg4
+     * @param arg1
+     * @param arg0
      */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getTraceCnx", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetTraceCnx")
-    @ResponseWrapper(localName = "getTraceCnxResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.GetTraceCnxResponse")
-    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/getTraceCnxRequest", output = "http://service.evalpatient.csys.com/EchelleWS/getTraceCnxResponse")
-    public List<Tracecnx> getTraceCnx(
-        @WebParam(name = "login", targetNamespace = "")
-        String login,
-        @WebParam(name = "pass", targetNamespace = "")
-        String pass);
+    @WebMethod(operationName = "InsertEchelle")
+    @RequestWrapper(localName = "InsertEchelle", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InsertEchelle")
+    @ResponseWrapper(localName = "InsertEchelleResponse", targetNamespace = "http://service.evalpatient.csys.com/", className = "service.InsertEchelleResponse")
+    @Action(input = "http://service.evalpatient.csys.com/EchelleWS/InsertEchelleRequest", output = "http://service.evalpatient.csys.com/EchelleWS/InsertEchelleResponse")
+    public void insertEchelle(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        int arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        int arg3,
+        @WebParam(name = "arg4", targetNamespace = "")
+        int arg4,
+        @WebParam(name = "arg5", targetNamespace = "")
+        String arg5);
 
 }

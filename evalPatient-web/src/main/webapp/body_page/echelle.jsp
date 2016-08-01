@@ -7,7 +7,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div style="float:left;margin-right: 20px;"><img class="_avatar_patient" src="../img/avatars/male.png" alt="me" style="height: 40px; width: 40px; margin-top: 3px; margin-left: 3px;vertical-align: top" ></div>
+        <!--div style="float:left;margin-right: 20px;"><img class="_avatar_patient" src="../img/avatars/male.png" alt="me" style="height: 40px; width: 40px; margin-top: 3px; margin-left: 3px;vertical-align: top" ></div>
         <div style="width: auto;height: 60px;background-color:  ">
 
             <label class="control-label">Numéro</label>&nbsp;&nbsp;
@@ -24,7 +24,7 @@
             <input type="text" id="_chambrePatient" name="chambre" class="input-xs" disabled="true">
             <label class="control-label">Motif d'admission</label>
             <input type="text" id="_motifAdmission" name="motif" class="input-xs" disabled="true">
-        </div>
+        </div-->
         <div class="row">
             <div class="col-md-12">
                 <div class="jarviswidget jarviswidget-color-greenLight jarviswidget-sortable" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" role="widget">
@@ -36,21 +36,30 @@
                     <!-- widget div-->
                     <div role="content" >
                         <div id="buttons" style="float:left;">
+                            
                         </div>
 
 
 
                         <div id="container" style="width: 800px; height: 500px;margin-left: 400px">
-                           
+                            <div id="_chose_echelle" style="float:left;">
+                            </div>  
 
                         </div>
 
                         <div id="_eval" style="right: 0; top: 0; position: absolute;margin-top: 25px;margin-right: 20px;">
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg" id="_evaluer" >
+                            <!-- Button to launch  modal evaluation -->
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg"  >
                                 <span class="glyphicon glyphicon-plus-sign"></span> 
                             </button>
+                            
+                            
                         </div>
+                        <!-- Button to launch  modal add echelle -->
+                         <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-add" >
+                                <span class="glyphicon glyphicon-plus-sign"></span> 
+                            </button>
+                       
                     </div>
 
                     <!-- end widget div -->
@@ -60,10 +69,84 @@
             </div>
         </div>
 
-
-
-
-        <!-- Modal -->
+        <!--Modal add -->
+        <div class="modal fade bs-example-modal-add" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog">  
+                <div class="modal-content"><div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel2">Article Post</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Title" required="">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Content" rows="5" required=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="category"> Category</label>
+                                    <select class="form-control" id="category">
+                                        <option>Articles</option>
+                                        <option>Tutorials</option>
+                                        <option>Freebies</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tags"> Tags</label>
+                                    <input type="text" class="form-control" id="tags" placeholder="Tags">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="well well-sm well-primary">
+                                    <form class="form form-inline " role="form">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" value="" placeholder="Date" required="">
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option>Draft</option>
+                                                <option>Published</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-success btn-sm">
+                                                <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                                            </button>
+                                            <button type="button" class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-eye-open"></span> Preview
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Post Article
+                        </button>
+                    </div></div>  
+            </div>  
+        </div>
+         <!--Fin modal Add-->
+        
+        
+        <!-- Modal evaluation -->
         <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
@@ -115,7 +198,10 @@
                 </div>
             </div>
         </div>
-        <!-- Fin Modal -->
+        <!-- Modal evaluation -->
+
+
+
         <jsp:include page="js_declare.jsp"/>
         <script src="../body_page_js/echelle_function.js?version=<%=session.getAttribute("versionJS")%>"></script>
         <script src="../body_page_js/echelle.js?version=<%=session.getAttribute("versionJS")%>"></script>
