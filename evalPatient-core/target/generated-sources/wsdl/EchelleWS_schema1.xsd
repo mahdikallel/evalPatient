@@ -3,9 +3,33 @@
 
   <xs:import namespace="http://jaxb.dev.java.net/array" schemaLocation="EchelleWS_schema2.xsd"/>
 
+  <xs:element name="GetListReponseParEchelle" type="tns:GetListReponseParEchelle"/>
+
+  <xs:element name="GetListReponseParEchelleResponse" type="tns:GetListReponseParEchelleResponse"/>
+
   <xs:element name="GetResultByNumDossAndCodeEchelle" type="tns:GetResultByNumDossAndCodeEchelle"/>
 
   <xs:element name="GetResultByNumDossAndCodeEchelleResponse" type="tns:GetResultByNumDossAndCodeEchelleResponse"/>
+
+  <xs:element name="InsertEchelle" type="tns:InsertEchelle"/>
+
+  <xs:element name="InsertEchelleResponse" type="tns:InsertEchelleResponse"/>
+
+  <xs:element name="InsertFamilleEchelle" type="tns:InsertFamilleEchelle"/>
+
+  <xs:element name="InsertFamilleEchelleResponse" type="tns:InsertFamilleEchelleResponse"/>
+
+  <xs:element name="InsertResultatEvaluation" type="tns:InsertResultatEvaluation"/>
+
+  <xs:element name="InsertResultatEvaluationResponse" type="tns:InsertResultatEvaluationResponse"/>
+
+  <xs:element name="InsertSousFamille" type="tns:InsertSousFamille"/>
+
+  <xs:element name="InsertSousFamilleResponse" type="tns:InsertSousFamilleResponse"/>
+
+  <xs:element name="InstanceEvaluation" type="tns:InstanceEvaluation"/>
+
+  <xs:element name="InstanceEvaluationResponse" type="tns:InstanceEvaluationResponse"/>
 
   <xs:element name="accessControl" type="tns:accessControl"/>
 
@@ -75,8 +99,8 @@
 
   <xs:complexType name="verifLogin">
     <xs:sequence>
-      <xs:element name="login" type="xs:string" minOccurs="0"/>
-      <xs:element name="pass" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -123,6 +147,88 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="findallfamilleechelle">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findallfamilleechelleResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:familleEchelle" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="familleEchelle">
+    <xs:sequence>
+      <xs:element name="codeAide" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeEchelle" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeFamille" type="xs:string" minOccurs="0"/>
+      <xs:element name="designation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertResultatEvaluation">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:int"/>
+      <xs:element name="arg3" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertResultatEvaluationResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="InstanceEvaluation">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="InstanceEvaluationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:evaluation" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="evaluation">
+    <xs:sequence>
+      <xs:element name="codeAide" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeFamille" type="xs:string" minOccurs="0"/>
+      <xs:element name="codeSousFamille" type="xs:string" minOccurs="0"/>
+      <xs:element name="famille" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="sousFamille" type="xs:string" minOccurs="0"/>
+      <xs:element name="valeur" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertEchelle">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:int"/>
+      <xs:element name="arg3" type="xs:int"/>
+      <xs:element name="arg4" type="xs:int"/>
+      <xs:element name="arg5" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertEchelleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="InsertSousFamille">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg3" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertSousFamilleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
   <xs:complexType name="findallechelle">
     <xs:sequence/>
   </xs:complexType>
@@ -144,22 +250,15 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="findallfamilleechelle">
-    <xs:sequence/>
-  </xs:complexType>
-
-  <xs:complexType name="findallfamilleechelleResponse">
+  <xs:complexType name="GetListReponseParEchelle">
     <xs:sequence>
-      <xs:element name="return" type="tns:familleEchelle" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="arg0" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="familleEchelle">
+  <xs:complexType name="GetListReponseParEchelleResponse">
     <xs:sequence>
-      <xs:element name="codeAide" type="xs:string" minOccurs="0"/>
-      <xs:element name="codeEchelle" type="xs:string" minOccurs="0"/>
-      <xs:element name="codeFamille" type="xs:string" minOccurs="0"/>
-      <xs:element name="designation" type="xs:string" minOccurs="0"/>
+      <xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -183,24 +282,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="findallspecialite">
-    <xs:sequence/>
-  </xs:complexType>
-
-  <xs:complexType name="findallspecialiteResponse">
-    <xs:sequence>
-      <xs:element name="return" type="tns:specialite" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="specialite">
-    <xs:sequence>
-      <xs:element name="codSpec" type="xs:string" minOccurs="0"/>
-      <xs:element name="libSpec" type="xs:string" minOccurs="0"/>
-      <xs:element name="txRetFraischange" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="findallsousfamille">
     <xs:sequence/>
   </xs:complexType>
@@ -220,10 +301,41 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:complexType name="findallspecialite">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findallspecialiteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:specialite" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="specialite">
+    <xs:sequence>
+      <xs:element name="codSpec" type="xs:string" minOccurs="0"/>
+      <xs:element name="libSpec" type="xs:string" minOccurs="0"/>
+      <xs:element name="txRetFraischange" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertFamilleEchelle">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg2" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg3" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InsertFamilleEchelleResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
   <xs:complexType name="getTraceCnx">
     <xs:sequence>
-      <xs:element name="login" type="xs:string" minOccurs="0"/>
-      <xs:element name="pass" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 

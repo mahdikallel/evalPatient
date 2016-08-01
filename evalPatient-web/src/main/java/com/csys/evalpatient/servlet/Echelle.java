@@ -14,15 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import org.json.simple.JSONObject;
-import service.AnyTypeArray;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import org.joda.time.DateTime;
+import java.util.ArrayList;
+import java.util.List;
+import service.AnyTypeArray;
+import service.Evaluation;
 
 /**
  *
@@ -59,15 +56,16 @@ public class Echelle extends HttpServlet {
                 if (function.equals("getAllEchelle")) {
                     out.println(gson.toJson(WS.portEchelleWS.findallechelle()));
                 } else if (function.equals("GetResultByNumDossAndCodeEchelle")) {
+                    int numEchelle = Integer.parseInt(request.getParameter("numEchelle"));
+                    int numDos = Integer.parseInt(request.getParameter("numDos"));
                     List<JSONObject> list = new ArrayList<JSONObject>();
-                    List<AnyTypeArray> list1 = (WS.portEchelleWS.getResultByNumDossAndCodeEchelle(13022076, 004));
+                    List<AnyTypeArray> list1 = (WS.portEchelleWS.getResultByNumDossAndCodeEchelle(numDos, numEchelle));
 
                     for (int i = 0; i < list1.size(); i++) {
 
-                        //java.util.Date newDate = new Date(list1.get(i).getItem().get(1).toString());
-                 
-                          //  SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                            
+                      
+                               int valeur = Integer.parseInt(list1.get(i).getItem().get(0).toString());
+                              // out.print(valeur+"<br>");
                                DateTime myDate = DateTime.parse(list1.get(i).getItem().get(1).toString());
                                int year = myDate.getYear();
                                int month = myDate.getMonthOfYear();
@@ -75,15 +73,46 @@ public class Echelle extends HttpServlet {
                                int hour = myDate.getHourOfDay();
                                int minute = myDate.getMinuteOfHour();
                                int seconde = myDate.getSecondOfMinute();
-                            out.print(year+ "/"+ month +"/"+day +" "+hour+":"+minute+":"+seconde+"<br>");
+                            //out.print(year+ "/"+ month +"/"+day +" "+hour+":"+minute+":"+seconde+"<br>");
+                            String date=day+"/"+month+"/"+year+" "+hour+":"+minute+":"+seconde;
                       
+                    
+                        JSONObject obj = new JSONObject();
+                        obj.put("valeur", valeur);
+                        obj.put("date", date);
+                        list.add(obj);
                     }
-//                        JSONObject obj = new JSONObject();
-//                        obj.put("name", "NbBonCommande");
-//                        obj.put("y", WS.port.findNbBonDeCommande("09/05/2009"));
-//                        list.add(obj);
+                   out.println(gson.toJson(list));
+                   
 
-                    //out.println((WS.portEchelleWS.getResultByNumDossAndCodeEchelle(13022076, 004)));
+                    //out.println(gson.toJson(WS.portEchelleWS.getResultByNumDossAndCodeEchelle(13022076, 004)));
+                } else if (function.equals("GetListReponseParEchelle")) {
+                    String numEchelle = request.getParameter("numEchelle");
+                    List<Evaluation> list = new ArrayList<Evaluation>();
+                    List<AnyTypeArray> listAux;
+                    listAux = WS.portEchelleWS.getListReponseParEchelle(Integer.parseInt(numEchelle));
+                    for (int i = 0; i < listAux.size(); i++) {
+                        Evaluation eval = new Evaluation();
+                        eval.setFamille(listAux.get(i).getItem().get(0).toString());
+                        eval.setSousFamille(listAux.get(i).getItem().get(1).toString());
+                        eval.setValeur(listAux.get(i).getItem().get(2).toString());
+                        eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+                        eval.setCodeSousFamille(listAux.get(i).getItem().get(5).toString());
+                        eval.setId(String.valueOf(i));
+                        list.add(eval);
+                        eval = null;
+                    }
+                    out.println(gson.toJson(list));
+                }
+            } else if ("update".equals(type)) {
+                if ("insert".equals(function)) {
+                    
+                    int numDos = Integer.parseInt(request.getParameter("numDos"));
+                    int valeur = Integer.parseInt(request.getParameter("valeur"));
+                    String codeSousFamille = request.getParameter("codeSousFamille");
+                    String dateSys = request.getParameter("dateSys");
+                    WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur, dateSys);
+
                 }
             }
 
