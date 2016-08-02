@@ -11,6 +11,10 @@
 
   <xs:element name="GetResultByNumDossAndCodeEchelleResponse" type="tns:GetResultByNumDossAndCodeEchelleResponse"/>
 
+  <xs:element name="IncrementID" type="tns:IncrementID"/>
+
+  <xs:element name="IncrementIDResponse" type="tns:IncrementIDResponse"/>
+
   <xs:element name="InsertEchelle" type="tns:InsertEchelle"/>
 
   <xs:element name="InsertEchelleResponse" type="tns:InsertEchelleResponse"/>
@@ -78,6 +82,19 @@
   <xs:element name="verifLogin" type="tns:verifLogin"/>
 
   <xs:element name="verifLoginResponse" type="tns:verifLoginResponse"/>
+
+  <xs:complexType name="IncrementID">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IncrementIDResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:complexType name="findallechellespecialite">
     <xs:sequence/>
@@ -250,18 +267,6 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="GetListReponseParEchelle">
-    <xs:sequence>
-      <xs:element name="arg0" type="xs:int"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="GetListReponseParEchelleResponse">
-    <xs:sequence>
-      <xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:complexType name="findallresultat">
     <xs:sequence/>
   </xs:complexType>
@@ -282,21 +287,15 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="findallspecialite">
-    <xs:sequence/>
-  </xs:complexType>
-
-  <xs:complexType name="findallspecialiteResponse">
+  <xs:complexType name="GetListReponseParEchelle">
     <xs:sequence>
-      <xs:element name="return" type="tns:specialite" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="arg0" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="specialite">
+  <xs:complexType name="GetListReponseParEchelleResponse">
     <xs:sequence>
-      <xs:element name="codSpec" type="xs:string" minOccurs="0"/>
-      <xs:element name="libSpec" type="xs:string" minOccurs="0"/>
-      <xs:element name="txRetFraischange" type="xs:int"/>
+      <xs:element name="return" type="ns1:anyTypeArray" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -316,6 +315,24 @@
       <xs:element name="codeSousFamille" type="xs:string" minOccurs="0"/>
       <xs:element name="designation" type="xs:string" minOccurs="0"/>
       <xs:element name="valeur" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="findallspecialite">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="findallspecialiteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:specialite" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="specialite">
+    <xs:sequence>
+      <xs:element name="codSpec" type="xs:string" minOccurs="0"/>
+      <xs:element name="libSpec" type="xs:string" minOccurs="0"/>
+      <xs:element name="txRetFraischange" type="xs:int"/>
     </xs:sequence>
   </xs:complexType>
 

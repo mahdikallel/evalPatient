@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:include page="css_declare.jsp"/>
         <title>JSP Page</title>
@@ -36,12 +37,12 @@
                     <!-- widget div-->
                     <div role="content" >
                         <div id="buttons" style="float:left;">
-                            
+
                         </div>
 
 
 
-                        <div id="container" style="width: 800px; height: 500px;margin-left: 400px">
+                        <div id="container" style="width: 1000px; height: 500px;margin-left: 200px">
                             <div id="_chose_echelle" style="float:left;">
                             </div>  
 
@@ -52,100 +53,142 @@
                             <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg"  >
                                 <span class="glyphicon glyphicon-plus-sign"></span> 
                             </button>
-                            
-                            
+
+
                         </div>
-                        <!-- Button to launch  modal add echelle -->
-                         <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-add" >
-                                <span class="glyphicon glyphicon-plus-sign"></span> 
-                            </button>
-                       
+
                     </div>
 
-                    <!-- end widget div -->
                 </div>
 
 
             </div>
         </div>
 
-        <!--Modal add -->
-        <div class="modal fade bs-example-modal-add" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+        <!--Modal add echelle -->
+        <div class="modal fade bs-example-modal-add-echelle" id="myModal-echelle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog">  
                 <div class="modal-content"><div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             ×
                         </button>
-                        <h4 class="modal-title" id="myModalLabel2">Article Post</h4>
+                        <h4 class="modal-title" id="myModalLabel2">Ajouter Echelle</h4>
                     </div>
                     <div class="modal-body">
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Title" required="">
+                                    <label for="designation">Designation *</label>
+                                    <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">
                                 </div>
+
+
+                            </div>
+
+
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Content" rows="5" required=""></textarea>
+                                    <label for="minimale">Valeur minimale *</label>
+                                    <input type="number" name="minimale" id="_minimale" class="form-control" placeholder="Valeur minimale" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="category"> Category</label>
-                                    <select class="form-control" id="category">
-                                        <option>Articles</option>
-                                        <option>Tutorials</option>
-                                        <option>Freebies</option>
-                                    </select>
+                                    <label for="moyenne">Valeur moyenne *</label>
+                                    <input type="number" name="moyenne" id="_moyenne" class="form-control" placeholder="Valeur moyenne" required>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="tags"> Tags</label>
-                                    <input type="text" class="form-control" id="tags" placeholder="Tags">
+                                    <label for="maximale">Valeur maximale *</label>
+                                    <input type="number" name="maximale" id="_maximale" class="form-control" placeholder="Valeur maximale" required>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-12">
-                                <div class="well well-sm well-primary">
-                                    <form class="form form-inline " role="form">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control" value="" placeholder="Date" required="">
-                                        </div>
-                                        <div class="form-group">
-                                            <select class="form-control">
-                                                <option>Draft</option>
-                                                <option>Published</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-success btn-sm">
-                                                <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                                            </button>
-                                            <button type="button" class="btn btn-default btn-sm">
-                                                <span class="glyphicon glyphicon-eye-open"></span> Preview
-                                            </button>
-                                        </div>
-                                    </form>
+                                <div class="form-group">
+                                    <label for="description">Description *</label>
+                                    <textarea class="form-control" name="description" id="_description" placeholder="Description" rows="5" required=""></textarea>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">
                             Cancel
                         </button>
-                        <button type="button" class="btn btn-primary">
-                            Post Article
+                        <button type="button" class="btn btn-primary" id="_btn_ajouter_echelle" >
+                            Ajouter
                         </button>
                     </div></div>  
             </div>  
         </div>
-         <!--Fin modal Add-->
-        
-        
+        <!--Fin modal add echelle-->
+
+
+        <!--Modal add Famille echelle -->
+        <div class="modal fade bs-example-modal-add-famille-echelle" id="myModal-famille-echelle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog">  
+                <div class="modal-content"><div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel3">Ajouter Echelle</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="designation">Designation</label>
+                                    <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation" required>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="minimale">Valeur minimale</label>
+                                    <input type="number" name="minimale" id="_minimale" class="form-control" placeholder="Valeur minimale" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="moyenne">Valeur moyenne</label>
+                                    <input type="number" name="moyenne" id="_moyenne" class="form-control" placeholder="Valeur moyenne" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="maximale">Valeur maximale</label>
+                                    <input type="number" name="maximale" id="_maximale" class="form-control" placeholder="Valeur maximale" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" name="description" id="_description" placeholder="Description" rows="5" required=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" id="_btn_ajouter_echelle">
+                            Ajouter
+                        </button>
+                    </div></div>  
+            </div>  
+        </div>
+        <!--Fin modal add Famille echelle-->
+
+
+
+
+
         <!-- Modal evaluation -->
         <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-lg">
@@ -199,7 +242,7 @@
             </div>
         </div>
         <!-- Modal evaluation -->
-
+        
 
 
         <jsp:include page="js_declare.jsp"/>

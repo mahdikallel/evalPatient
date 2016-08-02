@@ -6,6 +6,7 @@
 package com.csys.evalpatient.dao;
 
 import com.csys.evalpatient.model.Echelle;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -43,5 +44,23 @@ public class Echelledao {
             Logger.getLogger(Echelledao.class.getName()).log(Level.SEVERE, null, e);
 
         }
+    }
+    
+    public String IncrementID(String code,String tablename) {
+        try {
+            String sql;
+            sql = "SELECT MAX(" + code + ") from " + tablename + "";
+            //System.out.println("Requete  " + sql);
+            Query q = em.createNativeQuery(sql);      
+            List list = q.getResultList();        
+            int number=Integer.parseInt(list.get(0).toString());
+            DecimalFormat df=new DecimalFormat("000"); 
+            //System.out.println(df.format(number));
+            return df.format(number+1);
+        } catch (Exception e) {
+            Logger.getLogger(Echelledao.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+
     }
 }

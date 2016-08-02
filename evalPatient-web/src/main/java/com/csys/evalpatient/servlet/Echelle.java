@@ -104,13 +104,31 @@ public class Echelle extends HttpServlet {
                     out.println(gson.toJson(list));
                 }
             } else if ("update".equals(type)) {
-                if ("insert".equals(function)) {
+                if ("insertResultatEvaluation".equals(function)) {
                     String dateSys = request.getParameter("dateSys");
                     int numDos = Integer.parseInt(request.getParameter("numDos"));
                     int valeur = Integer.parseInt(request.getParameter("valeur"));
                     String codeSousFamille = request.getParameter("codeSousFamille");
                     WS.portEchelleWS.insertResultatEvaluation(numDos, codeSousFamille, valeur, dateSys);
+                } else if ("incrementID".equals(function)) {
+                    String code = request.getParameter("code");
+                    String tableName = request.getParameter("tableName");
+                    //out.print("code="+code+"<br>");
+                    //out.print("tableName="+tableName+"<br>");
+                    String number=WS.portEchelleWS.incrementID(code, tableName);
+                    out.println(gson.toJson(number));
+                    //out.print("number="+number+"<br>");
+                    
+                } else if ("insertEchelle".equals(function)) {
+                    String codeEchelle = request.getParameter("codeEchelle");
+                     String designation = request.getParameter("designation");
+                    int valeurMinimale = Integer.parseInt(request.getParameter("valeurMinimale"));
+                    int valeurMoyenne = Integer.parseInt(request.getParameter("valeurMoyenne"));
+                    int ValeurMaximale = Integer.parseInt(request.getParameter("ValeurMaximale"));
+                    String description = request.getParameter("description");
+                    WS.portEchelleWS.insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
                 }
+
             }
 
         } finally {

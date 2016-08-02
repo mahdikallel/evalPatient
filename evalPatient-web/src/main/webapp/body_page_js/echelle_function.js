@@ -181,7 +181,7 @@ function insertResultatEvaluation(numDos, codeSousFamille, valeur, dateSys)
 {
     var reponse;
     $.ajax({
-        url: "../Echelle?type=update&function=insert&numDos=" + numDos + "&codeSousFamille='" + codeSousFamille + "'&valeur=" + valeur + "&dateSys=" + dateSys,
+        url: "../Echelle?type=update&function=insertResultatEvaluation&numDos=" + numDos + "&codeSousFamille='" + codeSousFamille + "'&valeur=" + valeur + "&dateSys=" + dateSys,
         type: 'POST',
         async: false,
         dataType: "json",
@@ -219,5 +219,42 @@ function getCurrentDateTime() {
     return today;
 }
 
+function insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description)
+{
+    var reponse;
+    $.ajax({
+        url: "../Echelle?type=update&function=insertEchelle&codeEchelle='" + codeEchelle + "'&designation='" + designation + "'&valeurMinimale=" + valeurMinimale +"&valeurMoyenne=" + valeurMoyenne +"&ValeurMaximale=" + ValeurMaximale +"&description='" + description +"'",
+        type: 'POST',
+        async: false,
+        dataType: "json",
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            reponse = data;
+        }
+    });
+    return reponse;
+}
+
+function incrementID(code, tableName)
+{
+    var reponse;
+    $.ajax({
+        url: "../Echelle?type=update&function=incrementID&code=" + code + "&tableName=" + tableName + "",
+        type: 'POST',
+        async: false,
+        dataType: "json",
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            reponse = data;
+        }
+    });
+    return reponse;
+}
 
 

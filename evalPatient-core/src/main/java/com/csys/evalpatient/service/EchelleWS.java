@@ -214,5 +214,20 @@ public class EchelleWS {
     public void InsertSousFamille(String code_Sous_Famille, String designation, String code_Famille,int valeur) {
         new SousFamilledao().InsertSousFamille( code_Sous_Famille,  designation,  code_Famille, valeur);
     }
+    
+    
+    /**
+     * This is a sample web service operation
+     *
+     
+     *
+     * @param tablename       
+     * @param code       
+     * @return        
+     */
+    @WebMethod(operationName = "IncrementID")
+    public String IncrementID(String code,String tablename) {
+        return new Echelledao().IncrementID(code,tablename);
+    }
 
 }

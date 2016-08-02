@@ -47,7 +47,7 @@ $(function () {
     var designation = [];
     var idEchelles = [];
     var descEchelles = [];
-    $("#buttons").append('<button type="button"  class="btn  txt-color-white" data-toggle="modal" data-target=".bs-example-modal-add" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px;background-color:#71843f">Ajouter Echelle  </button><br>');
+    $("#buttons").append('<button type="button"  class="btn  txt-color-white" data-toggle="modal" data-target=".bs-example-modal-add-echelle" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px;background-color:#71843f">Ajouter Echelle  </button><br>');
     for (var i = 0; i < list.length; i++)
     {
         $("#buttons").append('<a href="javascript:void(0);" id="_button' + i + '" class="btn btn-labeled btn-warning" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px">' + list[i].designation + '</a><br>');
@@ -223,12 +223,66 @@ $("#_insert_eval").bind("click", function () {
 
 });
 
-$('#exampleModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-title').text('New message to ' + recipient)
-    modal.find('.modal-body input').val(recipient)
-})
+$("#_btn_ajouter_echelle").unbind("click");
+$("#_btn_ajouter_echelle").bind("click", function () {
+
+    var codeEchelle = incrementID("Code_Echelle", "Echelle");
+    var designation = $("#_designation").val();
+    var valeurMinimale = $("#_minimale").val();
+    var valeurMoyenne = $("#_moyenne").val();
+    var ValeurMaximale = $("#_maximale").val();
+    var description = $("#_description").val();
+    var test = 0;
+    if (designation === "") {
+        $("#_designation").css("border-color", "red");
+
+    } else {
+        $("#_designation").css("border-color", "#cccccc");
+        test++;
+    }
+    if (valeurMinimale === "") {
+        $("#_minimale").css("border-color", "red");
+    } else {
+        $("#_minimale").css("border-color", "#cccccc");
+        test++;
+    }
+    if (valeurMoyenne === "") {
+        $("#_moyenne").css("border-color", "red");
+    } else {
+        $("#_moyenne").css("border-color", "#cccccc");
+        test++;
+    }
+    if (ValeurMaximale === "") {
+        $("#_maximale").css("border-color", "red");
+    } else {
+        $("#_maximale").css("border-color", "#cccccc");
+        test++;
+    }
+    if (description === "") {
+        $("#_description").css("border-color", "red");
+    } else {
+        $("#_description").css("border-color", "#cccccc");
+        test++;
+    }
+    if (test === 5) {
+        insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
+        showNotification("Succes", designation + " est ajouté ", "success", 4000);
+        $("#myModal-echelle").modal('hide');
+        $("#myModal-famille-echelle").modal('show');
+    }
+
+
+
+    //    showNotification("Erreur ", "champ vide ", "error", 4000);
+
+    // } else {
+
+//$("#myModal-echelle").modal('hide');
+    //   insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
+
+//        showNotification("Succes", designation + " est ajouté ", "success", 4000);
+//    }
+
+
+});
+

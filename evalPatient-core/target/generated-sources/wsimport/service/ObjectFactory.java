@@ -46,9 +46,11 @@ public class ObjectFactory {
     private final static QName _Findallresultat_QNAME = new QName("http://service.evalpatient.csys.com/", "findallresultat");
     private final static QName _InsertFamilleEchelle_QNAME = new QName("http://service.evalpatient.csys.com/", "InsertFamilleEchelle");
     private final static QName _GetResultByNumDossAndCodeEchelleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "GetResultByNumDossAndCodeEchelleResponse");
+    private final static QName _IncrementIDResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "IncrementIDResponse");
     private final static QName _FindallsousfamilleResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "findallsousfamilleResponse");
     private final static QName _VerifLogin_QNAME = new QName("http://service.evalpatient.csys.com/", "verifLogin");
     private final static QName _VerifLoginResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "verifLoginResponse");
+    private final static QName _IncrementID_QNAME = new QName("http://service.evalpatient.csys.com/", "IncrementID");
     private final static QName _GetTraceCnxResponse_QNAME = new QName("http://service.evalpatient.csys.com/", "getTraceCnxResponse");
     private final static QName _Tracecnx_QNAME = new QName("http://service.evalpatient.csys.com/", "tracecnx");
     private final static QName _InsertResultatEvaluation_QNAME = new QName("http://service.evalpatient.csys.com/", "InsertResultatEvaluation");
@@ -148,6 +150,14 @@ public class ObjectFactory {
      */
     public GetResultByNumDossAndCodeEchelleResponse createGetResultByNumDossAndCodeEchelleResponse() {
         return new GetResultByNumDossAndCodeEchelleResponse();
+    }
+
+    /**
+     * Create an instance of {@link IncrementIDResponse }
+     * 
+     */
+    public IncrementIDResponse createIncrementIDResponse() {
+        return new IncrementIDResponse();
     }
 
     /**
@@ -324,6 +334,14 @@ public class ObjectFactory {
      */
     public GetResultByNumDossAndCodeEchelle createGetResultByNumDossAndCodeEchelle() {
         return new GetResultByNumDossAndCodeEchelle();
+    }
+
+    /**
+     * Create an instance of {@link IncrementID }
+     * 
+     */
+    public IncrementID createIncrementID() {
+        return new IncrementID();
     }
 
     /**
@@ -589,6 +607,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IncrementIDResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "IncrementIDResponse")
+    public JAXBElement<IncrementIDResponse> createIncrementIDResponse(IncrementIDResponse value) {
+        return new JAXBElement<IncrementIDResponse>(_IncrementIDResponse_QNAME, IncrementIDResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link FindallsousfamilleResponse }{@code >}}
      * 
      */
@@ -613,6 +640,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "verifLoginResponse")
     public JAXBElement<VerifLoginResponse> createVerifLoginResponse(VerifLoginResponse value) {
         return new JAXBElement<VerifLoginResponse>(_VerifLoginResponse_QNAME, VerifLoginResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IncrementID }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://service.evalpatient.csys.com/", name = "IncrementID")
+    public JAXBElement<IncrementID> createIncrementID(IncrementID value) {
+        return new JAXBElement<IncrementID>(_IncrementID_QNAME, IncrementID.class, null, value);
     }
 
     /**
