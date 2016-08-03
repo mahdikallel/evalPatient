@@ -52,7 +52,7 @@ function createBackgrid(numEchelle) {
             editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
             // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
             cell: Backgrid.StringCell.extend({
-                className: 'string-cell-6' 
+                className: 'string-cell-6'
             })
         }, {
             name: "sousFamille",
@@ -74,7 +74,7 @@ function createBackgrid(numEchelle) {
             name: "codeFamille",
             label: "CodeFamille",
             editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-            renderable: false,
+            renderable: true,
             cell: Backgrid.StringCell.extend({
                 className: 'string-cell'
             })
@@ -83,7 +83,7 @@ function createBackgrid(numEchelle) {
             name: "codeSousFamille",
             label: "CodeSousFamille",
             editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-            renderable: false,
+            renderable: true,
             cell: Backgrid.StringCell.extend({
                 className: 'string-cell'
             })
@@ -98,9 +98,13 @@ function createBackgrid(numEchelle) {
         somme: 0,
         highlightColor: "lightBlue",
         LowColor: "White",
+        Hred: "red",
+        Hyellow: "yellow",
         events: {
-            click: "Click"
-
+            click: "Click",
+            focusin: "rowFocused",
+            focusout: "rowLostFocus",
+            render: "render"
         },
         Click: function () {
             // console.log(this.tabCodeFamille.length);
@@ -149,8 +153,43 @@ function createBackgrid(numEchelle) {
             sessionStorage.setItem("tabValeur", JSON.stringify(this.tabValeur));
             sessionStorage.setItem("tabCodeSousFamille", JSON.stringify(this.tabCodeSousFamille));
             sessionStorage.setItem("tabCodeFamille", JSON.stringify(this.tabCodeFamille));
+        },
+        rowFocused: function () {
+            this.el.style.backgroundColor = this.Hred;
+        },
+        rowLostFocus: function () {
+            delete this.el.style.backgroundColor;
+        },
+        render: function () {
+            FocusableRow.__super__.render.apply(this, arguments);
+            if (this.model.get("famille") === "") {
+                this.el.style.backgroundColor = "red";
+
+            }
+            return this;
         }
     });
+/*
+        initialize: function () {
+            _.bindAll(this, 'nextElement', 'previousElement');
+        },
+        nextElement: function () {
+            var index = this.echelles.indexOf(this);
+            if ((index + 1) === this.echelles.length) {
+                //It's the last model in the collection so return null
+                return null;
+            }
+            return this.echelles.at(index + 1);
+        },
+        previousElement: function () {
+            var index = this.echelles.indexOf(this);
+            if (index === 0) {
+                //It's the first element in the collection so return null
+                return null;
+            }
+            return this.echelles.at(index - 1);
+        }
+*/
 
 // Initialize a new Grid instance
     var grid = new Backgrid.Grid({
@@ -223,7 +262,7 @@ function insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, 
 {
     var reponse;
     $.ajax({
-        url: "../Echelle?type=update&function=insertEchelle&codeEchelle='" + codeEchelle + "'&designation='" + designation + "'&valeurMinimale=" + valeurMinimale +"&valeurMoyenne=" + valeurMoyenne +"&ValeurMaximale=" + ValeurMaximale +"&description='" + description +"'",
+        url: "../Echelle?type=update&function=insertEchelle&codeEchelle='" + codeEchelle + "'&designation='" + designation + "'&valeurMinimale=" + valeurMinimale + "&valeurMoyenne=" + valeurMoyenne + "&ValeurMaximale=" + ValeurMaximale + "&description='" + description + "'",
         type: 'POST',
         async: false,
         dataType: "json",

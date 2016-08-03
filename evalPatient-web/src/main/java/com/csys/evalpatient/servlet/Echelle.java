@@ -89,13 +89,41 @@ public class Echelle extends HttpServlet {
                     String numEchelle = request.getParameter("numEchelle");
                     List<Evaluation> list = new ArrayList<Evaluation>();
                     List<AnyTypeArray> listAux;
+
                     listAux = WS.portEchelleWS.getListReponseParEchelle(Integer.parseInt(numEchelle));
+                    String[] tab = new String[listAux.size()];
+                    boolean test;
                     for (int i = 0; i < listAux.size(); i++) {
                         Evaluation eval = new Evaluation();
-                        eval.setFamille(listAux.get(i).getItem().get(0).toString());
+
                         eval.setSousFamille(listAux.get(i).getItem().get(1).toString());
                         eval.setValeur(listAux.get(i).getItem().get(2).toString());
-                        eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+
+                        if (i == 0) {
+                            eval.setFamille(listAux.get(i).getItem().get(0).toString());
+                            eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+                            tab[i] = eval.getCodeFamille();
+                        } else {
+                            int aux = 0;
+                            eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+                            for (int j = 0; j < i; j++) {
+                                if (tab[j].equals(eval.getCodeFamille())) {
+                                    aux = 1;
+                                }
+
+                            }
+                            if (aux == 1) {
+                                eval.setFamille("");
+                                eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+                                tab[i] = eval.getCodeFamille();
+                            } else {
+                                eval.setFamille(listAux.get(i).getItem().get(0).toString());
+                                eval.setCodeFamille(listAux.get(i).getItem().get(4).toString());
+                                tab[i] = eval.getCodeFamille();
+                            }
+
+                        }
+
                         eval.setCodeSousFamille(listAux.get(i).getItem().get(5).toString());
                         eval.setId(String.valueOf(i));
                         list.add(eval);
@@ -115,13 +143,13 @@ public class Echelle extends HttpServlet {
                     String tableName = request.getParameter("tableName");
                     //out.print("code="+code+"<br>");
                     //out.print("tableName="+tableName+"<br>");
-                    String number=WS.portEchelleWS.incrementID(code, tableName);
+                    String number = WS.portEchelleWS.incrementID(code, tableName);
                     out.println(gson.toJson(number));
                     //out.print("number="+number+"<br>");
-                    
+
                 } else if ("insertEchelle".equals(function)) {
                     String codeEchelle = request.getParameter("codeEchelle");
-                     String designation = request.getParameter("designation");
+                    String designation = request.getParameter("designation");
                     int valeurMinimale = Integer.parseInt(request.getParameter("valeurMinimale"));
                     int valeurMoyenne = Integer.parseInt(request.getParameter("valeurMoyenne"));
                     int ValeurMaximale = Integer.parseInt(request.getParameter("ValeurMaximale"));
