@@ -74,7 +74,7 @@ $(function () {
             var designation = [];
             var idEchelles = [];
             var descEchelles = [];
-
+            sessionStorage.removeItem("tabValeur");
             designation = JSON.parse(sessionStorage.getItem("tabDesignation"));
             idEchelles = JSON.parse(sessionStorage.getItem("tabIdEchelles"));
             descEchelles = JSON.parse(sessionStorage.getItem("tabDescEchelles"));
@@ -139,8 +139,25 @@ $(function () {
 
 });
 
+
+$("#launch_eval_modal").unbind("click");
+$("#launch_eval_modal").bind("click", function () {
+
+    if (sessionStorage.getItem("currentIdEchelle") === null) {
+        showNotification("Error", "Choissisez un echelle pour commencer l'evaluation ", "error", 0);
+    } else {
+        $("#myModal").modal('show');
+    }
+
+
+
+});
+
+
 $("#_insert_eval").unbind("click");
 $("#_insert_eval").bind("click", function () {
+
+
 
     var tabValeur = [];
     var tabCodeSousFamille = [];
@@ -150,76 +167,90 @@ $("#_insert_eval").bind("click", function () {
     tabCodeSousFamille = JSON.parse(sessionStorage.getItem("tabCodeSousFamille"));
     tabCodeFamille = JSON.parse(sessionStorage.getItem("tabCodeFamille"));
 
-    for (var i = 0; i < tabValeur.length; i++) {
-        $("[id=" + tabCodeFamille[i] + "]").css("background-color", "White");
-        insertResultatEvaluation('13015369', tabCodeSousFamille[i], tabValeur[i], getCurrentDateTime());
-    }
-    var designation = [];
-    var idEchelles = [];
-    var descEchelles = [];
 
-    designation = JSON.parse(sessionStorage.getItem("tabDesignation"));
-    idEchelles = JSON.parse(sessionStorage.getItem("tabIdEchelles"));
-    descEchelles = JSON.parse(sessionStorage.getItem("tabDescEchelles"));
-
-    $("#myModalLabel").text(designation[sessionStorage.getItem("currentIdEchelle")]);
-    $("#idEchelle").val(idEchelles[sessionStorage.getItem("currentIdEchelle")]);
-    var numEchelle = $("#idEchelle").val();
-    $("#descEchelles").text(descEchelles[sessionStorage.getItem("currentIdEchelle")]);
-    createBackgrid(numEchelle);
-
-    var donne = DrawChart(13015369, numEchelle);
-
-    var date = [];
-    var valeur = [];
-    for (var j = 0; j < donne.length; j++) {
-        date.push(donne[j].date);
-        valeur.push(donne[j].valeur);
-    }
-
-    $('#container').highcharts({
-        title: {
-            text: "Courbe d'évaluation",
-            x: -20 //center
-        },
-        subtitle: {
-            text: designation[sessionStorage.getItem("currentIdEchelle")],
-            x: -20
-        },
-        xAxis: {
-            title: {
-                text: 'Date'
-            },
-            categories: date
+    if (tabValeur === null) {
+        showNotification("Error", "Commencez a cocher", "error", 0);
+    } else {
 
 
-        },
-        yAxis: {
-            title: {
-                text: 'Valeur'
+        if (tabValeur.length === parseInt(sessionStorage.getItem("nbLigneResponse"))) {
+            for (var i = 0; i < tabValeur.length; i++) {
+                $("[id=" + tabCodeFamille[i] + "]").css("background-color", "White");
+                insertResultatEvaluation('13015369', tabCodeSousFamille[i], tabValeur[i], getCurrentDateTime());
+            }
+            var designation = [];
+            var idEchelles = [];
+            var descEchelles = [];
+
+            designation = JSON.parse(sessionStorage.getItem("tabDesignation"));
+            idEchelles = JSON.parse(sessionStorage.getItem("tabIdEchelles"));
+            descEchelles = JSON.parse(sessionStorage.getItem("tabDescEchelles"));
+
+            $("#myModalLabel").text(designation[sessionStorage.getItem("currentIdEchelle")]);
+            $("#idEchelle").val(idEchelles[sessionStorage.getItem("currentIdEchelle")]);
+            var numEchelle = $("#idEchelle").val();
+            $("#descEchelles").text(descEchelles[sessionStorage.getItem("currentIdEchelle")]);
+            createBackgrid(numEchelle);
+
+            var donne = DrawChart(13015369, numEchelle);
+
+            var date = [];
+            var valeur = [];
+            for (var j = 0; j < donne.length; j++) {
+                date.push(donne[j].date);
+                valeur.push(donne[j].valeur);
             }
 
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
-        },
-        series: [{
-                name: 'Total',
-                data: valeur
+            $('#container').highcharts({
+                title: {
+                    text: "Courbe d'évaluation",
+                    x: -20 //center
+                },
+                subtitle: {
+                    text: designation[sessionStorage.getItem("currentIdEchelle")],
+                    x: -20
+                },
+                xAxis: {
+                    title: {
+                        text: 'Date'
+                    },
+                    categories: date
 
-            }]
-    });
 
-    showNotification("Succes", designation[sessionStorage.getItem("currentIdEchelle")] + " est mis à jour avec une valeur " + $("#_resultat").text(), "success", 6000);
-    sessionStorage.removeItem("tabValeur");
-    sessionStorage.removeItem("tabCodeSousFamille");
-    sessionStorage.removeItem("tabCodeFamille");
-    $("#_resultat").empty();
-    $("#rechercher").remove();
+                },
+                yAxis: {
+                    title: {
+                        text: 'Valeur'
+                    }
 
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                        name: 'Total',
+                        data: valeur
+
+                    }]
+            });
+
+            showNotification("Succes", designation[sessionStorage.getItem("currentIdEchelle")] + " est mis à jour avec une valeur " + $("#_resultat").text(), "success", 6000);
+            sessionStorage.removeItem("tabValeur");
+            sessionStorage.removeItem("tabCodeSousFamille");
+            sessionStorage.removeItem("tabCodeFamille");
+            sessionStorage.removeItem("nbLigneResponse");
+            $("#_resultat").empty();
+            $("#rechercher").remove();
+
+            $("#myModal").modal('hide');
+
+        } else {
+            showNotification("Error", "Vous devez au moins choisir une reponse par famille echelle", "error", 0);
+        }
+    }
 
 });
 

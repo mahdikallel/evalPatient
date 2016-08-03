@@ -50,7 +50,7 @@
 
                         <div id="_eval" style="right: 0; top: 0; position: absolute;margin-top: 25px;margin-right: 20px;">
                             <!-- Button to launch  modal evaluation -->
-                            <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target=".bs-example-modal-lg"  >
+                            <button type="button" class="btn btn-default btn-sm" id="launch_eval_modal"  >
                                 <span class="glyphicon glyphicon-plus-sign"></span> 
                             </button>
 
@@ -364,7 +364,7 @@
                         </center>
                         <br>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="_insert_eval" data-dismiss="modal" >Save changes</button>
+                        <button type="button" class="btn btn-primary" id="_insert_eval"  >Save changes</button>
                     </div>
                 </div>
             </div>

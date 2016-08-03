@@ -90,7 +90,7 @@ function createBackgrid(numEchelle) {
 
         }];
 
-
+var nbLigneResponse=0;
     FocusableRow = Backgrid.Row.extend({
         tabCodeFamille: [],
         tabCodeSousFamille: [],
@@ -98,12 +98,9 @@ function createBackgrid(numEchelle) {
         somme: 0,
         highlightColor: "lightBlue",
         LowColor: "White",
-        Hred: "red",
-        Hyellow: "yellow",
+        gray: "#EFECCA",
         events: {
             click: "Click",
-            focusin: "rowFocused",
-            focusout: "rowLostFocus",
             render: "render"
         },
         Click: function () {
@@ -135,7 +132,7 @@ function createBackgrid(numEchelle) {
                     }
                 }
             }
-
+            var color = this.el.style.backgroundColor;
             this.somme = 0;
             for (var i = 0; i < this.tabValeur.length; i++) {
                 this.somme = parseInt(this.somme) + parseInt(this.tabValeur[i]);
@@ -143,7 +140,7 @@ function createBackgrid(numEchelle) {
                     this.el.id = this.model.get("codeFamille");
                 } else {
                     this.el.id = this.tabCodeFamille[pos];
-                    $("[id=" + this.tabCodeFamille[pos] + "]").css("background-color", this.LowColor);
+                    $("[id=" + this.tabCodeFamille[pos] + "]").css("background-color", color);
                 }
                 this.el.style.backgroundColor = this.highlightColor;
             }
@@ -154,42 +151,45 @@ function createBackgrid(numEchelle) {
             sessionStorage.setItem("tabCodeSousFamille", JSON.stringify(this.tabCodeSousFamille));
             sessionStorage.setItem("tabCodeFamille", JSON.stringify(this.tabCodeFamille));
         },
-        rowFocused: function () {
-            this.el.style.backgroundColor = this.Hred;
-        },
-        rowLostFocus: function () {
-            delete this.el.style.backgroundColor;
-        },
         render: function () {
             FocusableRow.__super__.render.apply(this, arguments);
-            if (this.model.get("famille") === "") {
-                this.el.style.backgroundColor = "red";
 
+            if (parseInt(this.model.get("codeFamille")) % 2 === 0) {
+                this.el.style.backgroundColor = this.LowColor;     
+            } else {
+                this.el.style.backgroundColor = this.gray;
+ 
             }
+            if(this.model.get("famille")!==""){
+                nbLigneResponse++;
+            }
+            sessionStorage.setItem("nbLigneResponse", nbLigneResponse);
+
+
             return this;
         }
     });
-/*
-        initialize: function () {
-            _.bindAll(this, 'nextElement', 'previousElement');
-        },
-        nextElement: function () {
-            var index = this.echelles.indexOf(this);
-            if ((index + 1) === this.echelles.length) {
-                //It's the last model in the collection so return null
-                return null;
-            }
-            return this.echelles.at(index + 1);
-        },
-        previousElement: function () {
-            var index = this.echelles.indexOf(this);
-            if (index === 0) {
-                //It's the first element in the collection so return null
-                return null;
-            }
-            return this.echelles.at(index - 1);
-        }
-*/
+    /*
+     initialize: function () {
+     _.bindAll(this, 'nextElement', 'previousElement');
+     },
+     nextElement: function () {
+     var index = this.echelles.indexOf(this);
+     if ((index + 1) === this.echelles.length) {
+     //It's the last model in the collection so return null
+     return null;
+     }
+     return this.echelles.at(index + 1);
+     },
+     previousElement: function () {
+     var index = this.echelles.indexOf(this);
+     if (index === 0) {
+     //It's the first element in the collection so return null
+     return null;
+     }
+     return this.echelles.at(index - 1);
+     }
+     */
 
 // Initialize a new Grid instance
     var grid = new Backgrid.Grid({
