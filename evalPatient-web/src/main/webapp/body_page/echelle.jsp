@@ -72,62 +72,193 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                             ×
                         </button>
-                        <h4 class="modal-title" id="myModalLabel2">Ajouter Echelle</h4>
+                        <h4 class="modal-title" id="myModalLabel2">Ajout</h4>
                     </div>
                     <div class="modal-body">
+                        <div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="designation">Designation *</label>
-                                    <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">
+                            <header role="heading">
+                                <div class="jarviswidget-ctrls" role="menu"> 
+                                    <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </a> 
+
+
+                                </div>
+
+                                <span class="widget-icon">
+                                    <i class="fa fa-edit">
+
+                                    </i>
+                                </span>
+                                <h2>Ajouter échelle</h2>				
+
+                                <span class="jarviswidget-loader" style="display: none;">
+                                    <i class="fa fa-refresh fa-spin">
+
+                                    </i>
+                                </span>
+                            </header>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="designation">Designation *</label>
+                                        <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">
+                                    </div>
+
+
                                 </div>
 
 
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="minimale">Valeur minimale *</label>
+                                        <input type="number" name="minimale" id="_minimale" class="form-control" placeholder="Valeur minimale" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="moyenne">Valeur moyenne *</label>
+                                        <input type="number" name="moyenne" id="_moyenne" class="form-control" placeholder="Valeur moyenne" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="maximale">Valeur maximale *</label>
+                                        <input type="number" name="maximale" id="_maximale" class="form-control" placeholder="Valeur maximale" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="description">Description *</label>
+                                        <textarea class="form-control" name="description" id="_description" placeholder="Description" rows="5" required=""></textarea>
+                                    </div>
+                                </div>
                             </div>
 
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="minimale">Valeur minimale *</label>
-                                    <input type="number" name="minimale" id="_minimale" class="form-control" placeholder="Valeur minimale" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="moyenne">Valeur moyenne *</label>
-                                    <input type="number" name="moyenne" id="_moyenne" class="form-control" placeholder="Valeur moyenne" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="maximale">Valeur maximale *</label>
-                                    <input type="number" name="maximale" id="_maximale" class="form-control" placeholder="Valeur maximale" required>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="description">Description *</label>
-                                    <textarea class="form-control" name="description" id="_description" placeholder="Description" rows="5" required=""></textarea>
-                                </div>
-                            </div>
                         </div>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Cancel
+                        <br>
+                        <button type="button" class="btn btn-info btn-sm" style="float:right;font-size : 15px;" data-toggle="#jobInfo">
+                            <i class="fa fa-plus-circle">&nbsp &nbsp<b> Ajouter famille échelle</b></i>
                         </button>
-                        <button type="button" class="btn btn-primary" id="_btn_ajouter_echelle" >
-                            Ajouter
-                        </button>
-                    </div></div>  
+                        <br>
+                        <br>
+                        <div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">
+
+                            <header role="heading">
+                                <div class="jarviswidget-ctrls" role="menu"> 
+
+                                    <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
+                                        <i class="glyphicon glyphicon-trash" style="color:#E60000;"></i>
+                                    </a> 
+
+                                    <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </a> 
+
+
+                                </div>
+
+
+                                <span class="widget-icon">
+                                    <i class="fa fa-edit">
+
+                                    </i>
+                                </span>
+
+                                <h2>Ajouter famille échelle</h2>				
+
+
+
+                            </header>
+
+                            <div class="row">
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="designation">Designation *</label>
+                                        <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">
+
+                            <header role="heading">
+                                <div class="jarviswidget-ctrls" role="menu"> 
+                                    <a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">
+                                        <i class="fa fa-minus"></i>
+                                    </a> 
+
+
+                                </div>
+
+                                <span class="widget-icon">
+                                    <i class="fa fa-edit">
+
+                                    </i>
+                                </span>
+                                <h2>Ajouter sous famille échelle</h2>				
+
+                                <span class="jarviswidget-loader" style="display: none;">
+                                    <i class="fa fa-refresh fa-spin">
+
+                                    </i>
+                                </span>
+                            </header>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="#jobInfo" style="float: right;margin-top: 1px;margin-bottom: 10px;">
+                                        <i class="fa fa-plus-circle">&nbsp; &nbsp; Ajouter sous famille</i>
+                                    </button>
+                                     
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="designation">Designation sous famille*</label>
+                                        <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="valeur">Valeur *</label>
+                                        <input type="number" name="valeur" id="_valeur" class="form-control" placeholder="Valeur"  required="true">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                     <div class="form-group">
+                                    <i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 49px;"></i>
+                                     </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                Cancel
+                            </button>
+                            <button type="button" class="btn btn-primary" id="_btn_ajouter_echelle" >
+                                Ajouter
+                            </button>
+                        </div>
+                    </div>  
+                </div>
             </div>  
         </div>
         <!--Fin modal add echelle-->
 
 
-        <!--Modal add Famille echelle -->
+        <!--Modal add Famille echelle 
         <div class="modal fade bs-example-modal-add-famille-echelle" id="myModal-famille-echelle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog">  
                 <div class="modal-content"><div class="modal-header">
@@ -186,9 +317,6 @@
         <!--Fin modal add Famille echelle-->
 
 
-
-
-
         <!-- Modal evaluation -->
         <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-lg">
@@ -242,7 +370,7 @@
             </div>
         </div>
         <!-- Modal evaluation -->
-        
+
 
 
         <jsp:include page="js_declare.jsp"/>
