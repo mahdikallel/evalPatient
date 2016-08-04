@@ -63,256 +63,256 @@
         </style>
 
     </head>
-      <!-- #HEADER -->
-        <header id="header">
-            <div id="logo-group" class="activity-dropdown">
-                <span name="_info_pat_rea" style="width: 400px;"> 
-                    <img class="_avatar_patient" src="../img/avatars/male.png" alt="me" class="online" style="height: 40px; width: 40px; margin-top: 3px; margin-left: 3px;vertical-align: top"
-                         onclick="javascript:uploadImagePatient()"/> 
-                    <span class="_nom_patient click_info" style="color:#000000;font-weight: 700;"></span> 
-                    <span class="_age_patient click_info"></span>
-                </span>
-                <span name="_info_pat_rea" class="_num_cha_patient click_info" style="margin-left: 46px; margin-top: -24px;width: 400px;"></span>
-                <span name="_info_pat_rea" class="_num_dossier_patient click_info" style="margin-left: 160px; margin-top: -39px;width: 400px;"></span>
-                <span name="_info_pat_rea_cloturee"> 
-                    
-                    <span class="_nom_patient_cloturee click_info" style="color:#000000;font-weight: 700;"></span> 
-                    <span class="_age_patient_cloturee click_info"></span>
-                </span>
-                <span name="_info_pat_rea_cloturee" class="_num_cha_patient_cloturee click_info" style="margin-left: 46px; margin-top: -24px;width: 100%"></span>
+    <!-- #HEADER -->
+    <header id="header">
+        <div id="logo-group" class="activity-dropdown">
+            <span name="_info_pat_rea" style="width: 400px;"> 
+                <img class="_avatar_patient" src="../img/avatars/male.png" alt="me" class="online" style="height: 40px; width: 40px; margin-top: 3px; margin-left: 3px;vertical-align: top"
+                     onclick="javascript:uploadImagePatient()"/> 
+                <span class="_nom_patient click_info" style="color:#000000;font-weight: 700;"></span> 
+                <span class="_age_patient click_info"></span>
+            </span>
+            <span name="_info_pat_rea" class="_num_cha_patient click_info" style="margin-left: 46px; margin-top: -24px;width: 400px;"></span>
+            <span name="_info_pat_rea" class="_num_dossier_patient click_info" style="margin-left: 160px; margin-top: -39px;width: 400px;"></span>
+            <span name="_info_pat_rea_cloturee"> 
 
-                <span class="click_info" style=" margin-left: 46px;margin-top: -23px;width: 300px;">
-                    <b><span class="click_info" id="_medecin_infirmier"></span>  </b><span class="click_info" id="_nom_medecin"></span>
-                </span>
+                <span class="_nom_patient_cloturee click_info" style="color:#000000;font-weight: 700;"></span> 
+                <span class="_age_patient_cloturee click_info"></span>
+            </span>
+            <span name="_info_pat_rea_cloturee" class="_num_cha_patient_cloturee click_info" style="margin-left: 46px; margin-top: -24px;width: 100%"></span>
 
-                <div class="ajax-dropdown">
-                    <div class="btn-group btn-group-justified" data-toggle="buttons">
-                        <label class="btn btn-default">
-                            <input type="radio" name="activity" id="../body_page/liste_patients_dropdown.jsp">
-                            Liste des patients </label>
-                        <label class="btn btn-default">
-                            <input type="radio" name="activity" id="../body_page/patient_en_cours.jsp">
-                            Patient en cours </label>
-                    </div>
+            <span class="click_info" style=" margin-left: 46px;margin-top: -23px;width: 300px;">
+                <b><span class="click_info" id="_medecin_infirmier"></span>  </b><span class="click_info" id="_nom_medecin"></span>
+            </span>
 
-                    <div class="ajax-notifications custom-scroll">
-                        <div class="alert alert-transparent">
-                            <div class="row">
-                                <div class="col-sm-3 profile-pic">
-                                    <img id="avatar_info_patient">
-                                    <div class="padding-10">
-                                        <h4 class="font-md"><strong id="dossier_info_patient" style="color: black;"></strong>
-                                            <br>
-                                            <small>Dossier</small></h4>
-                                        <br>
-                                        <h4 class="font-md"><strong id="chambre_info_patient" style="color: black;"></strong>
-                                            <br>
-                                            <small>Chambre</small></h4>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6" style="margin-left: 5%;">
-                                    <h1>
-                                        <span id="prenom_info_patient" style="font-size: 18px;color: black;"></span>
-                                        <span id="nom_info_patient" style="font-size: 22px;color: black;"></span>
-                                        <br>
-                                        <span id="sex_info_patient"></span>
-                                        <span id="nationalite_info_patient"></span>
-                                        <span id="motif_info_patient" style="font-size: 18px;"></span>
-                                    </h1>
-
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <p class="text-muted">
-                                                <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span id="age_info_patient"></span>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="text-muted">
-                                                <i class="fa fa-user-md"></i>&nbsp;&nbsp;<span id="medecin_info_patient"></span>
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <p class="text-muted">
-                                                <i class="fa fa-calendar"></i>&nbsp;&nbsp; depuis le <span id="dateArr_info_patient"></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>       
-                            </div>  
-                        </div>                        
-                    </div>
-
-                    <span> Dernière actualisation: <div style=" display: initial; " id="time_liste"></div>
-                        <button id="refresh_liste_patient" style="display: -webkit-box;" type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Chargement..." class="btn btn-xs btn-default pull-right">
-                            <i class="fa fa-refresh"></i>
-                        </button> </span>
-                </div>
-            </div>
-
-            <div class="project-context hidden-xs" style="display: inline-flex;">
-                <span id="calendrier" style=" font-size: 15px;margin-top: 3px;width: 100%;">
-                    <ul class="demo-btns">
-                        <li>
-                            <a onclick="datePrevious()" id="leftDate" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-left"></i></a>
-                        </li>
-                        <li style="margin-left: -3px; ">
-                            <span><div id="selectDatesFeuillediv" style="display: inline;"></div></span>
-                        </li>
-                        <li>
-                            <a onclick="dateNext()" id="rightDate" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-right"></i></a>
-                        </li>
-                    </ul>
-                </span>
-
-                <span id="hour_planif" style=" font-size: 15px;margin-left: 15%; margin-top: 3px;display: none;">
-                    <ul class="demo-btns" style="  width: 108%;">
-                        <li>
-                            <a onclick="hourNext()" id="leftHour" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-left"></i></a>
-                        </li>
-                        <li style=" margin-left: 0px; ">
-                            <span><div id="selectHourPlanifdiv" style="display: inline;"></div></span>
-                        </li>
-                        <li style=" margin-left: 1px; ">
-                            <a onclick="hourPrevious()" id="rightHour" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-right"></i></a>
-                        </li>
-                        <li style=" margin-left: 30%; ">
-                        </li>
-                    </ul>
-                </span>
-                
-                <span id="curseur_pancarte" style="display: none;">
-                    <a id="panLeft" class="panner btn btn-primary" data-scroll-modifier="-2" style="position: absolute;margin-left: -40%;border-color: #A65858;background-color: #A65858;"><i class="fa fa-chevron-left"></i></a>
-                    <a id="panRight" class="panner btn btn-primary" data-scroll-modifier="2" style="position: absolute;margin-left: -30%;border-color: #A65858;background-color: #A65858;"><i class="fa fa-chevron-right"></i></a>
-                </span>
-                
-                <span style="margin-top: 1%;width: 110%;margin-right: -11%;">
-                    <!-- Consigne -->
-                    <a href="javascript:void(0);" id="consigne_Click">
-                        <div id="consigne" class="badge" style="background-color: #F96348; display: none;"></div> 
-                    </a>
-
-                    <!-- Allergie -->
-                    <a href="javascript:void(0);" id="allergie_Click">
-                        <div id="allergie" class="badge bg-color-blue txt-color-white" style="display: none;"></div> 
-                    </a>
-
-                    <!-- Antecedent -->
-                    <a href="javascript:void(0);" id="antecedent_Click">
-                        <div id="antecedent" class="badge bg-color-blue txt-color-white" style="display: none;"></div> 
-                    </a>
-
-                    <!-- BMR -->
-                    <a href="javascript:void(0);" id="bmr_Click">
-                        <div id="bmr" class="badge bg-color-blue txt-color-white" style="display: none;"></div> 
-                    </a>
-                </span>
-            </div>
-            
-            <div class="pull-right" class="activity-dropdown">
-                <div id="hide-menu" class="btn-header pull-right">
-                    <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+            <div class="ajax-dropdown">
+                <div class="btn-group btn-group-justified" data-toggle="buttons">
+                    <label class="btn btn-default">
+                        <input type="radio" name="activity" id="../body_page/liste_patients_dropdown.jsp">
+                        Liste des patients </label>
+                    <label class="btn btn-default">
+                        <input type="radio" name="activity" id="../body_page/patient_en_cours.jsp">
+                        Patient en cours </label>
                 </div>
 
-                <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
-                    <li class="">
-                        <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
-                            <img  src="../img/avatars/sunny.png" alt="John Doe" class="online" />  
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#ajax/profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <div class="ajax-dropdown2">
-                    <div style="  display: -webkit-box; ">
-                        <div data-toggle="buttons">
-                            <label class="btn btn-default">
-                                <input type="radio" name="activity2" id="../body_page/liste_observations_dropdown.jsp?type=ALL">
-                                Tous </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="activity2" id="../body_page/liste_observations_dropdown.jsp?type=AF">
-                                Non exécutées </label>
-                        </div>
-                        <div data-toggle="buttons" style=" margin-left: 45px; ">
-                            <button id="epingler" class="btn btn-default" style=" float: right;display: block; ">
-                                <i class="fa fa-paperclip"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="ajax-notifications2 custom-scroll">
-                        <div class="alert alert-transparent">
-                            <div class="row">   
-                            </div>  
-                        </div>
-                    </div>
-                    <span> 
-                        <div class="chat-footer">
-                            <div class="textarea-div">
-                                <div class="typearea">
-                                    <textarea placeholder="Ecrire une observation ..." id="textarea-expand" class="custom-scroll"></textarea>
+                <div class="ajax-notifications custom-scroll">
+                    <div class="alert alert-transparent">
+                        <div class="row">
+                            <div class="col-sm-3 profile-pic">
+                                <img id="avatar_info_patient">
+                                <div class="padding-10">
+                                    <h4 class="font-md"><strong id="dossier_info_patient" style="color: black;"></strong>
+                                        <br>
+                                        <small>Dossier</small></h4>
+                                    <br>
+                                    <h4 class="font-md"><strong id="chambre_info_patient" style="color: black;"></strong>
+                                        <br>
+                                        <small>Chambre</small></h4>
                                 </div>
                             </div>
-                            <span class="textarea-controls">
-                                <button id="ajouter_observation_liste" class="btn btn-sm btn-primary pull-right">
-                                    Valider
-                                </button> 
-                                <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;"> 
-                                    <label class="checkbox pull-right">
-                                        <input type="checkbox" name="subscription" id="checkbox_observation">
-                                        <i></i> <strong> Important </strong>
-                                    </label> 
-                                </span>  
-                            </span>
-                        </div>
-                    </span>
+                            <div class="col-sm-6" style="margin-left: 5%;">
+                                <h1>
+                                    <span id="prenom_info_patient" style="font-size: 18px;color: black;"></span>
+                                    <span id="nom_info_patient" style="font-size: 22px;color: black;"></span>
+                                    <br>
+                                    <span id="sex_info_patient"></span>
+                                    <span id="nationalite_info_patient"></span>
+                                    <span id="motif_info_patient" style="font-size: 18px;"></span>
+                                </h1>
+
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <p class="text-muted">
+                                            <i class="fa fa-clock-o"></i>&nbsp;&nbsp;<span id="age_info_patient"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="text-muted">
+                                            <i class="fa fa-user-md"></i>&nbsp;&nbsp;<span id="medecin_info_patient"></span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p class="text-muted">
+                                            <i class="fa fa-calendar"></i>&nbsp;&nbsp; depuis le <span id="dateArr_info_patient"></span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>       
+                        </div>  
+                    </div>                        
                 </div>
 
-                <!-- fullscreen button -->
-                <div id="fullscreen" class="btn-header transparent pull-right">
-                    <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
-                </div>
-
-                <!-- logout -->
-                <div id="logout" class="btn-header transparent pull-right">
-                    <span> <a href="../logout.jsp" data-action="logout" title="Déconnexion"><i class="fa fa-power-off"></i></a> </span>
-                </div>
-
-                <!-- planification -->
-                <div id="planification_rea" class="btn-header transparent pull-right">
-                    <span> <a href="#" data-action="liste" title="Planification"><i class="fa fa-pencil-square-o fa-lg"></i></a> </span>
-                </div>
-
-                <!-- observation -->
-                <div id="observation_liste" class="btn-header transparent pull-right">
-                    <span> <a href="#" data-action="liste" title="Liste d'observation"><i class="fa fa-user-md"></i><b id="badge_observation" class="badge  bounceIn animated">0</b></a> </span>
-                </div> 
+                <span> Dernière actualisation: <div style=" display: initial; " id="time_liste"></div>
+                    <button id="refresh_liste_patient" style="display: -webkit-box;" type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Chargement..." class="btn btn-xs btn-default pull-right">
+                        <i class="fa fa-refresh"></i>
+                    </button> </span>
             </div>
-            
-            <div id="entete_patient" class="pull-right" style=" display: -webkit-inline-box;"></div>
-        </header>
+        </div>
+
+        <div class="project-context hidden-xs" style="display: inline-flex;">
+            <span id="calendrier" style=" font-size: 15px;margin-top: 3px;width: 100%;">
+                <ul class="demo-btns">
+                    <li>
+                        <a onclick="datePrevious()" id="leftDate" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-left"></i></a>
+                    </li>
+                    <li style="margin-left: -3px; ">
+                        <span><div id="selectDatesFeuillediv" style="display: inline;"></div></span>
+                    </li>
+                    <li>
+                        <a onclick="dateNext()" id="rightDate" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-right"></i></a>
+                    </li>
+                </ul>
+            </span>
+
+            <span id="hour_planif" style=" font-size: 15px;margin-left: 15%; margin-top: 3px;display: none;">
+                <ul class="demo-btns" style="  width: 108%;">
+                    <li>
+                        <a onclick="hourNext()" id="leftHour" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-left"></i></a>
+                    </li>
+                    <li style=" margin-left: 0px; ">
+                        <span><div id="selectHourPlanifdiv" style="display: inline;"></div></span>
+                    </li>
+                    <li style=" margin-left: 1px; ">
+                        <a onclick="hourPrevious()" id="rightHour" class="btn btn-primary" style="background-color: #A65858;border-color: #A65858;display: none"><i class="fa fa-chevron-right"></i></a>
+                    </li>
+                    <li style=" margin-left: 30%; ">
+                    </li>
+                </ul>
+            </span>
+
+            <span id="curseur_pancarte" style="display: none;">
+                <a id="panLeft" class="panner btn btn-primary" data-scroll-modifier="-2" style="position: absolute;margin-left: -40%;border-color: #A65858;background-color: #A65858;"><i class="fa fa-chevron-left"></i></a>
+                <a id="panRight" class="panner btn btn-primary" data-scroll-modifier="2" style="position: absolute;margin-left: -30%;border-color: #A65858;background-color: #A65858;"><i class="fa fa-chevron-right"></i></a>
+            </span>
+
+            <span style="margin-top: 1%;width: 110%;margin-right: -11%;">
+                <!-- Consigne -->
+                <a href="javascript:void(0);" id="consigne_Click">
+                    <div id="consigne" class="badge" style="background-color: #F96348; display: none;"></div> 
+                </a>
+
+                <!-- Allergie -->
+                <a href="javascript:void(0);" id="allergie_Click">
+                    <div id="allergie" class="badge bg-color-blue txt-color-white" style="display: none;"></div> 
+                </a>
+
+                <!-- Antecedent -->
+                <a href="javascript:void(0);" id="antecedent_Click">
+                    <div id="antecedent" class="badge bg-color-blue txt-color-white" style="display: none;"></div> 
+                </a>
+
+                <!-- BMR -->
+                <a href="javascript:void(0);" id="bmr_Click">
+                    <div id="bmr" class="badge bg-color-blue txt-color-white" style="display: none;"></div> 
+                </a>
+            </span>
+        </div>
+
+        <div class="pull-right" class="activity-dropdown">
+            <div id="hide-menu" class="btn-header pull-right">
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+            </div>
+
+            <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+                <li class="">
+                    <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown"> 
+                        <img  src="../img/avatars/sunny.png" alt="John Doe" class="online" />  
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Setting</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#ajax/profile.html" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> <u>P</u>rofile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> <u>S</u>hortcut</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="ajax-dropdown2">
+                <div style="  display: -webkit-box; ">
+                    <div data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input type="radio" name="activity2" id="../body_page/liste_observations_dropdown.jsp?type=ALL">
+                            Tous </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="activity2" id="../body_page/liste_observations_dropdown.jsp?type=AF">
+                            Non exécutées </label>
+                    </div>
+                    <div data-toggle="buttons" style=" margin-left: 45px; ">
+                        <button id="epingler" class="btn btn-default" style=" float: right;display: block; ">
+                            <i class="fa fa-paperclip"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="ajax-notifications2 custom-scroll">
+                    <div class="alert alert-transparent">
+                        <div class="row">   
+                        </div>  
+                    </div>
+                </div>
+                <span> 
+                    <div class="chat-footer">
+                        <div class="textarea-div">
+                            <div class="typearea">
+                                <textarea placeholder="Ecrire une observation ..." id="textarea-expand" class="custom-scroll"></textarea>
+                            </div>
+                        </div>
+                        <span class="textarea-controls">
+                            <button id="ajouter_observation_liste" class="btn btn-sm btn-primary pull-right">
+                                Valider
+                            </button> 
+                            <span class="pull-right smart-form" style="margin-top: 3px; margin-right: 10px;"> 
+                                <label class="checkbox pull-right">
+                                    <input type="checkbox" name="subscription" id="checkbox_observation">
+                                    <i></i> <strong> Important </strong>
+                                </label> 
+                            </span>  
+                        </span>
+                    </div>
+                </span>
+            </div>
+
+            <!-- fullscreen button -->
+            <div id="fullscreen" class="btn-header transparent pull-right">
+                <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+            </div>
+
+            <!-- logout -->
+            <div id="logout" class="btn-header transparent pull-right">
+                <span> <a href="../logout.jsp" data-action="logout" title="Déconnexion"><i class="fa fa-power-off"></i></a> </span>
+            </div>
+
+            <!-- planification -->
+            <div id="planification_rea" class="btn-header transparent pull-right">
+                <span> <a href="#" data-action="liste" title="Planification"><i class="fa fa-pencil-square-o fa-lg"></i></a> </span>
+            </div>
+
+            <!-- observation -->
+            <div id="observation_liste" class="btn-header transparent pull-right">
+                <span> <a href="#" data-action="liste" title="Liste d'observation"><i class="fa fa-user-md"></i><b id="badge_observation" class="badge  bounceIn animated">0</b></a> </span>
+            </div> 
+        </div>
+
+        <div id="entete_patient" class="pull-right" style=" display: -webkit-inline-box;"></div>
+    </header>
     <body class="minified fixed-header fixed-navigation no_print" oncontextmenu="return false;">
 
         <!-- #HEADER -->
-       
+
 
         <aside id="left-panel">
             <nav>
@@ -323,7 +323,7 @@
                             <span class="menu-item-parent">Echelle</span>
                         </a>
                     </li>
-                    
+
                     <li class="active"  style=" height: 40px;     cursor: pointer;">
                         <a href="#"  title="Liste des patients" id="_liste_patients">
                             <i class="fa fa-lg fa-fw fa-list"></i> 
@@ -342,7 +342,7 @@
                             <span class="menu-item-parent">Feuille de Soins</span>
                         </a>
                     </li>
-                   
+
                 </ul>
             </nav>
             <span class="minifyme" data-action="minifyMenu"> 
@@ -394,14 +394,14 @@
 
         <div class="print" style="display: none;">Veuillez utiliser le bouton d'impression !</div>
 
-         
+
         <jsp:include page="../body_page/js_declare.jsp"/>
-        
+
         <script src="../js/plugin/other-plugin/mymenu.js"></script>
         <script src="../js/plugin/other-plugin/summernote.min.js"></script>
 
         <script>
-
+                                sessionStorage.clear();
                                 var video;
                                 var dataURL;
                                 var localStream;
@@ -476,6 +476,10 @@
                                     video.src = "";
                                     document.getElementById('preview').src = "";
                                 });
+                               
+                                
+                                
+
         </script>
     </body>
 </html>

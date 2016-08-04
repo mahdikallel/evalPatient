@@ -6,10 +6,23 @@
  * insertResultatEvaluation(numDos, codeSousFamille, valeur, dateSys)
  * 
  * */
+
+var tabValeur = [];
+var tabCodeSousFamille = [];
+var tabCodeFamille = [];
+
+var designation = [];
+var idEchelles = [];
+var descEchelles = [];
+
+
+var date = [];
+var valeur = [];
 $(function () {
 
     // $("#_chose_echelle").append('<div class="alert alert-info alert-block"><a class="close" data-dismiss="alert" href="#"></a><h4 class="alert-heading">Info!</h4>Best check yo self, youre not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</div>');
     //'<div class="alert alert-info alert-block"><a class="close" data-dismiss="alert" href="#"></a><h4 class="alert-heading">Info!</h4>Best check yo self, youre not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</div>'
+    sessionStorage.clear();
     $('#container').highcharts({
         title: {
             text: "Courbe d'évaluation",
@@ -37,6 +50,9 @@ $(function () {
             verticalAlign: 'middle',
             borderWidth: 0
         },
+        scrollbar: {
+            enabled: true
+        },
         series: [{
                 data: []
             }]
@@ -44,9 +60,7 @@ $(function () {
 
     var list = getAllEchelle();
     $("#content").empty();
-    var designation = [];
-    var idEchelles = [];
-    var descEchelles = [];
+
     $("#buttons").append('<button type="button"  class="btn  txt-color-white" data-toggle="modal" data-target=".bs-example-modal-add-echelle" style="width:200px;margin-bottom: 5px;height: 35px;padding-top: 9px;background-color:#71843f">Ajouter Echelle  </button><br>');
     for (var i = 0; i < list.length; i++)
     {
@@ -71,9 +85,10 @@ $(function () {
 
         return function () {
 
-            var designation = [];
-            var idEchelles = [];
-            var descEchelles = [];
+            sessionStorage.removeItem("nbLigneResponse");
+            sessionStorage.removeItem("tabCodeSousFamille");
+            sessionStorage.removeItem("tabCodeFamille");
+
             sessionStorage.removeItem("tabValeur");
             designation = JSON.parse(sessionStorage.getItem("tabDesignation"));
             idEchelles = JSON.parse(sessionStorage.getItem("tabIdEchelles"));
@@ -112,7 +127,8 @@ $(function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: date
+                    categories: date,
+                    max: 10
 
 
                 },
@@ -127,6 +143,9 @@ $(function () {
                     align: 'right',
                     verticalAlign: 'middle',
                     borderWidth: 0
+                },
+                scrollbar: {
+                    enabled: true
                 },
                 series: [{
                         name: 'Total',
@@ -144,24 +163,17 @@ $("#launch_eval_modal").unbind("click");
 $("#launch_eval_modal").bind("click", function () {
 
     if (sessionStorage.getItem("currentIdEchelle") === null) {
-        showNotification("Error", "Choissisez un echelle pour commencer l'evaluation ", "error", 0);
+        showNotification("Error", "Choissisez une échelle  pour commencer l'evaluation ", "error", 0);
     } else {
         $("#myModal").modal('show');
     }
 
-
-
 });
-
 
 $("#_insert_eval").unbind("click");
 $("#_insert_eval").bind("click", function () {
 
 
-
-    var tabValeur = [];
-    var tabCodeSousFamille = [];
-    var tabCodeFamille = [];
 
     tabValeur = JSON.parse(sessionStorage.getItem("tabValeur"));
     tabCodeSousFamille = JSON.parse(sessionStorage.getItem("tabCodeSousFamille"));
@@ -178,9 +190,7 @@ $("#_insert_eval").bind("click", function () {
                 $("[id=" + tabCodeFamille[i] + "]").css("background-color", "White");
                 insertResultatEvaluation('13015369', tabCodeSousFamille[i], tabValeur[i], getCurrentDateTime());
             }
-            var designation = [];
-            var idEchelles = [];
-            var descEchelles = [];
+
 
             designation = JSON.parse(sessionStorage.getItem("tabDesignation"));
             idEchelles = JSON.parse(sessionStorage.getItem("tabIdEchelles"));
@@ -194,8 +204,7 @@ $("#_insert_eval").bind("click", function () {
 
             var donne = DrawChart(13015369, numEchelle);
 
-            var date = [];
-            var valeur = [];
+
             for (var j = 0; j < donne.length; j++) {
                 date.push(donne[j].date);
                 valeur.push(donne[j].valeur);
@@ -214,8 +223,8 @@ $("#_insert_eval").bind("click", function () {
                     title: {
                         text: 'Date'
                     },
-                    categories: date
-
+                    categories: date,
+                    max:10
 
                 },
                 yAxis: {
@@ -229,6 +238,9 @@ $("#_insert_eval").bind("click", function () {
                     align: 'right',
                     verticalAlign: 'middle',
                     borderWidth: 0
+                },
+                scrollbar: {
+                    enabled: true
                 },
                 series: [{
                         name: 'Total',
@@ -302,18 +314,11 @@ $("#_btn_ajouter_echelle").bind("click", function () {
         $("#myModal-famille-echelle").modal('show');
     }
 
-
-
-    //    showNotification("Erreur ", "champ vide ", "error", 4000);
-
-    // } else {
-
-//$("#myModal-echelle").modal('hide');
-    //   insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
-
-//        showNotification("Succes", designation + " est ajouté ", "success", 4000);
-//    }
-
-
 });
 
+
+$("#_btn_ajout_famille_echelle").unbind("click");
+$("#_btn_ajout_famille_echelle").bind("click", function () {
+
+        $("#_content_Famille").append('<div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue"><header role="heading"><div class="jarviswidget-ctrls" role="menu"><a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="glyphicon glyphicon-trash" style="color:#E60000;"></i></a><a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus"></i></a></div><span class="widget-icon"><i class="fa fa-edit"></i></span><h2>Ajouter famille échelle</h2></header><div class="row"><div class="col-md-12"><div class="form-group"><label for="designation">Designation *</label><input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true"></div></div></div></div><div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue"><header role="heading"><div class="jarviswidget-ctrls" role="menu"><a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus"></i></a></div><span class="widget-icon"><i class="fa fa-edit"></i></span><h2>Ajouter sous famille échelle</h2><span class="jarviswidget-loader" style="display: none;"><i class="fa fa-refresh fa-spin"></i></span></header><div class="row"><div class="col-md-12"><button type="button" class="btn btn-info btn-sm" data-toggle="#jobInfo" style="float: right;margin-top: 1px;margin-bottom: 10px;"><i class="fa fa-plus-circle">&nbsp; &nbsp; Ajouter sous famille</i></button></div></div><div class="row"><div class="col-md-5"><div class="form-group"><label for="designation">Designation sous famille*</label><input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true"></div></div><div class="col-md-5"><div class="form-group"><label for="valeur">Valeur *</label><input type="number" name="valeur" id="_valeur" class="form-control" placeholder="Valeur"  required="true"></div></div><div class="col-md-2"><div class="form-group"><i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 49px;"></i></div></div></div></div>');
+});
