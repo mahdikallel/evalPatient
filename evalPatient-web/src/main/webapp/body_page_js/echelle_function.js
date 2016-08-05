@@ -88,9 +88,25 @@ function createBackgrid(numEchelle) {
                 className: 'string-cell'
             })
 
-        }];
+        }
 
-var nbLigneResponse=0;
+    ];
+    /*, {
+     name: "",
+     label: "CodeSousFamille",
+     editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+     cell: Backgrid.Cell.extend({
+     template: _.template('<button class="btn-danger">Delete</button>'),
+     render: function () {
+     this.$el.html(this.template());
+     this.delegateEvents;
+     return this;
+     }
+     })
+     
+     }
+     */
+    var nbLigneResponse = 0;
     FocusableRow = Backgrid.Row.extend({
         tabCodeFamille: [],
         tabCodeSousFamille: [],
@@ -155,12 +171,12 @@ var nbLigneResponse=0;
             FocusableRow.__super__.render.apply(this, arguments);
 
             if (parseInt(this.model.get("codeFamille")) % 2 === 0) {
-                this.el.style.backgroundColor = this.LowColor;     
+                this.el.style.backgroundColor = this.LowColor;
             } else {
                 this.el.style.backgroundColor = this.gray;
- 
+
             }
-            if(this.model.get("famille")!==""){
+            if (this.model.get("famille") !== "") {
                 nbLigneResponse++;
             }
             sessionStorage.setItem("nbLigneResponse", nbLigneResponse);
@@ -169,27 +185,7 @@ var nbLigneResponse=0;
             return this;
         }
     });
-    /*
-     initialize: function () {
-     _.bindAll(this, 'nextElement', 'previousElement');
-     },
-     nextElement: function () {
-     var index = this.echelles.indexOf(this);
-     if ((index + 1) === this.echelles.length) {
-     //It's the last model in the collection so return null
-     return null;
-     }
-     return this.echelles.at(index + 1);
-     },
-     previousElement: function () {
-     var index = this.echelles.indexOf(this);
-     if (index === 0) {
-     //It's the first element in the collection so return null
-     return null;
-     }
-     return this.echelles.at(index - 1);
-     }
-     */
+
 
 // Initialize a new Grid instance
     var grid = new Backgrid.Grid({

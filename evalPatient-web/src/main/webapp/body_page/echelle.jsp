@@ -104,7 +104,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="designation">Designation *</label>
-                                        <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">
+                                        <input type="text" name="designation" id="_designation_echelle" class="form-control" placeholder="Designation"  required="true">
                                     </div>
 
 

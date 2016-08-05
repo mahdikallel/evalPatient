@@ -173,8 +173,6 @@ $("#launch_eval_modal").bind("click", function () {
 $("#_insert_eval").unbind("click");
 $("#_insert_eval").bind("click", function () {
 
-
-
     tabValeur = JSON.parse(sessionStorage.getItem("tabValeur"));
     tabCodeSousFamille = JSON.parse(sessionStorage.getItem("tabCodeSousFamille"));
     tabCodeFamille = JSON.parse(sessionStorage.getItem("tabCodeFamille"));
@@ -224,7 +222,7 @@ $("#_insert_eval").bind("click", function () {
                         text: 'Date'
                     },
                     categories: date,
-                    max:10
+                    max: 10
 
                 },
                 yAxis: {
@@ -265,22 +263,32 @@ $("#_insert_eval").bind("click", function () {
     }
 
 });
+var codeEchelle;
+var designation;
+var valeurMinimale;
+var valeurMoyenne;
+var ValeurMaximale;
+var description;
+
 
 $("#_btn_ajouter_echelle").unbind("click");
 $("#_btn_ajouter_echelle").bind("click", function () {
 
-    var codeEchelle = incrementID("Code_Echelle", "Echelle");
-    var designation = $("#_designation").val();
-    var valeurMinimale = $("#_minimale").val();
-    var valeurMoyenne = $("#_moyenne").val();
-    var ValeurMaximale = $("#_maximale").val();
-    var description = $("#_description").val();
+
+    /* Form ajout echelle  */
+
+    codeEchelle = incrementID("Code_Echelle", "Echelle");
+    designation = $("#_designation_echelle").val();
+    valeurMinimale = $("#_minimale").val();
+    valeurMoyenne = $("#_moyenne").val();
+    ValeurMaximale = $("#_maximale").val();
+    description = $("#_description").val();
     var test = 0;
     if (designation === "") {
-        $("#_designation").css("border-color", "red");
+        $("#_designation_echelle").css("border-color", "red");
 
     } else {
-        $("#_designation").css("border-color", "#cccccc");
+        $("#_designation_echelle").css("border-color", "#cccccc");
         test++;
     }
     if (valeurMinimale === "") {
@@ -307,6 +315,9 @@ $("#_btn_ajouter_echelle").bind("click", function () {
         $("#_description").css("border-color", "#cccccc");
         test++;
     }
+    /* Fin Form ajout echelle  */
+
+
     if (test === 5) {
         insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
         showNotification("Succes", designation + " est ajouté ", "success", 4000);
@@ -317,8 +328,197 @@ $("#_btn_ajouter_echelle").bind("click", function () {
 });
 
 
-$("#_btn_ajout_famille_echelle").unbind("click");
+
+
+
+function  IncCodeFamilleEchelle() {
+    return incrementID("Code_Famille", "Famille_Echelle");
+}
+
+
+function  IncCodeSousFamille() {
+    return incrementID("Code_Sous_Famille", "Sous_Famille");
+}
+var codeSousfamille = IncCodeSousFamille();
+var codeFamilleEchelle = IncCodeFamilleEchelle();
+var compteur=0;
 $("#_btn_ajout_famille_echelle").bind("click", function () {
 
-        $("#_content_Famille").append('<div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue"><header role="heading"><div class="jarviswidget-ctrls" role="menu"><a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="glyphicon glyphicon-trash" style="color:#E60000;"></i></a><a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus"></i></a></div><span class="widget-icon"><i class="fa fa-edit"></i></span><h2>Ajouter famille échelle</h2></header><div class="row"><div class="col-md-12"><div class="form-group"><label for="designation">Designation *</label><input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true"></div></div></div></div><div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue"><header role="heading"><div class="jarviswidget-ctrls" role="menu"><a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse"><i class="fa fa-minus"></i></a></div><span class="widget-icon"><i class="fa fa-edit"></i></span><h2>Ajouter sous famille échelle</h2><span class="jarviswidget-loader" style="display: none;"><i class="fa fa-refresh fa-spin"></i></span></header><div class="row"><div class="col-md-12"><button type="button" class="btn btn-info btn-sm" data-toggle="#jobInfo" style="float: right;margin-top: 1px;margin-bottom: 10px;"><i class="fa fa-plus-circle">&nbsp; &nbsp; Ajouter sous famille</i></button></div></div><div class="row"><div class="col-md-5"><div class="form-group"><label for="designation">Designation sous famille*</label><input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true"></div></div><div class="col-md-5"><div class="form-group"><label for="valeur">Valeur *</label><input type="number" name="valeur" id="_valeur" class="form-control" placeholder="Valeur"  required="true"></div></div><div class="col-md-2"><div class="form-group"><i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 49px;"></i></div></div></div></div>');
+    codeFamilleEchelle++;
+    var codeHTML = "";
+    codeHTML += '<div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">';
+    codeHTML += '<header role="heading">';
+    codeHTML += '<div class="jarviswidget-ctrls" role="menu">';
+    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;"></i>';
+    codeHTML += '</a>';
+    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="fa fa-minus"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '<span class="widget-icon">';
+    codeHTML += '<i class="fa fa-edit"></i>';
+    codeHTML += '</span>';
+    codeHTML += '<h2>Ajouter famille échelle</h2>';
+    codeHTML += '</header>';
+    codeHTML += '<div class="row">';
+    codeHTML += '<div class="col-md-12">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="designation">Designation *</label>';
+    codeHTML += '<input type="text" name="designation" id="_designation_famille_echelle' + codeFamilleEchelle + '" class="form-control" placeholder="Designation"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">';
+    codeHTML += '<header role="heading">';
+    codeHTML += '<div class="jarviswidget-ctrls" role="menu">';
+    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="fa fa-minus"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '<span class="widget-icon">';
+    codeHTML += '<i class="fa fa-edit">';
+    codeHTML += '</i>';
+    codeHTML += '</span>';
+    codeHTML += '<h2>Ajouter sous famille échelle</h2>';
+    codeHTML += '<span class="jarviswidget-loader" style="display: none;">';
+    codeHTML += '<i class="fa fa-refresh fa-spin">';
+    codeHTML += '</i>';
+    codeHTML += '</span>';
+    codeHTML += '</header>';
+    codeHTML += '<div id="_row_sous_famille'+compteur+++'">';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="designation">Designation sous famille*</label>';
+    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + codeFamilleEchelle + '" class="form-control" placeholder="Designation"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="valeur">Valeur *</label>';
+    codeHTML += '<input type="number" name="valeur" id="_valeur' + codeFamilleEchelle + '" class="form-control" placeholder="Valeur"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-1">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-1">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<button type="button" class="btn btn-default btn-sm" onClick="createCallbackEchelle(' + codeSousfamille + ',' + codeFamilleEchelle + ')" id="_btn_ajout_nouvelle_sous_famille' + codeSousfamille + '">';
+    codeHTML += '<i class="glyphicon glyphicon-plus-sign" style="color:#456b7b;margin-top: 32px;margin-left: 5px;"></i>';
+    codeHTML += '</button>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    $("#_content_Famille").append(codeHTML);
+
+    // $(document).ready(function () {
+    //     $("#_btn_ajout_nouvelle_sous_famille" + codeSousfamille).unbind("click");
+    //     $('#_btn_ajout_nouvelle_sous_famille' + codeSousfamille).click(createCallbackEchelle());
+    // });
+
+    // $('#_btn_ajout_nouvelle_sous_famille' + codeSousfamille).click(createCallbackEchelle());
+
+
+
+
 });
+
+/*
+ $("#_btn_ajout_nouvelle_sous_famille").unbind("click");
+ $("#_btn_ajout_nouvelle_sous_famille").bind("click", function () {
+ alert("jvnjf");
+ var codeHTML = "";
+ codeHTML += '<div id="_div_sous_famille" class="row">';
+ codeHTML += '<div class="col-md-5">';
+ codeHTML += '<div class="form-group">';
+ codeHTML += '<label for="designation">Designation sous famille*</label>';
+ codeHTML += '<input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">';
+ codeHTML += '</div>';
+ codeHTML += '</div>';
+ codeHTML += '<div class="col-md-5">';
+ codeHTML += '<div class="form-group">';
+ codeHTML += '<label for="valeur">Valeur *</label>';
+ codeHTML += '<input type="number" name="valeur" id="_valeur" class="form-control" placeholder="Valeur"  required="true">';
+ codeHTML += '</div>';
+ codeHTML += '</div>';
+ codeHTML += '<div class="col-md-1">';
+ codeHTML += '<div class="form-group">';
+ codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+ codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
+ codeHTML += '</a>';
+ codeHTML += '</div>';
+ codeHTML += '</div>';
+ codeHTML += '<div class="col-md-1">';
+ codeHTML += '<div class="form-group">';
+ codeHTML += '<button type="button" class="btn btn-default btn-sm" id="_btn_ajout_nouvelle_sous_famille">';
+ codeHTML += '<i class="glyphicon glyphicon-plus-sign" style="color:#456b7b;margin-top: 32px;margin-left: 5px;"></i>';
+ codeHTML += '</button>';
+ codeHTML += '</div>';
+ codeHTML += '</div>';
+ codeHTML += '</div>';
+ $("#_div_sous_famille").append(codeHTML);
+ });
+ 
+ */
+
+
+function createCallbackEchelle(codeSfamille, codeFamilleE) {
+
+    var codeHTML = "";
+    codeHTML += '<div id="_row_sous_famille'+compteur+++'">';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="designation">Designation sous famille*</label>';
+    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + codeFamilleE + '" class="form-control" placeholder="Designation"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="valeur">Valeur *</label>';
+    codeHTML += '<input type="number" name="valeur" id="_valeur' + codeFamilleE + '" class="form-control" placeholder="Valeur"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-1">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+   
+    
+    $("#_div_sous_famille" + codeFamilleE).append(codeHTML);
+
+}
+
+// parcourir de IncCodeFamilleEchelle()+1 -----> codeFamilleEchelle
+/*
+ * loop multi id
+ * (function() {
+ // font size
+ $('button.fontsize').click(function(){
+ $('#playground').find('#toy').each(function() {
+ $('#toy').css('font-size','16px');
+ });
+ });
+ })();
+ 
+ or
+ 
+ (function() {
+ // font size
+ $('button.fontsize').click(function(){
+ $.each($('#toy'), function() {
+ $(this).css('font-size','16px');
+ });
+ });
+ })();
+ */
