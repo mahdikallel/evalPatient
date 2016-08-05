@@ -89,22 +89,32 @@ function createBackgrid(numEchelle) {
             })
 
         }
-
     ];
     /*, {
+     , {
      name: "",
      label: "CodeSousFamille",
      editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
      cell: Backgrid.Cell.extend({
      template: _.template('<button class="btn-danger">Delete</button>'),
+     events: {
+     click: "Click"
+     
+     },
      render: function () {
      this.$el.html(this.template());
      this.delegateEvents();
      return this;
+     },
+     Click: function () {
+     alert("ffff");
      }
      })
      
      }
+     
+     
+     
      */
     var nbLigneResponse = 0;
     FocusableRow = Backgrid.Row.extend({

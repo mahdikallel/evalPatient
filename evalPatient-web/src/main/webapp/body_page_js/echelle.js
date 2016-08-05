@@ -317,14 +317,16 @@ $("#_btn_ajouter_echelle").bind("click", function () {
     }
     /* Fin Form ajout echelle  */
 
-
-    if (test === 5) {
-        insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
-        showNotification("Succes", designation + " est ajouté ", "success", 4000);
-        $("#myModal-echelle").modal('hide');
-        $("#myModal-famille-echelle").modal('show');
-    }
-
+    $('#_div_famille' + codeFamilleEchelle).find('#_div_sous_famille' + codeFamilleEchelle).each(function () {
+        $('#_div_sous_famille' + codeFamilleEchelle).css("border-color", "red");
+    });
+    /*    if (test === 5) {
+     insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
+     showNotification("Succes", designation + " est ajouté ", "success", 4000);
+     $("#myModal-echelle").modal('hide');
+     $("#myModal-famille-echelle").modal('show');
+     }
+     */
 });
 
 
@@ -342,18 +344,22 @@ function  IncCodeSousFamille() {
 var codeSousfamille = IncCodeSousFamille();
 var codeFamilleEchelle = IncCodeFamilleEchelle();
 var compteur = 0;
+var tabIdDiv = [];
 $("#_btn_ajout_famille_echelle").bind("click", function () {
 
     codeFamilleEchelle++;
     var codeHTML = "";
+    codeHTML += '<div id="_div_famille' + codeFamilleEchelle + '">';
+    tabIdDiv.push(codeFamilleEchelle);
+    /*console.log("tab");
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        console.log(tabIdDiv[i]);
+    }*/
     codeHTML += '<div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">';
     codeHTML += '<header role="heading">';
     codeHTML += '<div class="jarviswidget-ctrls" role="menu">';
-    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<a href="javascript:void(0);" onClick="SupprimerDivFamille(' + codeFamilleEchelle + ');" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
     codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;"></i>';
-    codeHTML += '</a>';
-    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
-    codeHTML += '<i class="fa fa-minus"></i>';
     codeHTML += '</a>';
     codeHTML += '</div>';
     codeHTML += '<span class="widget-icon">';
@@ -403,18 +409,20 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
     codeHTML += '</div>';
     codeHTML += '<div class="col-md-1">';
     codeHTML += '<div class="form-group">';
-    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<a href="javascript:void(0);" onClick="SupprimerRowSousFamille(' + compteur + ');" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
     codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
     codeHTML += '</a>';
     codeHTML += '</div>';
     codeHTML += '</div>';
+    codeHTML += '</div>';
     codeHTML += '<div class="col-md-1">';
     codeHTML += '<div class="form-group">';
-    codeHTML += '<button type="button" class="btn btn-default btn-sm" onClick="createCallbackEchelle(' + codeSousfamille + ',' + codeFamilleEchelle + ')" id="_btn_ajout_nouvelle_sous_famille' + codeSousfamille + '">';
+    codeHTML += '<button type="button" class="btn btn-default btn-sm" onClick="createCallbackEchelle(' + codeFamilleEchelle + ')" id="_btn_ajout_nouvelle_sous_famille' + codeSousfamille + '">';
     codeHTML += '<i class="glyphicon glyphicon-plus-sign" style="color:#456b7b;margin-top: 32px;margin-left: 5px;"></i>';
     codeHTML += '</button>';
     codeHTML += '</div>';
     codeHTML += '</div>';
+
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '</div>';
@@ -432,46 +440,28 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
 
 });
 
-/*
- $("#_btn_ajout_nouvelle_sous_famille").unbind("click");
- $("#_btn_ajout_nouvelle_sous_famille").bind("click", function () {
- alert("jvnjf");
- var codeHTML = "";
- codeHTML += '<div id="_div_sous_famille" class="row">';
- codeHTML += '<div class="col-md-5">';
- codeHTML += '<div class="form-group">';
- codeHTML += '<label for="designation">Designation sous famille*</label>';
- codeHTML += '<input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation"  required="true">';
- codeHTML += '</div>';
- codeHTML += '</div>';
- codeHTML += '<div class="col-md-5">';
- codeHTML += '<div class="form-group">';
- codeHTML += '<label for="valeur">Valeur *</label>';
- codeHTML += '<input type="number" name="valeur" id="_valeur" class="form-control" placeholder="Valeur"  required="true">';
- codeHTML += '</div>';
- codeHTML += '</div>';
- codeHTML += '<div class="col-md-1">';
- codeHTML += '<div class="form-group">';
- codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
- codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
- codeHTML += '</a>';
- codeHTML += '</div>';
- codeHTML += '</div>';
- codeHTML += '<div class="col-md-1">';
- codeHTML += '<div class="form-group">';
- codeHTML += '<button type="button" class="btn btn-default btn-sm" id="_btn_ajout_nouvelle_sous_famille">';
- codeHTML += '<i class="glyphicon glyphicon-plus-sign" style="color:#456b7b;margin-top: 32px;margin-left: 5px;"></i>';
- codeHTML += '</button>';
- codeHTML += '</div>';
- codeHTML += '</div>';
- codeHTML += '</div>';
- $("#_div_sous_famille").append(codeHTML);
- });
- 
- */
+function SupprimerRowSousFamille(compteur) {
+    compteur--;
+    $("#_row_sous_famille" + compteur).remove();
+}
 
 
-function createCallbackEchelle(codeSfamille, codeFamilleE) {
+
+function SupprimerDivFamille(compteurDivFamille) {
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        if (tabIdDiv[i] === compteurDivFamille) {
+            tabIdDiv.splice(tabIdDiv.indexOf(compteurDivFamille), 1);
+
+        }
+    }
+  /*  console.log("tabafter del");
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        console.log(tabIdDiv[i]);
+    }*/
+
+    $("#_div_famille" + compteurDivFamille).remove();
+}
+function createCallbackEchelle(codeFamilleE) {
 
     var codeHTML = "";
     codeHTML += '<div id="_row_sous_famille' + compteur++ + '">';
@@ -489,7 +479,7 @@ function createCallbackEchelle(codeSfamille, codeFamilleE) {
     codeHTML += '</div>';
     codeHTML += '<div class="col-md-1">';
     codeHTML += '<div class="form-group">';
-    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<a href="javascript:void(0);" onClick="SupprimerRowSousFamille(' + compteur + ');" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
     codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
     codeHTML += '</a>';
     codeHTML += '</div>';
