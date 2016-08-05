@@ -99,7 +99,7 @@ function createBackgrid(numEchelle) {
      template: _.template('<button class="btn-danger">Delete</button>'),
      render: function () {
      this.$el.html(this.template());
-     this.delegateEvents;
+     this.delegateEvents();
      return this;
      }
      })

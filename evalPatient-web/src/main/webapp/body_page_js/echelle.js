@@ -341,7 +341,7 @@ function  IncCodeSousFamille() {
 }
 var codeSousfamille = IncCodeSousFamille();
 var codeFamilleEchelle = IncCodeFamilleEchelle();
-var compteur=0;
+var compteur = 0;
 $("#_btn_ajout_famille_echelle").bind("click", function () {
 
     codeFamilleEchelle++;
@@ -387,7 +387,8 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
     codeHTML += '</i>';
     codeHTML += '</span>';
     codeHTML += '</header>';
-    codeHTML += '<div id="_row_sous_famille'+compteur+++'">';
+    codeHTML += '<div id="_div_sous_famille' + codeFamilleEchelle + '">';
+    codeHTML += '<div id="_row_sous_famille' + compteur++ + '">';
     codeHTML += '<div class="col-md-5">';
     codeHTML += '<div class="form-group">';
     codeHTML += '<label for="designation">Designation sous famille*</label>';
@@ -412,6 +413,7 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
     codeHTML += '<button type="button" class="btn btn-default btn-sm" onClick="createCallbackEchelle(' + codeSousfamille + ',' + codeFamilleEchelle + ')" id="_btn_ajout_nouvelle_sous_famille' + codeSousfamille + '">';
     codeHTML += '<i class="glyphicon glyphicon-plus-sign" style="color:#456b7b;margin-top: 32px;margin-left: 5px;"></i>';
     codeHTML += '</button>';
+    codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '</div>';
@@ -472,7 +474,7 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
 function createCallbackEchelle(codeSfamille, codeFamilleE) {
 
     var codeHTML = "";
-    codeHTML += '<div id="_row_sous_famille'+compteur+++'">';
+    codeHTML += '<div id="_row_sous_famille' + compteur++ + '">';
     codeHTML += '<div class="col-md-5">';
     codeHTML += '<div class="form-group">';
     codeHTML += '<label for="designation">Designation sous famille*</label>';
@@ -493,8 +495,8 @@ function createCallbackEchelle(codeSfamille, codeFamilleE) {
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '</div>';
-   
-    
+
+
     $("#_div_sous_famille" + codeFamilleE).append(codeHTML);
 
 }
