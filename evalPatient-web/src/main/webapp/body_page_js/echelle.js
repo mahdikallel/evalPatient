@@ -201,7 +201,7 @@ $("#_insert_eval").bind("click", function () {
             createBackgrid(numEchelle);
 
             var donne = DrawChart(13015369, numEchelle);
-
+            console.log("numEchelle  = " + numEchelle);
 
             for (var j = 0; j < donne.length; j++) {
                 date.push(donne[j].date);
@@ -283,6 +283,7 @@ $("#_btn_ajouter_echelle").bind("click", function () {
     valeurMoyenne = $("#_moyenne").val();
     ValeurMaximale = $("#_maximale").val();
     description = $("#_description").val();
+    codeAide = "NULL";
     var test = 0;
     if (designation === "") {
         $("#_designation_echelle").css("border-color", "red");
@@ -316,27 +317,42 @@ $("#_btn_ajouter_echelle").bind("click", function () {
         test++;
     }
     /* Fin Form ajout echelle  */
+    insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
 
-    $('#_div_famille' + codeFamilleEchelle).find('#_div_sous_famille' + codeFamilleEchelle).each(function () {
-        //$('#_div_sous_famille' + codeFamilleEchelle).css("border-color", "red");
-        //alert(codeFamilleEchelle);
-        for (var i = 0; i < tabIdDiv.length; i++) {
-            // alert(tabIdDiv[i]);
-            $('#_designation_famille_echelle' + tabIdDiv[i]).css("border-color", "red");
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        var codeFamille = IncCodeFamilleEchelle();
+        insertFamilleEchelle(codeFamille, $('#_designation_famille_echelle' + tabIdDiv[i]).val(), codeEchelle, codeAide);
+        $('#_div_famille' + tabIdDiv[i]).find('#_div_sous_famille' + tabIdDiv[i]).each(function () {
+
+            console.log("enter");
+
             //$('#_row_sous_famille' + tabIdDiv[i])
-            tabIdRowSousFamille.push($('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".nabil").val());
-            tabIdRowSousFamille.push($('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".mahdi").val());
-            $('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".nabil").css("border-color", "green");
-            console.log(" napillllllllllllllllll");
-            for (var i = 0; i < tabIdRowSousFamille.length; i++) {
-                console.log(tabIdRowSousFamille[i]);
+            // tabIdRowSousFamille.push($('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".nabil").val());
+            // tabIdRowSousFamille.push($('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".mahdi").val());
+            console.log("ids");
+            var ids = $('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".form-control ").map(function () {
+
+                return $(this).attr('id');
+
+            });
+            //console.log("lentgh"+ids.get(k));
+            for (var k = 0; k < ids.length; k = k + 2) {
+                insertSousFamille(IncCodeSousFamille(), $('#' + ids.get(k)).val(), codeFamille, $('#' + ids.get(k + 1)).val());
             }
+
+            // var codeSousFamille = IncCodeSousFamille();
+
+            //$('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".nabil").css("border-color", "green");
+            /* console.log(" napillllllllllllllllll");
+             for (var i = 0; i < tabIdRowSousFamille.length; i++) {
+             console.log(tabIdRowSousFamille[i]);
+             }*/
             // $('#_designation_sous_famille' + tabIdRowSousFamille[i]).css("border-color", "green");
             // $('#_valeur' + tabIdRowSousFamille[i]).css("border-color", "yellow");
-        }
 
-    });
 
+        });
+    }
 
     /*    if (test === 5) {
      insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
@@ -359,6 +375,8 @@ function  IncCodeFamilleEchelle() {
 function  IncCodeSousFamille() {
     return incrementID("Code_Sous_Famille", "Sous_Famille");
 }
+
+
 var codeSousfamille = IncCodeSousFamille();
 var codeFamilleEchelle = IncCodeFamilleEchelle();
 var compteur = 0;

@@ -303,3 +303,42 @@ function incrementID(code, tableName)
 }
 
 
+function insertSousFamille(codeSousFamille, designation, codeFamille, valeur)
+{
+    var reponse;
+    $.ajax({
+        url: "../Echelle?type=update&function=insertSousFamille&codeSousFamille='" + codeSousFamille + "'&designation='" + designation + "'&codeFamille='" + codeFamille + "'&valeur=" + valeur + "",
+        type: 'POST',
+        async: false,
+        dataType: "json",
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            reponse = data;
+        }
+    });
+    return reponse;
+}
+
+
+function insertFamilleEchelle(codeFamilleEchelle, designation, codeEchelle, codeAide)
+{
+    var reponse;
+    $.ajax({
+        url: "../Echelle?type=update&function=insertFamilleEchelle&codeFamilleEchelle='" + codeFamilleEchelle + "'&designation='" + designation + "'&codeEchelle='" + codeEchelle + "'&codeAide='" + codeAide + "'",
+        type: 'POST',
+        async: false,
+        dataType: "json",
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+        },
+        success: function (data, textStatus, jqXHR)
+        {
+            reponse = data;
+        }
+    });
+    return reponse;
+}
+

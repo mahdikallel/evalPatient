@@ -155,6 +155,18 @@ public class Echelle extends HttpServlet {
                     int ValeurMaximale = Integer.parseInt(request.getParameter("ValeurMaximale"));
                     String description = request.getParameter("description");
                     WS.portEchelleWS.insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
+                } else if ("insertFamilleEchelle".equals(function)) {
+                    String codeFamilleEchelle = request.getParameter("codeFamilleEchelle");
+                    String designation = request.getParameter("designation");
+                    String codeEchelle = request.getParameter("codeEchelle");
+                    String codeAide = request.getParameter("codeAide");
+                    WS.portEchelleWS.insertFamilleEchelle(codeFamilleEchelle, designation, codeEchelle, codeAide);
+                } else if ("insertSousFamille".equals(function)) {
+                    String codeSousFamille = request.getParameter("codeSousFamille");
+                    String designation = request.getParameter("designation");
+                    String codeFamille = request.getParameter("codeFamille");
+                    int valeur = Integer.parseInt(request.getParameter("valeur"));
+                    WS.portEchelleWS.insertSousFamille(codeSousFamille, designation, codeFamille, valeur);
                 }
 
             }
