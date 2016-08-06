@@ -4,7 +4,10 @@
  * GetResultByNumDossAndCodeEchelle(numEchlle,numDossier)
  * GetListReponseParEchelle(numEchelle)
  * insertResultatEvaluation(numDos, codeSousFamille, valeur, dateSys)
- * 
+ * incrementID(code, tableName)
+ * insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description)
+ * insertSousFamille(codeSousFamille, designation, codeFamille, valeur)
+ * insertFamilleEchelle(codeFamilleEchelle, designation, codeEchelle, codeAide)
  * */
 
 var tabValeur = [];
@@ -16,8 +19,6 @@ var idEchelles = [];
 var descEchelles = [];
 
 
-var date = [];
-var valeur = [];
 $(function () {
 
     // $("#_chose_echelle").append('<div class="alert alert-info alert-block"><a class="close" data-dismiss="alert" href="#"></a><h4 class="alert-heading">Info!</h4>Best check yo self, youre not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</div>');
@@ -131,6 +132,7 @@ $(function () {
                     max: 10
 
 
+
                 },
                 yAxis: {
                     title: {
@@ -203,6 +205,8 @@ $("#_insert_eval").bind("click", function () {
             var donne = DrawChart(13015369, numEchelle);
             console.log("numEchelle  = " + numEchelle);
 
+            var date = [];
+            var valeur = [];
             for (var j = 0; j < donne.length; j++) {
                 date.push(donne[j].date);
                 valeur.push(donne[j].valeur);
@@ -223,6 +227,7 @@ $("#_insert_eval").bind("click", function () {
                     },
                     categories: date,
                     max: 10
+
 
                 },
                 yAxis: {
@@ -353,7 +358,9 @@ $("#_btn_ajouter_echelle").bind("click", function () {
 
         });
     }
-
+    showNotification("Succes", designation + " est ajouté ", "success", 4000);
+    $("#myModal-echelle").modal('hide');
+    window.location.reload();
     /*    if (test === 5) {
      insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
      showNotification("Succes", designation + " est ajouté ", "success", 4000);

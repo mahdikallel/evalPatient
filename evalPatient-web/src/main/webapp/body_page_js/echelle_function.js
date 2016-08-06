@@ -74,7 +74,7 @@ function createBackgrid(numEchelle) {
             name: "codeFamille",
             label: "CodeFamille",
             editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-            renderable: true,
+            renderable: false,
             cell: Backgrid.StringCell.extend({
                 className: 'string-cell'
             })
@@ -83,7 +83,7 @@ function createBackgrid(numEchelle) {
             name: "codeSousFamille",
             label: "CodeSousFamille",
             editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-            renderable: true,
+            renderable: false,
             cell: Backgrid.StringCell.extend({
                 className: 'string-cell'
             })
@@ -173,6 +173,7 @@ function createBackgrid(numEchelle) {
             $("#_resultat").text(this.somme);
             $("#_resultat").width(this.somme + "%");
 
+           
             sessionStorage.setItem("tabValeur", JSON.stringify(this.tabValeur));
             sessionStorage.setItem("tabCodeSousFamille", JSON.stringify(this.tabCodeSousFamille));
             sessionStorage.setItem("tabCodeFamille", JSON.stringify(this.tabCodeFamille));

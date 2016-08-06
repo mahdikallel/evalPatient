@@ -259,9 +259,9 @@
                                             </span>
                                         </div>
                                         <div class="col-xs-4">
-                                            <div class="progress progress-striped active no-margin">
-                                                <div class="progress-bar progress-bar-primary" role="progressbar" id="_resultat" ></div>
-                                            </div> 
+                                           
+                                                <div class="progress-bar progress-bar-primary" aria-valuemin="0" aria-valuemax="20" role="progressbar" id="_resultat" ></div>
+                                            
                                         </div>
                                     </div>
 
