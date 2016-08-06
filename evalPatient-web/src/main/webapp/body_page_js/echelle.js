@@ -324,11 +324,20 @@ $("#_btn_ajouter_echelle").bind("click", function () {
             // alert(tabIdDiv[i]);
             $('#_designation_famille_echelle' + tabIdDiv[i]).css("border-color", "red");
             //$('#_row_sous_famille' + tabIdDiv[i])
-
-            $('#_designation_sous_famille' + tabIdDiv[i]).css("border-color", "green");
+            tabIdRowSousFamille.push($('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".nabil").val());
+            tabIdRowSousFamille.push($('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".mahdi").val());
+            $('#_div_sous_famille' + tabIdDiv[i]).children().children().children().children(".nabil").css("border-color", "green");
+            console.log(" napillllllllllllllllll");
+            for (var i = 0; i < tabIdRowSousFamille.length; i++) {
+                console.log(tabIdRowSousFamille[i]);
+            }
+            // $('#_designation_sous_famille' + tabIdRowSousFamille[i]).css("border-color", "green");
+            // $('#_valeur' + tabIdRowSousFamille[i]).css("border-color", "yellow");
         }
 
     });
+
+
     /*    if (test === 5) {
      insertEchelle(codeEchelle, designation, valeurMinimale, valeurMoyenne, ValeurMaximale, description);
      showNotification("Succes", designation + " est ajouté ", "success", 4000);
@@ -408,22 +417,22 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
     codeHTML += '<div class="col-md-5">';
     codeHTML += '<div class="form-group">';
     codeHTML += '<label for="designation">Designation sous famille*</label>';
-    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + compteur + '" class="form-control" placeholder="Designation"  required="true">';
+    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + compteur + '" class="form-control nabil" placeholder="Designation"  required="true">';
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '<div class="col-md-5">';
     codeHTML += '<div class="form-group">';
     codeHTML += '<label for="valeur">Valeur *</label>';
-    codeHTML += '<input type="number" name="valeur" id="_valeur' + compteur + '" class="form-control" placeholder="Valeur"  required="true">';
+    codeHTML += '<input type="number" name="valeur" id="_valeur' + compteur + '" class="form-control mahdi" placeholder="Valeur"  required="true">';
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '<div class="col-md-1">';
     codeHTML += '<div class="form-group">';
-    tabIdRowSousFamille.push(compteur);
-    console.log("tab id row sous famille");
-    for (var j = 0; j < tabIdRowSousFamille.length; j++) {
-        console.log(tabIdRowSousFamille[j]);
-    }
+    /*tabIdRowSousFamille.push(compteur);
+     console.log("tab id row sous famille");
+     for (var j = 0; j < tabIdRowSousFamille.length; j++) {
+     console.log(tabIdRowSousFamille[j]);
+     }*/
     compteur++;
     codeHTML += '<a href="javascript:void(0);" onClick="SupprimerRowSousFamille(' + compteur + ');" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
     codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
@@ -457,19 +466,19 @@ $("#_btn_ajout_famille_echelle").bind("click", function () {
 });
 
 function SupprimerRowSousFamille(compteur) {
-    
+
     compteur--;
-     for (var i = 0; i < tabIdRowSousFamille.length; i++) {
-        if (tabIdRowSousFamille[i] === compteur) {
-            tabIdRowSousFamille.splice(tabIdRowSousFamille.indexOf(compteur), 1);
-
-        }
-    }
-    console.log("tabIdRowSousFamille del");
-    for (var j = 0; j < tabIdRowSousFamille.length; j++) {
-        console.log(tabIdRowSousFamille[j]);
-    }
-
+    /* for (var i = 0; i < tabIdRowSousFamille.length; i++) {
+     if (tabIdRowSousFamille[i] === compteur) {
+     tabIdRowSousFamille.splice(tabIdRowSousFamille.indexOf(compteur), 1);
+     
+     }
+     }
+     console.log("tabIdRowSousFamille del");
+     for (var j = 0; j < tabIdRowSousFamille.length; j++) {
+     console.log(tabIdRowSousFamille[j]);
+     }
+     */
     $("#_row_sous_famille" + compteur).remove();
 }
 
@@ -489,6 +498,7 @@ function SupprimerDivFamille(compteurDivFamille) {
 
     $("#_div_famille" + compteurDivFamille).remove();
 }
+
 function createCallbackEchelle(codeFamilleE) {
 
     var codeHTML = "";
@@ -496,22 +506,22 @@ function createCallbackEchelle(codeFamilleE) {
     codeHTML += '<div class="col-md-5">';
     codeHTML += '<div class="form-group">';
     codeHTML += '<label for="designation">Designation sous famille*</label>';
-    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + compteur + '" class="form-control" placeholder="Designation"  required="true">';
+    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + compteur + '" class="form-control nabil" placeholder="Designation"  required="true">';
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '<div class="col-md-5">';
     codeHTML += '<div class="form-group">';
     codeHTML += '<label for="valeur">Valeur *</label>';
-    codeHTML += '<input type="number" name="valeur" id="_valeur' + compteur + '" class="form-control" placeholder="Valeur"  required="true">';
+    codeHTML += '<input type="number" name="valeur" id="_valeur' + compteur + '" class="form-control mahdi" placeholder="Valeur"  required="true">';
     codeHTML += '</div>';
     codeHTML += '</div>';
     codeHTML += '<div class="col-md-1">';
     codeHTML += '<div class="form-group">';
-    tabIdRowSousFamille.push(compteur);
-    console.log("Apres insert tab id row sous famille");
-    for (var j = 0; j < tabIdRowSousFamille.length; j++) {
-        console.log(tabIdRowSousFamille[j]);
-    }
+    /*  tabIdRowSousFamille.push(compteur);
+     console.log("Apres insert tab id row sous famille");
+     for (var j = 0; j < tabIdRowSousFamille.length; j++) {
+     console.log(tabIdRowSousFamille[j]);
+     }*/
     compteur++;
     codeHTML += '<a href="javascript:void(0);" onClick="SupprimerRowSousFamille(' + compteur + ');" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
     codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
