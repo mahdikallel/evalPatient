@@ -69,6 +69,7 @@ $(function () {
         designation[i] = list[i].designation;
         idEchelles[i] = list[i].codeEchelle;
         descEchelles[i] = list[i].description;
+
     }
 
     sessionStorage.setItem("tabDesignation", JSON.stringify(designation));
@@ -89,7 +90,12 @@ $(function () {
             sessionStorage.removeItem("nbLigneResponse");
             sessionStorage.removeItem("tabCodeSousFamille");
             sessionStorage.removeItem("tabCodeFamille");
-
+            sessionStorage.setItem("maxVal", list[i].valeurMaximale);
+            sessionStorage.setItem("minVal", list[i].valeurMinimale);
+            sessionStorage.setItem("moyVal", list[i].valeurMoyenne);
+            $("#minVal").text(list[i].valeurMinimale);
+            $("#moyVal").text(list[i].valeurMoyenne);
+            $("#maxVal").text(list[i].valeurMaximale);
             sessionStorage.removeItem("tabValeur");
             designation = JSON.parse(sessionStorage.getItem("tabDesignation"));
             idEchelles = JSON.parse(sessionStorage.getItem("tabIdEchelles"));
@@ -560,26 +566,6 @@ function createCallbackEchelle(codeFamilleE) {
 
 }
 
-// parcourir de IncCodeFamilleEchelle()+1 -----> codeFamilleEchelle
-/*
- * loop multi id
- * (function() {
- // font size
- $('button.fontsize').click(function(){
- $('#playground').find('#toy').each(function() {
- $('#toy').css('font-size','16px');
- });
- });
- })();
- 
- or
- 
- (function() {
- // font size
- $('button.fontsize').click(function(){
- $.each($('#toy'), function() {
- $(this).css('font-size','16px');
- });
- });
- })();
- */
+
+
+

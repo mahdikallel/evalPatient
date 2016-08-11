@@ -171,9 +171,31 @@ function createBackgrid(numEchelle) {
                 this.el.style.backgroundColor = this.highlightColor;
             }
             $("#_resultat").text(this.somme);
+            sessionStorage.setItem("curVal", this.somme);
+            if (this.somme >= sessionStorage.getItem("minVal") && this.somme < sessionStorage.getItem("moyVal")) {
+                $("#_resultat").css('background-color', "#90E95D");
+
+            }else
+            if (this.somme === sessionStorage.getItem("moyVal")) {
+                $("#_resultat").css('background-color', "#3EA502");
+                alert("egal");
+            }else
+            if (this.somme > sessionStorage.getItem("moyVal") && this.somme < sessionStorage.getItem("maxVal")) {
+                $("#_resultat").css('background-color', "#EDA909");
+            }else
+            if (this.somme === sessionStorage.getItem("maxVal")) {
+                $("#_resultat").css('background-color', "#EA3519");
+            }else
+            if (this.somme > sessionStorage.getItem("maxVal")) {
+                $("#_resultat").css('background-color', "#951E1E");
+            }
             $("#_resultat").width(this.somme + "%");
 
-           
+            //if(sessionStorage.getItem("maxVal")!==null){
+            // refreshBar();
+            // }
+
+
             sessionStorage.setItem("tabValeur", JSON.stringify(this.tabValeur));
             sessionStorage.setItem("tabCodeSousFamille", JSON.stringify(this.tabCodeSousFamille));
             sessionStorage.setItem("tabCodeFamille", JSON.stringify(this.tabCodeFamille));
@@ -343,3 +365,40 @@ function insertFamilleEchelle(codeFamilleEchelle, designation, codeEchelle, code
     return reponse;
 }
 
+
+/*function norm(value, min, max) {
+    return (value - min) / (max - min);
+}
+
+function lerp(norm, min, max) {
+    return (max - min) * norm + min;
+}
+
+function map(value, sourceMin, sourceMax, destMin, destMax) {
+    return lerp(norm(value, sourceMin, sourceMax), destMin, destMax);
+}
+
+function isInt(value) {
+    return !isNaN(value) &&
+            parseInt(Number(value)) === value && !isNaN(parseInt(value, 10));
+}
+
+function refreshBar() {
+    var min = sessionStorage.getItem("minVal"),
+            max = sessionStorage.getItem("maxVal"),
+            cur = sessionStorage.getItem("curVal");
+    console.log("min" + min + "max" + max + "cur" + cur);
+
+
+//    var result = map(cur, min, max, 0, 100);
+    var result = (cur - min) * 100 / (max - min);
+    console.log("result " + result);
+
+    $("#_resultat").text(result + "%").css('width', result + "%");
+
+
+    //$msg.hide();
+
+
+}
+*/

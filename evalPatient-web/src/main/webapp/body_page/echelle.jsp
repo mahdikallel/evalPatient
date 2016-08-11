@@ -8,24 +8,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <!--div style="float:left;margin-right: 20px;"><img class="_avatar_patient" src="../img/avatars/male.png" alt="me" style="height: 40px; width: 40px; margin-top: 3px; margin-left: 3px;vertical-align: top" ></div>
-        <div style="width: auto;height: 60px;background-color:  ">
 
-            <label class="control-label">Numéro</label>&nbsp;&nbsp;
-            <input type="text" id="_numPatient" name="num" class="input-xs" disabled="true">
-            <label class="control-label">Nom</label>
-            <input type="text" id="_nomPatient" name="nom" class="input-xs" disabled="true" >
-            <label class="control-label">Prénom</label>
-            <input type="text" id="_prenomPatient" name="prenom" class="input-xs" disabled="true">
-            <label class="control-label">Age</label>
-            <input type="text" id="_agePatient" name="age" class="input-xs" disabled="true">
-            <label class="control-label">Poids</label>
-            <input type="text" id="_poidsPatient" name="poids" class="input-xs" disabled="true"><br>
-            <label class="control-label">Chambre</label>
-            <input type="text" id="_chambrePatient" name="chambre" class="input-xs" disabled="true">
-            <label class="control-label">Motif d'admission</label>
-            <input type="text" id="_motifAdmission" name="motif" class="input-xs" disabled="true">
-        </div-->
         <div class="row">
             <div class="col-md-12">
                 <div class="jarviswidget jarviswidget-color-greenLight jarviswidget-sortable" id="wid-id-3" data-widget-colorbutton="false" data-widget-editbutton="false" data-widget-togglebutton="false" data-widget-deletebutton="false" role="widget">
@@ -140,9 +123,9 @@
                         </div>
 
                         <br>
-                        
+
                         <div id="_content_Famille">
-                        
+
                         </div>
                         <button type="button" class="btn btn-info btn-sm" id="_btn_ajout_famille_echelle" style="float:right;font-size : 15px;" data-toggle="#jobInfo">
                             <i class="fa fa-plus-circle">&nbsp &nbsp<b> Ajouter famille échelle</b></i>
@@ -163,64 +146,6 @@
         </div>
         <!--Fin modal add echelle-->
 
-
-        <!--Modal add Famille echelle 
-        <div class="modal fade bs-example-modal-add-famille-echelle" id="myModal-famille-echelle" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-            <div class="modal-dialog">  
-                <div class="modal-content"><div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                            ×
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel3">Ajouter Echelle</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="designation">Designation</label>
-                                    <input type="text" name="designation" id="_designation" class="form-control" placeholder="Designation" required>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="minimale">Valeur minimale</label>
-                                    <input type="number" name="minimale" id="_minimale" class="form-control" placeholder="Valeur minimale" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="moyenne">Valeur moyenne</label>
-                                    <input type="number" name="moyenne" id="_moyenne" class="form-control" placeholder="Valeur moyenne" required>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="maximale">Valeur maximale</label>
-                                    <input type="number" name="maximale" id="_maximale" class="form-control" placeholder="Valeur maximale" required>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea class="form-control" name="description" id="_description" placeholder="Description" rows="5" required=""></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Cancel
-                        </button>
-                        <button type="button" class="btn btn-primary" id="_btn_ajouter_echelle">
-                            Ajouter
-                        </button>
-                    </div></div>  
-            </div>  
-        </div>
-        <!--Fin modal add Famille echelle-->
 
 
         <!-- Modal evaluation -->
@@ -252,22 +177,51 @@
                                 <div class="dd-handle">
 
                                     <div class="row">
-                                        <div class="col-xs-8">
-                                            TOTAL
-                                            <span class="font-xs text-muted">
 
-                                            </span>
+                                        <div class="col-xs-4">
+                                            Valeur min<div id="minVal"> </div>
                                         </div>
                                         <div class="col-xs-4">
-                                           
-                                                <div class="progress-bar progress-bar-primary" aria-valuemin="0" aria-valuemax="20" role="progressbar" id="_resultat" ></div>
-                                            
+                                            Valeur moy <div id="moyVal"> </div>
                                         </div>
+                                        <div class="col-xs-4">
+                                            Valeur max <div id="maxVal"> </div>
+                                        </div>
+
+
                                     </div>
 
                                 </div>
                             </li>
                         </center>
+
+
+                        <center>
+                            <li class="dd-item" data-id="11">
+                                <div class="dd-handle">
+
+                                    <div class="row">
+                                        <div class="col-xs-4">
+                                            TOTAL
+                                           
+                                        </div>
+                                        <div class="col-xs-8">
+
+                                            <!--div  class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="125" id="_resultat"></div-->
+
+                                            <!--div class="progress-bar progress-bar-primary" aria-valuemin="0"  aria-valuenow="60" aria-valuemax="20" role="progressbar" id="_resultat" ></div-->
+                                            <div   id="_resultat"></div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </li>
+                        </center>
+
+
+
                         <br>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                         <button type="button" class="btn btn-primary" id="_insert_eval"  >Sauvgarder </button>
