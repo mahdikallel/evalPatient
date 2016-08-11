@@ -1,5 +1,3 @@
-/* global Backbone, Backgrid, codeSousFamille */
-
 function getAllEchelle()
 {
     var reponse;
@@ -90,32 +88,7 @@ function createBackgrid(numEchelle) {
 
         }
     ];
-    /*, {
-     , {
-     name: "",
-     label: "CodeSousFamille",
-     editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
-     cell: Backgrid.Cell.extend({
-     template: _.template('<button class="btn-danger">Delete</button>'),
-     events: {
-     click: "Click"
-     
-     },
-     render: function () {
-     this.$el.html(this.template());
-     this.delegateEvents();
-     return this;
-     },
-     Click: function () {
-     alert("ffff");
-     }
-     })
-     
-     }
-     
-     
-     
-     */
+
     var nbLigneResponse = 0;
     FocusableRow = Backgrid.Row.extend({
         tabCodeFamille: [],
@@ -175,26 +148,22 @@ function createBackgrid(numEchelle) {
             if (this.somme >= sessionStorage.getItem("minVal") && this.somme < sessionStorage.getItem("moyVal")) {
                 $("#_resultat").css('background-color', "#90E95D");
 
-            }else
+            }
             if (this.somme === sessionStorage.getItem("moyVal")) {
                 $("#_resultat").css('background-color', "#3EA502");
                 alert("egal");
-            }else
+            }
             if (this.somme > sessionStorage.getItem("moyVal") && this.somme < sessionStorage.getItem("maxVal")) {
                 $("#_resultat").css('background-color', "#EDA909");
-            }else
+            }
             if (this.somme === sessionStorage.getItem("maxVal")) {
                 $("#_resultat").css('background-color', "#EA3519");
-            }else
+            }
             if (this.somme > sessionStorage.getItem("maxVal")) {
                 $("#_resultat").css('background-color', "#951E1E");
             }
+
             $("#_resultat").width(this.somme + "%");
-
-            //if(sessionStorage.getItem("maxVal")!==null){
-            // refreshBar();
-            // }
-
 
             sessionStorage.setItem("tabValeur", JSON.stringify(this.tabValeur));
             sessionStorage.setItem("tabCodeSousFamille", JSON.stringify(this.tabCodeSousFamille));
@@ -366,39 +335,149 @@ function insertFamilleEchelle(codeFamilleEchelle, designation, codeEchelle, code
 }
 
 
-/*function norm(value, min, max) {
-    return (value - min) / (max - min);
+function  IncCodeFamilleEchelle() {
+    return incrementID("Code_Famille", "Famille_Echelle");
 }
 
-function lerp(norm, min, max) {
-    return (max - min) * norm + min;
+
+function  IncCodeSousFamille() {
+    return incrementID("Code_Sous_Famille", "Sous_Famille");
 }
 
-function map(value, sourceMin, sourceMax, destMin, destMax) {
-    return lerp(norm(value, sourceMin, sourceMax), destMin, destMax);
+
+var codeSousfamille = IncCodeSousFamille();
+var codeFamilleEchelle = IncCodeFamilleEchelle();
+var compteur = 0;
+var tabIdDiv = [];
+var tabIdRowSousFamille = [];
+$("#_btn_ajout_famille_echelle").bind("click", function () {
+
+    codeFamilleEchelle++;
+    var codeHTML = "";
+    codeHTML += '<div id="_div_famille' + codeFamilleEchelle + '">';
+    tabIdDiv.push(codeFamilleEchelle);
+    console.log("tab");
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        console.log(tabIdDiv[i]);
+    }
+    codeHTML += '<div class="jarviswidget jarviswidget-sortable jarviswidget-color-red " id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">';
+    codeHTML += '<header role="heading">';
+    codeHTML += '<div class="jarviswidget-ctrls" role="menu">';
+    codeHTML += '<a href="javascript:void(0);" onClick="SupprimerDivFamille(' + codeFamilleEchelle + ');" class="button-icon jarviswidget-toggle-btn"  rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="glyphicon glyphicon-trash" style="color:white;"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '<span class="widget-icon">';
+    codeHTML += '<i class="fa fa-edit"></i>';
+    codeHTML += '</span>';
+    codeHTML += '<h2>Ajouter famille échelle</h2>';
+    codeHTML += '</header>';
+    codeHTML += '<div class="row">';
+    codeHTML += '<div class="col-md-12">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="designation">Designation *</label>';
+    codeHTML += '<input type="text" name="designation" id="_designation_famille_echelle' + codeFamilleEchelle + '" class="form-control" placeholder="Designation"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="jarviswidget jarviswidget-sortable jarviswidget-color-blue" id="wid-id-1" data-widget-editbutton="false" data-widget-custombutton="false" role="widget" data-widget-attstyle="jarviswidget-color-blue">';
+    codeHTML += '<header role="heading">';
+    codeHTML += '<div class="jarviswidget-ctrls" role="menu">';
+    codeHTML += '<a href="javascript:void(0);" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="fa fa-minus"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '<span class="widget-icon">';
+    codeHTML += '<i class="fa fa-edit">';
+    codeHTML += '</i>';
+    codeHTML += '</span>';
+    codeHTML += '<h2>Ajouter sous famille échelle</h2>';
+    codeHTML += '<span class="jarviswidget-loader" style="display: none;">';
+    codeHTML += '<i class="fa fa-refresh fa-spin">';
+    codeHTML += '</i>';
+    codeHTML += '</span>';
+    codeHTML += '</header>';
+    codeHTML += '<div id="_div_sous_famille' + codeFamilleEchelle + '">';
+    codeHTML += '<div id="_row_sous_famille' + compteur + '">';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="designation">Designation sous famille*</label>';
+    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + compteur + '" class="form-control nabil" placeholder="Designation"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="valeur">Valeur *</label>';
+    codeHTML += '<input type="number" name="valeur" id="_valeur' + compteur + '" class="form-control mahdi" placeholder="Valeur"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-1">';
+    codeHTML += '<div class="form-group">';
+    compteur++;
+    codeHTML += '<a href="javascript:void(0);" onClick="SupprimerRowSousFamille(' + compteur + ');" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="row" style="height: 36px;padding-top: 2px;padding-bottom: 35px;">';
+    codeHTML += '<button type="button" style="margin-left: 367px;margin-top: 0px;width: 170px;" class="btn btn-default btn-sm" onClick="createCallbackEchelle(' + codeFamilleEchelle + ')" id="_btn_ajout_nouvelle_sous_famille' + codeSousfamille + '">';
+    codeHTML += '<i class="glyphicon glyphicon-plus-sign" style="color:#456b7b;margin-top: 3px;margin-left: 2px;">&nbsp<b>Ajouter Sous Famille</b></i>';
+    codeHTML += '</button>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    $("#_content_Famille").append(codeHTML);
+});
+
+function SupprimerRowSousFamille(compteur) {
+
+    compteur--;
+    $("#_row_sous_famille" + compteur).remove();
 }
 
-function isInt(value) {
-    return !isNaN(value) &&
-            parseInt(Number(value)) === value && !isNaN(parseInt(value, 10));
+
+
+function SupprimerDivFamille(compteurDivFamille) {
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        if (tabIdDiv[i] === compteurDivFamille) {
+            tabIdDiv.splice(tabIdDiv.indexOf(compteurDivFamille), 1);
+        }
+    }
+    console.log("tabafter del");
+    for (var i = 0; i < tabIdDiv.length; i++) {
+        console.log(tabIdDiv[i]);
+    }
+
+    $("#_div_famille" + compteurDivFamille).remove();
 }
 
-function refreshBar() {
-    var min = sessionStorage.getItem("minVal"),
-            max = sessionStorage.getItem("maxVal"),
-            cur = sessionStorage.getItem("curVal");
-    console.log("min" + min + "max" + max + "cur" + cur);
+function createCallbackEchelle(codeFamilleE) {
 
-
-//    var result = map(cur, min, max, 0, 100);
-    var result = (cur - min) * 100 / (max - min);
-    console.log("result " + result);
-
-    $("#_resultat").text(result + "%").css('width', result + "%");
-
-
-    //$msg.hide();
-
-
+    var codeHTML = "";
+    codeHTML += '<div id="_row_sous_famille' + compteur + '">';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="designation">Designation sous famille*</label>';
+    codeHTML += '<input type="text" name="designation" id="_designation_sous_famille' + compteur + '" class="form-control nabil" placeholder="Designation"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-5">';
+    codeHTML += '<div class="form-group">';
+    codeHTML += '<label for="valeur">Valeur *</label>';
+    codeHTML += '<input type="number" name="valeur" id="_valeur' + compteur + '" class="form-control mahdi" placeholder="Valeur"  required="true">';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '<div class="col-md-1">';
+    codeHTML += '<div class="form-group">';
+    compteur++;
+    codeHTML += '<a href="javascript:void(0);" onClick="SupprimerRowSousFamille(' + compteur + ');" class="button-icon jarviswidget-toggle-btn" rel="tooltip" title="" data-placement="bottom" data-original-title="Collapse">';
+    codeHTML += '<i class="glyphicon glyphicon-trash" style="color:#E60000;margin-top: 32px;margin-left: 5px;"></i>';
+    codeHTML += '</a>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    codeHTML += '</div>';
+    $("#_div_sous_famille" + codeFamilleE).append(codeHTML);
 }
-*/

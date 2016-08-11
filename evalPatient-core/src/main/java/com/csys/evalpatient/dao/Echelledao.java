@@ -32,6 +32,9 @@ public class Echelledao {
         try {
 
             tx.begin();
+            //get id
+          //  String id = IncrementID("code_Echelle", "Echelle");
+            
             String sql;
 
             sql = "INSERT INTO [gclinPin].[dbo].[Echelle]([Code_Echelle],[Designation],[Valeur_Minimale],[Valeur_Moyenne],[Valeur_Maximale],[Description]) VALUES(" + code_Echelle + "," + designation + "," + valeur_Minimale + "," + valeur_Moyenne + "," + valeur_Maximale + "," + description + ")  ";

@@ -19,19 +19,20 @@
                     </header>
                     <!-- widget div-->
                     <div role="content" >
-                        <div id="buttons" style="float:left;">
+
+                        <div id="buttons" style="float:left;overflow: auto;height: 550px;width: 225px;">
 
                         </div>
 
 
 
-                        <div id="container" style="width: 1000px; height: 500px;margin-left: 200px">
+                        <div id="container" style="width: 1000px; height: 550px;margin-left: 230px">
                             <div id="_chose_echelle" style="float:left;">
                             </div>  
 
                         </div>
 
-                        <div id="_eval" style="right: 0; top: 0; position: absolute;margin-top: 25px;margin-right: 20px;">
+                        <div id="_eval" style="right: 0; top: 0; position: absolute;margin-top: 25px;margin-right: 5px;">
                             <!-- Button to launch  modal evaluation -->
                             <button type="button" class="btn btn-default btn-sm" id="launch_eval_modal"  >
                                 <span class="glyphicon glyphicon-plus-sign"></span> 
@@ -203,13 +204,11 @@
                                     <div class="row">
                                         <div class="col-xs-4">
                                             TOTAL
-                                           
+
                                         </div>
                                         <div class="col-xs-8">
 
-                                            <!--div  class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="125" id="_resultat"></div-->
-
-                                            <!--div class="progress-bar progress-bar-primary" aria-valuemin="0"  aria-valuenow="60" aria-valuemax="20" role="progressbar" id="_resultat" ></div-->
+                                          
                                             <div   id="_resultat"></div>
                                         </div>
 
